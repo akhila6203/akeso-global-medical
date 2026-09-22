@@ -187,47 +187,47 @@ export const services = [
     House,
   ],
 
-  [
-    "Buy Medicine",
-    "buy-medicine",
-    Pill,
-  ],
+  // [
+  //   "Buy Medicine",
+  //   "buy-medicine",
+  //   Pill,
+  // ],
 
-  [
-    "Telemedicine",
-    "telemedicine",
-    Video,
-  ],
+  // [
+  //   "Telemedicine",
+  //   "telemedicine",
+  //   Video,
+  // ],
 
-  [
-    "Air Ambulance",
-    "air-ambulance",
-    Plane,
-  ],
+  // [
+  //   "Air Ambulance",
+  //   "air-ambulance",
+  //   Plane,
+  // ],
 
-  [
-    "Emergency 1068",
-    "emergency-1068",
-    Siren,
-  ],
+  // [
+  //   "Emergency 1068",
+  //   "emergency-1068",
+  //   Siren,
+  // ],
 
-  [
-    "Akeso e-ICU",
-    "akeso-e-icu",
-    Hospital,
-  ],
+  // [
+  //   "Akeso e-ICU",
+  //   "akeso-e-icu",
+  //   Hospital,
+  // ],
 
-  [
-    "Health Checkup",
-    "health-checkup",
-    ClipboardPlus,
-  ],
+  // [
+  //   "Health Checkup",
+  //   "health-checkup",
+  //   ClipboardPlus,
+  // ],
 
-  [
-    "Elder Care",
-    "elder-care",
-    Accessibility,
-  ],
+  // [
+  //   "Elder Care",
+  //   "elder-care",
+  //   Accessibility,
+  // ],
 ];
 
 /* =========================================================
