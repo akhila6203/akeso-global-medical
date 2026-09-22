@@ -1,0 +1,35 @@
+:root {
+  --akeso-deep-teal: #064b50;
+  --akeso-teal: #0b6b70;
+  --akeso-gold: #c8942e;
+  --akeso-pink: #e85c91;
+
+  --akeso-soft-teal: #edf7f6;
+  --akeso-soft-gold: #faf5e9;
+  --akeso-soft-pink: #fff0f5;
+
+  --akeso-text: #263f41;
+  --akeso-muted: #667576;
+  --akeso-border: #e6eceb;
+}
+
+
+@import "tailwindcss";
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: #123f43;
+  background: #f8fbfa;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+a {
+  transition: 0.2s;
+}
+.shadow-premium {
+  box-shadow: 0 18px 45px rgba(0, 63, 70, 0.12);
+}
