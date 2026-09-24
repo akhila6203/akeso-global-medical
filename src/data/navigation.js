@@ -41,40 +41,102 @@ import {
 ========================================================= */
 
 export const specialties = [
-  ["Cardiac Care", "cardiac-care", HeartPulse],
-  ["Cancer Care", "cancer-care", Activity],
-  ["Neurosciences", "neurosciences", Brain],
-  ["Gastrosciences", "gastrosciences", Stethoscope],
+  [
+    "Orthopaedics",
+    "orthopaedics",
+    Bone,
+  ],
 
-  ["Orthopaedics", "orthopaedics", Bone],
-  ["Renal Care", "renal-care", Activity],
-  ["Liver Transplant", "liver-transplant", Stethoscope],
+  [
+    "Cancer Care",
+    "cancer-care",
+    Activity,
+  ],
+
+  [
+    "Neurosciences",
+    "neurosciences",
+    Brain,
+  ],
+
+  [
+    "Weight Loss Programs",
+    "weight-loss-programs",
+    Activity,
+  ],
+
+  [
+    "Cardiac Care",
+    "cardiac-care",
+    HeartPulse,
+  ],
+
+  [
+    "Gastrosciences",
+    "gastrosciences",
+    Stethoscope,
+  ],
+
+  [
+    "Renal Care",
+    "renal-care",
+    Activity,
+  ],
+
+  [
+    "Liver Transplant",
+    "liver-transplant",
+    Stethoscope,
+  ],
+
   [
     "Bone Marrow Transplant",
     "bone-marrow-transplant",
     Hospital,
   ],
 
-  ["Lung Transplant", "lung-transplant", Activity],
-  ["Chest Surgery", "chest-surgery", HeartPulse],
+  [
+    "Lung Transplant",
+    "lung-transplant",
+    Activity,
+  ],
+
+  [
+    "Chest Surgery",
+    "chest-surgery",
+    HeartPulse,
+  ],
+
   [
     "Gynaecology and GynaeOncology",
     "gynaecology-and-gynaeoncology",
     Baby,
   ],
-  ["Paediatric Care", "paediatric-care", Baby],
+
+  [
+    "Paediatric Care",
+    "paediatric-care",
+    Baby,
+  ],
 
   [
     "Obstetrics & Gynaecology",
     "obstetrics-gynaecology",
     Baby,
   ],
-  ["Emergency", "emergency", Ambulance],
+
+  [
+    "Emergency",
+    "emergency",
+    Ambulance,
+  ],
+
   [
     "ENT, Head and Neck Surgery",
     "ent-head-neck-surgery",
     Stethoscope,
   ],
+
   [
     "Plastic, Aesthetic and Reconstructive Surgery",
     "plastic-aesthetic-reconstructive-surgery",
@@ -86,16 +148,19 @@ export const specialties = [
     "internal-medicine",
     Pill,
   ],
+
   [
     "Respiratory & Sleep Medicine",
     "respiratory-sleep-medicine",
     Activity,
   ],
+
   [
     "Peripheral Vascular and Endovascular Sciences",
     "peripheral-vascular-endovascular-sciences",
     Activity,
   ],
+
   [
     "Endocrinology & Diabetes",
     "endocrinology-diabetes",
@@ -107,28 +172,49 @@ export const specialties = [
     "rheumatology-immunology",
     ShieldPlus,
   ],
+
   [
     "Radiology & Imaging",
     "radiology-imaging",
     ScanLine,
   ],
-  ["Ophthalmology", "ophthalmology", Eye],
-  ["Critical Care", "critical-care", Hospital],
 
-  ["Dermatology", "dermatology", Activity],
-  ["Dentistry", "dentistry", Cross],
+  [
+    "Ophthalmology",
+    "ophthalmology",
+    Eye,
+  ],
+
+  [
+    "Critical Care",
+    "critical-care",
+    Hospital,
+  ],
+
+  [
+    "Dermatology",
+    "dermatology",
+    Activity,
+  ],
+
+  [
+    "Dentistry",
+    "dentistry",
+    Cross,
+  ],
+
   [
     "Dietetics and Nutrition",
     "dietetics-nutrition",
     HeartPulse,
   ],
+
   [
     "Lab & Pathology",
     "lab-pathology",
     Microscope,
   ],
 ];
-
 /* =========================================================
    HEALTH LIBRARY
 
@@ -186,7 +272,16 @@ export const services = [
     "homecare-services",
     House,
   ],
-
+  [
+    "TeleVisits",
+    "televisits",
+    Video,
+  ],
+  [
+    "Post-Op Care",
+    "post-op-care",
+    Activity,
+  ],
   // [
   //   "Buy Medicine",
   //   "buy-medicine",

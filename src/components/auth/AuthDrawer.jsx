@@ -11,29 +11,38 @@ export default function AuthDrawer({
   mode = "login",
   onClose,
   onModeChange,
-  redirect = "/doctors",
+  redirect = "",
 }) {
-  if (!open) return null;
+  if (!open) {
+    return null;
+  }
+
+  const changeMode = (newMode) => {
+    onModeChange?.(newMode);
+  };
 
   return (
     <>
-      {/* =========================
-          BACKDROP
-      ========================== */}
-      <div
+      {/* BACKDROP */}
+
+      <button
+        type="button"
+        aria-label="Close authentication"
         onClick={onClose}
         className="
           fixed
           inset-0
           z-[200]
-          bg-[#032f33]/40
+          h-full
+          w-full
+          cursor-default
+          bg-[#032f33]/45
           backdrop-blur-[2px]
         "
       />
 
-      {/* =========================
-          RIGHT DRAWER
-      ========================== */}
+      {/* DRAWER */}
+
       <aside
         className="
           fixed
@@ -41,62 +50,97 @@ export default function AuthDrawer({
           top-0
           z-[210]
 
+          flex
           h-screen
           w-full
-          sm:w-[480px]
-          lg:w-[500px]
+          flex-col
 
-          overflow-y-auto
+          overflow-hidden
           bg-white
 
-          shadow-[-15px_0_45px_rgba(6,75,80,0.16)]
+          shadow-[-18px_0_45px_rgba(6,75,80,0.16)]
+
+          sm:w-[480px]
+          lg:w-[500px]
         "
       >
-        {/* CLOSE BUTTON */}
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close authentication"
-          className="
-            absolute
-            right-5
-            top-5
-            z-30
+        {/* HEADER */}
 
-            flex
-            h-10
-            w-10
-            items-center
-            justify-center
-
-            rounded-full
-            border
-            border-[#d9e4e4]
-
-            bg-white
-            text-[#064B50]
-
-            transition-all
-            duration-200
-
-            hover:border-[#E85C91]
-            hover:bg-[#fff5f8]
-            hover:text-[#E85C91]
-          "
-        >
-          <X size={19} />
-        </button>
-
-        {/* FORM CONTENT */}
         <div
           className="
-            min-h-full
-            px-7
-            pb-12
-            pt-[82px]
+            flex
+            min-h-[92px]
+            shrink-0
+            items-center
+            justify-between
 
-            sm:px-10
-            lg:px-11
+            border-b
+            border-[#e1ebea]
+
+            bg-white
+
+            px-6
+            sm:px-8
+          "
+        >
+          <img
+            src="/logo.png"
+            alt="Akeso Global Medical Services"
+            className="
+              h-[58px]
+              w-auto
+              max-w-[190px]
+              object-contain
+            "
+          />
+
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close"
+            className="
+              flex
+              h-10
+              w-10
+              items-center
+              justify-center
+
+              rounded-full
+
+              border
+              border-[#d6e5e3]
+
+              bg-[#eef6f5]
+
+              text-[#064B50]
+
+              transition-all
+
+              hover:border-[#C8942E]
+              hover:bg-[#064B50]
+              hover:text-white
+            "
+          >
+            <X
+              size={20}
+              strokeWidth={2}
+            />
+          </button>
+        </div>
+
+        {/* CONTENT */}
+
+        <div
+          className="
+            flex-1
+            overflow-y-auto
+
+            px-6
+            pb-12
+            pt-10
+
+            sm:px-9
+            sm:pt-12
           "
         >
           {mode === "login" && (
@@ -105,10 +149,14 @@ export default function AuthDrawer({
               redirect={redirect}
               onClose={onClose}
               onRegister={() =>
-                onModeChange("register")
+                changeMode(
+                  "register"
+                )
               }
               onForgot={() =>
-                onModeChange("forgot")
+                changeMode(
+                  "forgot"
+                )
               }
             />
           )}
@@ -117,7 +165,9 @@ export default function AuthDrawer({
             <Register
               embedded
               onLogin={() =>
-                onModeChange("login")
+                changeMode(
+                  "login"
+                )
               }
             />
           )}
@@ -126,29 +176,48 @@ export default function AuthDrawer({
             <ForgotPassword
               embedded
               onLogin={() =>
-                onModeChange("login")
+                changeMode(
+                  "login"
+                )
               }
             />
           )}
 
-          {mode === "set-password" && (
+          {mode ===
+            "set-password" && (
             <SetPassword
               embedded
               onLogin={() =>
-                onModeChange("login")
+                changeMode(
+                  "login"
+                )
               }
             />
           )}
 
-          {mode === "reset-password" && (
+          {mode ===
+            "reset-password" && (
             <ResetPassword
               embedded
               onLogin={() =>
-                onModeChange("login")
+                changeMode(
+                  "login"
+                )
               }
             />
           )}
         </div>
+
+        <div
+          className="
+            h-[4px]
+            shrink-0
+            bg-gradient-to-r
+            from-[#064B50]
+            via-[#C8942E]
+            to-[#064B50]
+          "
+        />
       </aside>
     </>
   );

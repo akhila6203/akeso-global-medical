@@ -21,6 +21,12 @@ import Specialities from "./pages/Specialities";
 import DynamicPage from "./pages/DynamicPage";
 import Profile from "./pages/Profile";
 
+import BecomePartnerPage from "./pages/BecomePartner";
+import Contact from "./pages/Contact";
+import InternationalPatients from "./pages/InternationalPatients";
+import RequestEstimate from "./pages/RequestEstimate";
+import PlanYourTrip from "./pages/PlanYourTrip";
+
 export default function App() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -37,14 +43,22 @@ export default function App() {
   const [authRedirect, setAuthRedirect] =
     useState("/doctors");
 
+  // const openAuth = (
+  //   mode = "login",
+  //   redirect = "/doctors"
+  // ) => {
+  //   setAuthMode(mode);
+  //   setAuthRedirect(redirect);
+  //   setAuthOpen(true);
+  // };
   const openAuth = (
-    mode = "login",
-    redirect = "/doctors"
-  ) => {
-    setAuthMode(mode);
-    setAuthRedirect(redirect);
-    setAuthOpen(true);
-  };
+  mode = "login",
+  redirect = ""
+) => {
+  setAuthMode(mode);
+  setAuthRedirect(redirect);
+  setAuthOpen(true);
+};
 
   const closeAuth = () => {
     setAuthOpen(false);
@@ -222,6 +236,11 @@ export default function App() {
           element={<DynamicPage />}
         />
 
+        <Route
+          path="/contact"
+          element={<Contact />}
+        />
+
         {/* HEALTH LIBRARY */}
 
         <Route
@@ -254,16 +273,29 @@ export default function App() {
           element={<DynamicPage />}
         />
 
-        {/* INTERNATIONAL */}
+     <Route
+  path="/international-patients"
+  element={
+    <InternationalPatients
+      onOpenAuth={openAuth}
+    />
+  }
+/>
 
-        <Route
-          path="/international-patients"
-          element={
-            <DynamicPage
-              fixedTitle="International Patients"
-            />
-          }
-        />
+<Route
+  path="/international/request-an-estimate"
+  element={<RequestEstimate />}
+/>
+
+<Route
+  path="/international/plan-your-trip"
+  element={<PlanYourTrip />}
+/>
+
+      <Route
+        path="/international/:slug"
+        element={<DynamicPage />}
+      />
 
         <Route
           path="/international/:slug"
@@ -281,6 +313,10 @@ export default function App() {
           }
         />
 
+<Route
+  path="/become-a-partner"
+  element={<BecomePartnerPage />}
+/>
         <Route
           path="*"
           element={

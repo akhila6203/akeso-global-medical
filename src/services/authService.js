@@ -2,20 +2,33 @@ const API_URL =
   import.meta.env.VITE_API_URL ||
   "http://localhost:5000/api";
 
-async function request(endpoint, options = {}) {
-  const response = await fetch(
-    `${API_URL}${endpoint}`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        ...(options.headers || {}),
-      },
+async function request(
+  endpoint,
+  options = {}
+) {
+  let response;
 
-      ...options,
-    }
-  );
+  try {
+    response = await fetch(
+      `${API_URL}${endpoint}`,
+      {
+        ...options,
 
-  let data;
+        headers: {
+          "Content-Type":
+            "application/json",
+
+          ...(options.headers || {}),
+        },
+      }
+    );
+  } catch {
+    throw new Error(
+      "Unable to connect to the server. Please make sure the backend is running on localhost:5000."
+    );
+  }
+
+  let data = {};
 
   try {
     data = await response.json();
@@ -25,7 +38,7 @@ async function request(endpoint, options = {}) {
 
   if (!response.ok) {
     throw new Error(
-      data.message ||
+      data?.message ||
         "Something went wrong. Please try again."
     );
   }
@@ -33,43 +46,110 @@ async function request(endpoint, options = {}) {
   return data;
 }
 
-export function registerUser(formData) {
+/* ================================
+   REGISTER
+
+   Backend should:
+   1. Create account
+   2. Generate activation token
+   3. Email /set-password?token=...
+================================ */
+
+export function registerUser({
+  name,
+  email,
+  phone,
+}) {
   return request("/auth/register", {
     method: "POST",
-    body: JSON.stringify(formData),
+
+    body: JSON.stringify({
+      name,
+      email,
+      phone,
+    }),
   });
 }
 
-export function loginUser(formData) {
+/* ================================
+   SET PASSWORD
+   Registration activation link
+================================ */
+
+export function setPassword({
+  token,
+  password,
+}) {
+  return request(
+    "/auth/set-password",
+    {
+      method: "POST",
+
+      body: JSON.stringify({
+        token,
+        password,
+      }),
+    }
+  );
+}
+
+/* ================================
+   LOGIN
+================================ */
+
+export function loginUser({
+  email,
+  password,
+}) {
   return request("/auth/login", {
     method: "POST",
-    body: JSON.stringify(formData),
-  });
-}
 
-export function forgotPassword(email) {
-  return request("/auth/forgot-password", {
-    method: "POST",
-    body: JSON.stringify({ email }),
-  });
-}
-
-export function setPassword(token, password) {
-  return request("/auth/set-password", {
-    method: "POST",
     body: JSON.stringify({
-      token,
+      email,
       password,
     }),
   });
 }
 
-export function resetPassword(token, password) {
-  return request("/auth/reset-password", {
-    method: "POST",
-    body: JSON.stringify({
-      token,
-      password,
-    }),
-  });
+/* ================================
+   FORGOT PASSWORD
+
+   Backend should send:
+   /reset-password?token=...
+================================ */
+
+export function forgotPassword(
+  email
+) {
+  return request(
+    "/auth/forgot-password",
+    {
+      method: "POST",
+
+      body: JSON.stringify({
+        email,
+      }),
+    }
+  );
+}
+
+/* ================================
+   RESET PASSWORD
+================================ */
+
+export function resetPassword({
+  token,
+  password,
+}) {
+  return request(
+    "/auth/reset-password",
+    {
+      method: "POST",
+
+      body: JSON.stringify({
+        token,
+        password,
+      }),
+    }
+  );
 }

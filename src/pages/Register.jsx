@@ -1,14 +1,20 @@
 import { useState } from "react";
 
 import {
+  CheckCircle2,
   Mail,
   Phone,
   UserRound,
+  UserPlus,
 } from "lucide-react";
 
-import { useNavigate } from "react-router-dom";
+import {
+  useNavigate,
+} from "react-router-dom";
 
-import { registerUser } from "../services/authService";
+import {
+  registerUser,
+} from "../services/authService";
 
 export default function Register({
   embedded = false,
@@ -16,25 +22,28 @@ export default function Register({
 }) {
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-  });
+  const [form, setForm] =
+    useState({
+      name: "",
+      email: "",
+      phone: "",
+    });
 
   const [loading, setLoading] =
     useState(false);
 
-  const [error, setError] = useState("");
-  const [success, setSuccess] =
+  const [error, setError] =
     useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const [success, setSuccess] =
+    useState(false);
 
+  const handleChange = (e) => {
     setForm((prev) => ({
       ...prev,
-      [name]: value,
+
+      [e.target.name]:
+        e.target.value,
     }));
 
     setError("");
@@ -44,12 +53,16 @@ export default function Register({
     e.preventDefault();
 
     if (!form.name.trim()) {
-      setError("Please enter your name.");
+      setError(
+        "Please enter your full name."
+      );
       return;
     }
 
     if (!form.email.trim()) {
-      setError("Please enter your email.");
+      setError(
+        "Please enter your email address."
+      );
       return;
     }
 
@@ -63,215 +76,302 @@ export default function Register({
     try {
       setLoading(true);
       setError("");
-      setSuccess("");
 
-      const data = await registerUser({
-        name: form.name.trim(),
-        email: form.email.trim(),
-        phone: form.phone.trim(),
+      await registerUser({
+        name:
+          form.name.trim(),
+
+        email:
+          form.email.trim(),
+
+        phone:
+          form.phone.trim(),
       });
 
-      setSuccess(
-        data?.message ||
-          "Account created successfully. Please check your email to set your password."
-      );
+      /*
+        IMPORTANT:
 
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-      });
+        Do NOT open Set Password here.
+
+        Backend sends activation email.
+        User must click the link from email.
+      */
+
+      setSuccess(true);
     } catch (err) {
       setError(
         err?.message ||
-          "Registration failed. Please try again."
+          "Unable to create account."
       );
     } finally {
       setLoading(false);
     }
   };
 
-  return (
-    <main
-      className={
-        embedded
-          ? "w-full bg-transparent"
-          : `
-              flex
-              min-h-[75vh]
-              items-center
-              justify-center
-              bg-[#f5fafa]
-              px-4
-              py-14
-            `
-      }
-    >
-      <div
-        className={
-          embedded
-            ? "w-full"
-            : `
-                w-full
-                max-w-[500px]
-                rounded-[20px]
-                bg-white
-                p-8
-                shadow-[0_15px_45px_rgba(6,75,80,0.10)]
-              `
-        }
-      >
-        {/* HEADING */}
+  const goLogin = () => {
+    if (embedded) {
+      onLogin?.();
+    } else {
+      navigate("/login");
+    }
+  };
+
+  if (success) {
+    return (
+      <div className="w-full">
         <div
-          className={
-            embedded
-              ? "text-left"
-              : "text-center"
-          }
+          className="
+            flex
+            h-14
+            w-14
+            items-center
+            justify-center
+            rounded-2xl
+            bg-[#EEF6F5]
+            text-[#064B50]
+          "
         >
-          <p
-            className="
-              text-[11px]
-              font-bold
-              uppercase
-              tracking-[0.18em]
-              text-[#C8942E]
-            "
-          >
-            Akeso Global Medical Services
-          </p>
-
-          <h1
-            className="
-              mt-3
-              text-[30px]
-              font-bold
-              text-[#064B50]
-            "
-          >
-            Create Account
-          </h1>
-
-          <p
-            className="
-              mt-2
-              text-[14px]
-              leading-6
-              text-[#667576]
-            "
-          >
-            Register your details to access
-            Akeso medical services.
-          </p>
+          <CheckCircle2
+            size={28}
+          />
         </div>
-
-        {/* ERROR */}
-        {error && (
-          <div
-            className="
-              mt-6
-              rounded-lg
-              border
-              border-red-200
-              bg-red-50
-              px-4
-              py-3
-              text-[13px]
-              text-red-600
-            "
-          >
-            {error}
-          </div>
-        )}
-
-        {/* SUCCESS */}
-        {success && (
-          <div
-            className="
-              mt-6
-              rounded-lg
-              border
-              border-emerald-200
-              bg-emerald-50
-              px-4
-              py-3
-              text-[13px]
-              leading-5
-              text-emerald-700
-            "
-          >
-            {success}
-          </div>
-        )}
-
-        <form
-          onSubmit={handleSubmit}
-          className="mt-8 space-y-5"
-        >
-          <InputField
-            label="Full Name"
-            name="name"
-            type="text"
-            value={form.name}
-            onChange={handleChange}
-            placeholder="Enter your full name"
-            Icon={UserRound}
-            autoComplete="name"
-          />
-
-          <InputField
-            label="Email Address"
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={handleChange}
-            placeholder="Enter your email"
-            Icon={Mail}
-            autoComplete="email"
-          />
-
-          <InputField
-            label="Mobile Number"
-            name="phone"
-            type="tel"
-            value={form.phone}
-            onChange={handleChange}
-            placeholder="Enter your mobile number"
-            Icon={Phone}
-            autoComplete="tel"
-          />
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="
-              flex
-              h-[54px]
-              w-full
-              items-center
-              justify-center
-              rounded-xl
-              bg-[#064B50]
-              text-[15px]
-              font-semibold
-              text-white
-              transition
-              hover:bg-[#0B6B70]
-              disabled:cursor-not-allowed
-              disabled:opacity-60
-            "
-          >
-            {loading
-              ? "Creating Account..."
-              : "Create Account"}
-          </button>
-        </form>
 
         <p
           className="
             mt-7
-            text-center
+            text-[11px]
+            font-bold
+            uppercase
+            tracking-[0.18em]
+            text-[#C8942E]
+          "
+        >
+          Registration Successful
+        </p>
+
+        <h1
+          className="
+            mt-2
+            text-[28px]
+            font-bold
+            leading-tight
+            text-[#064B50]
+          "
+        >
+          Check your email
+        </h1>
+
+        <p
+          className="
+            mt-4
             text-[14px]
+            leading-7
+            text-[#667576]
+          "
+        >
+          Your account has been
+          created successfully. We
+          sent a password activation
+          link to
+        </p>
+
+        <p
+          className="
+            mt-2
+            break-all
+            text-[14px]
+            font-semibold
+            text-[#064B50]
+          "
+        >
+          {form.email}
+        </p>
+
+        <div
+          className="
+            mt-6
+            rounded-xl
+            border
+            border-[#d7e6e4]
+            bg-[#F6FAF9]
+            px-4
+            py-4
+          "
+        >
+          <p
+            className="
+              text-[13px]
+              leading-6
+              text-[#667576]
+            "
+          >
+            Open the email and click{" "}
+            <strong
+              className="
+                text-[#C8942E]
+              "
+            >
+              Set Password
+            </strong>{" "}
+            to activate your account.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          onClick={goLogin}
+          className="
+            mt-7
+            h-[52px]
+            w-full
+            rounded-xl
+            bg-[#064B50]
+            text-[14px]
+            font-semibold
+            text-white
+            transition
+            hover:bg-[#0B6268]
+          "
+        >
+          Back to Login
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full">
+      <div>
+        <p
+          className="
+            text-[11px]
+            font-bold
+            uppercase
+            tracking-[0.18em]
+            text-[#C8942E]
+          "
+        >
+          New Patient
+        </p>
+
+        <h1
+          className="
+            mt-2
+            text-[29px]
+            font-bold
+            text-[#064B50]
+          "
+        >
+          Create your account
+        </h1>
+
+        <p
+          className="
+            mt-3
+            text-[14px]
+            leading-6
+            text-[#667576]
+          "
+        >
+          Enter your details to create
+          your Akeso patient account.
+        </p>
+      </div>
+
+      {error && (
+        <div
+          className="
+            mt-6
+            rounded-xl
+            border
+            border-red-200
+            bg-red-50
+            px-4
+            py-3
+            text-[13px]
+            text-red-600
+          "
+        >
+          {error}
+        </div>
+      )}
+
+      <form
+        onSubmit={handleSubmit}
+        className="mt-8 space-y-5"
+      >
+        <InputField
+          label="Full Name"
+          name="name"
+          type="text"
+          value={form.name}
+          onChange={handleChange}
+          placeholder="Enter your full name"
+          Icon={UserRound}
+        />
+
+        <InputField
+          label="Email Address"
+          name="email"
+          type="email"
+          value={form.email}
+          onChange={handleChange}
+          placeholder="Enter your email"
+          Icon={Mail}
+        />
+
+        <InputField
+          label="Mobile Number"
+          name="phone"
+          type="tel"
+          value={form.phone}
+          onChange={handleChange}
+          placeholder="Enter your mobile number"
+          Icon={Phone}
+        />
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="
+            flex
+            h-[52px]
+            w-full
+            items-center
+            justify-center
+            gap-2
+            rounded-xl
+            bg-[#064B50]
+            text-[14px]
+            font-semibold
+            text-white
+            transition
+            hover:bg-[#0B6268]
+
+            disabled:cursor-not-allowed
+            disabled:opacity-60
+          "
+        >
+          <UserPlus size={18} />
+
+          {loading
+            ? "Creating Account..."
+            : "Create Account"}
+        </button>
+      </form>
+
+      <div
+        className="
+          mt-7
+          border-t
+          border-[#e5eceb]
+          pt-6
+          text-center
+        "
+      >
+        <p
+          className="
+            text-[13px]
             text-[#667576]
           "
         >
@@ -279,24 +379,18 @@ export default function Register({
 
           <button
             type="button"
-            onClick={() => {
-              if (embedded) {
-                onLogin?.();
-              } else {
-                navigate("/login");
-              }
-            }}
+            onClick={goLogin}
             className="
               font-semibold
-              text-[#E85C91]
-              hover:text-[#d84078]
+              text-[#C8942E]
+              hover:text-[#064B50]
             "
           >
             Login
           </button>
         </p>
       </div>
-    </main>
+    </div>
   );
 }
 
@@ -313,7 +407,7 @@ function InputField({
           block
           text-[13px]
           font-semibold
-          text-[#173f42]
+          text-[#263F41]
         "
       >
         {label}
@@ -322,30 +416,32 @@ function InputField({
       <div
         className="
           flex
-          h-[56px]
+          h-[54px]
           items-center
           gap-3
           rounded-xl
           border
-          border-[#dce5e5]
-          bg-white
+          border-[#dce7e6]
+          bg-[#fbfcfc]
           px-4
 
           focus-within:border-[#064B50]
+          focus-within:bg-white
           focus-within:ring-2
           focus-within:ring-[#064B50]/10
         "
       >
         <Icon
-          size={19}
-          className="shrink-0 text-[#C8942E]"
+          size={18}
+          className="text-[#C8942E]"
         />
 
         <input
           {...props}
           className="
             h-full
-            w-full
+            min-w-0
+            flex-1
             bg-transparent
             text-[14px]
             text-[#263F41]

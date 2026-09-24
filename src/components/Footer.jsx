@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-[#043f45] text-white mt-20">
       <div className="max-w-[1400px] mx-auto px-5 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
-          <img src="/logo.jpg" className="w-48 rounded-xl mb-5" />
+          <img src="/logo.png" className="w-48 rounded-xl mb-5" />
           <p className="text-white/70 leading-7">
             Healing Beyond Borders. Coordinated medical support for patients,
             families and international visitors.

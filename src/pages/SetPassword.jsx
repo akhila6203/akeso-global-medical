@@ -7,7 +7,9 @@ import {
 
 import PasswordForm from "../components/auth/PasswordForm";
 
-import { setPassword } from "../services/authService";
+import {
+  setPassword,
+} from "../services/authService";
 
 export default function SetPassword({
   embedded = false,
@@ -15,7 +17,8 @@ export default function SetPassword({
 }) {
   const navigate = useNavigate();
 
-  const [searchParams] = useSearchParams();
+  const [searchParams] =
+    useSearchParams();
 
   const token =
     searchParams.get("token") || "";
@@ -23,61 +26,72 @@ export default function SetPassword({
   const [loading, setLoading] =
     useState(false);
 
-  const [error, setError] = useState("");
+  const [error, setError] =
+    useState("");
+
   const [success, setSuccess] =
     useState("");
 
-  const handleSubmit = async (password) => {
-    if (!token) {
-      setError(
-        "Invalid or missing activation token."
-      );
-      return;
-    }
+  const handleSubmit =
+    async (password) => {
+      if (!token) {
+        setError(
+          "This activation link is invalid or missing."
+        );
+        return;
+      }
 
-    try {
-      setLoading(true);
-      setError("");
-      setSuccess("");
+      try {
+        setLoading(true);
+        setError("");
+        setSuccess("");
 
-      const data = await setPassword({
-        token,
-        password,
-      });
+        const data =
+          await setPassword({
+            token,
+            password,
+          });
 
-      setSuccess(
-        data?.message ||
-          "Password created successfully."
-      );
+        setSuccess(
+          data?.message ||
+            "Password created successfully."
+        );
 
-      setTimeout(() => {
-        if (embedded && onLogin) {
-          onLogin();
-        } else {
-          navigate(
-            "/login?passwordCreated=1",
-            {
-              replace: true,
-            }
-          );
-        }
-      }, 1200);
-    } catch (err) {
-      setError(
-        err?.message ||
-          "Could not create password. The link may be invalid or expired."
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
+        /*
+          After password creation:
+          open Login form.
+        */
+
+        setTimeout(() => {
+          if (
+            embedded &&
+            onLogin
+          ) {
+            onLogin();
+          } else {
+            navigate(
+              "/login",
+              {
+                replace: true,
+              }
+            );
+          }
+        }, 1000);
+      } catch (err) {
+        setError(
+          err?.message ||
+            "Unable to create password."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
 
   return (
     <PasswordForm
-      embedded={embedded}
-      title="Create Password"
+      title="Set Your Password"
       subtitle="Activate Your Account"
-      description="Create a secure password to complete your Akeso account."
+      description="Create a secure password to activate your Akeso account."
       buttonText="Create Password"
       onSubmit={handleSubmit}
       loading={loading}

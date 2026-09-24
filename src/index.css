@@ -1,35 +1,120 @@
-:root {
-  --akeso-deep-teal: #064b50;
-  --akeso-teal: #0b6b70;
-  --akeso-gold: #c8942e;
-  --akeso-pink: #e85c91;
+@import "tailwindcss";
 
-  --akeso-soft-teal: #edf7f6;
-  --akeso-soft-gold: #faf5e9;
-  --akeso-soft-pink: #fff0f5;
+:root {
+  /* ===============================
+     AKESO BRAND COLORS
+  =============================== */
+
+  --akeso-teal: #064b50;
+  --akeso-teal-dark: #043f43;
+  --akeso-teal-hover: #0b6268;
+
+  --akeso-gold: #c8942e;
+  --akeso-gold-dark: #a9781f;
+  --akeso-gold-light: #e8c878;
+
+  --akeso-light-teal: #dceceb;
+  --akeso-soft-teal: #eef6f5;
+
+  --akeso-cream: #faf8f2;
+  --akeso-white: #ffffff;
 
   --akeso-text: #263f41;
   --akeso-muted: #667576;
-  --akeso-border: #e6eceb;
-}
+  --akeso-border: #dce7e6;
 
+  /*
+    OLD VARIABLE SUPPORT
+    Pink is intentionally mapped to Akeso colors.
+  */
+  --akeso-pink: #064b50;
+  --akeso-soft-pink: #eef6f5;
 
-@import "tailwindcss";
-:root {
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  color: #123f43;
+  color: var(--akeso-text);
   background: #f8fbfa;
 }
+
 * {
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
+  background: #ffffff;
+  color: var(--akeso-text);
 }
+
 button,
 a {
-  transition: 0.2s;
+  transition: all 0.25s ease;
 }
+
 .shadow-premium {
   box-shadow: 0 18px 45px rgba(0, 63, 70, 0.12);
+}
+
+.akeso-section-label {
+  color: var(--akeso-gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.akeso-heading {
+  color: var(--akeso-teal);
+  font-weight: 700;
+}
+
+.akeso-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 46px;
+  padding: 0 22px;
+
+  border-radius: 8px;
+
+  background: var(--akeso-teal);
+  border: 1px solid var(--akeso-teal);
+
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.akeso-primary-btn:hover {
+  background: var(--akeso-teal-hover);
+  border-color: var(--akeso-gold);
+}
+
+.akeso-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 44px;
+  padding: 0 20px;
+
+  border-radius: 8px;
+
+  background: #eef6f5;
+  border: 1px solid #d4e6e4;
+
+  color: var(--akeso-teal);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.akeso-secondary-btn:hover {
+  background: #dceceb;
+  border-color: var(--akeso-gold);
 }

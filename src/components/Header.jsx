@@ -49,7 +49,7 @@ function DropdownRow({ item, prefix, onNavigate }) {
         last:border-b-0
         transition-all
         duration-200
-        hover:bg-[#fff5f8]
+        hover:bg-[#edf7f6]
       "
     >
       {/* ICON */}
@@ -71,7 +71,7 @@ function DropdownRow({ item, prefix, onNavigate }) {
               text-[#C8942E]
               transition-colors
               duration-200
-              group-hover:text-[#E85C91]
+              group-hover:text-[#C8942E]
             "
           />
         )}
@@ -164,7 +164,7 @@ function DesktopDropdown({
               size={15}
               strokeWidth={1.8}
               className="
-                text-[#E85C91]
+                text-[#C8942E]
                 transition-transform
                 duration-200
                 group-hover:translate-x-1
@@ -235,7 +235,7 @@ function HealthLibraryDropdown() {
                     border-[#e8eeee]
                     transition-all
                     duration-200
-                    hover:bg-[#fff5f8]
+                   hover:bg-[#edf7f6]
                   "
                 >
                   {/* ICON */}
@@ -257,7 +257,7 @@ function HealthLibraryDropdown() {
                         className="
                           text-[#C8942E]
                           transition-colors
-                          group-hover:text-[#E85C91]
+                          group-hover:text-[#C8942E]
                         "
                       />
                     )}
@@ -282,7 +282,7 @@ function HealthLibraryDropdown() {
                   <ChevronRight
                     size={15}
                     strokeWidth={1.8}
-                    className="text-[#E85C91]"
+                    className="text-[#C8942E]"
                   />
                 </button>
 
@@ -353,7 +353,7 @@ function MobileItem({
         py-[9px]
         rounded-lg
         transition-colors
-        hover:bg-[#fff5f8]
+        hover:bg-[#edf7f6]
       "
     >
       <div
@@ -372,7 +372,7 @@ function MobileItem({
             strokeWidth={1.6}
             className="
               text-[#C8942E]
-              group-hover:text-[#E85C91]
+              group-hover:text-[#C8942E]
             "
           />
         )}
@@ -424,7 +424,7 @@ function MobileAccordion({
             font-medium
             ${
               active
-                ? "text-[#E85C91]"
+                ? "text-[#C8942E]"
                 : "text-[#064B50]"
             }
           `}
@@ -557,7 +557,7 @@ useEffect(() => {
      REUSABLE DESKTOP MENU CLASS
   ======================================================= */
 
-  const desktopDropdownClass = (open, active) => `
+const desktopDropdownClass = (open, active) => `
   relative
   flex
   items-center
@@ -576,18 +576,18 @@ useEffect(() => {
   after:left-3
   after:right-3
   after:bottom-[5px]
-  after:h-[1px]
-  after:bg-[#E85C91]
+  after:h-[2px]
+  after:bg-[#C8942E]
   after:origin-left
   after:transition-transform
   after:duration-200
 
   ${
     open || active
-      ? "text-[#E85C91] after:scale-x-100"
+      ? "text-[#064B50] after:scale-x-100"
       : `
         text-[#263F41]
-        hover:text-[#E85C91]
+        hover:text-[#064B50]
         after:scale-x-0
         hover:after:scale-x-100
       `
@@ -643,7 +643,7 @@ useEffect(() => {
               "
             >
               <img
-                src="/logo.jpg"
+                src="/logo.png"
                 alt="Akeso Global Medical Services"
                 className="
                   h-[54px]
@@ -984,6 +984,8 @@ useEffect(() => {
       text-[#064B50]
       transition
       hover:bg-[#064B50]
+      hover:border-[#C8942E]
+      hover:shadow-[0_8px_22px_rgba(6,75,80,0.22)]
       hover:text-white
     "
   >
@@ -1008,13 +1010,15 @@ useEffect(() => {
       items-center
       gap-2
       rounded-full
-      bg-[#E85C91]
+      bg-[#064B50]
+      border
+                  border-[#064B50]
       px-5
       text-[13px]
       font-semibold
       text-white
       transition
-      hover:bg-[#d94c81]
+      hover:bg-[#064B50]
     "
   >
     <LogIn size={16} />
@@ -1141,7 +1145,7 @@ useEffect(() => {
             onClick={closeMobile}
           >
             <img
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Akeso Global Medical Services"
               className="
                 h-[55px]
@@ -1164,8 +1168,8 @@ useEffect(() => {
               items-center
               justify-center
               text-[#064B50]
-              hover:bg-[#fff0f5]
-              hover:text-[#E85C91]
+              hover:bg-[#dfeeed]
+              hover:text-[#064B50]
               transition-colors
             "
           >
@@ -1181,7 +1185,7 @@ useEffect(() => {
             bg-gradient-to-r
             from-[#064B50]
             via-[#C8942E]
-            to-[#E85C91]
+            to-[#C8942E]
           "
         />
 
@@ -1216,8 +1220,8 @@ useEffect(() => {
 
     ${
       location.pathname === "/"
-        ? "text-[#E85C91]"
-        : "text-[#064B50] hover:text-[#E85C91]"
+        ? "text-[#C8942E]"
+        : "text-[#064B50] hover:text-[#C8942E]"
     }
   `}
 >
@@ -1229,8 +1233,8 @@ useEffect(() => {
       transition-colors
       ${
         location.pathname === "/"
-          ? "text-[#E85C91]"
-          : "text-[#C8942E] group-hover:text-[#E85C91]"
+          ? "text-[#C8942E]"
+          : "text-[#C8942E] group-hover:text-[#C8942E]"
       }
     `}
   />
@@ -1280,7 +1284,7 @@ useEffect(() => {
                 <ChevronRight
                   size={15}
                   className="
-                    text-[#E85C91]
+                    text-[#C8942E]
                     transition-transform
                     group-hover:translate-x-1
                   "
@@ -1340,7 +1344,7 @@ useEffect(() => {
                               strokeWidth={1.6}
                               className="
                                 text-[#C8942E]
-                                group-hover:text-[#E85C91]
+                                group-hover:text-[#C8942E]
                               "
                             />
                           )}
@@ -1361,7 +1365,7 @@ useEffect(() => {
                         <ChevronDown
                           size={16}
                           className={`
-                            text-[#E85C91]
+                            text-[#C8942E]
                             transition-transform
                             duration-200
                             ${
@@ -1445,7 +1449,7 @@ useEffect(() => {
     font-medium
     text-[#064B50]
     transition-colors
-    hover:text-[#E85C91]
+    hover:text-[#C8942E]
   "
 >
   <span>Our Doctors</span>
@@ -1454,7 +1458,7 @@ useEffect(() => {
     size={16}
     className="
       text-[#C8942E]
-      group-hover:text-[#E85C91]
+      group-hover:text-[#C8942E]
     "
   />
 </button>
@@ -1499,7 +1503,7 @@ useEffect(() => {
                 <ChevronRight
                   size={15}
                   className="
-                    text-[#E85C91]
+                    text-[#C8942E]
                     transition-transform
                     group-hover:translate-x-1
                   "
@@ -1547,7 +1551,7 @@ useEffect(() => {
               font-medium
               text-[#064B50]
               transition-colors
-              hover:text-[#E85C91]
+              hover:text-[#C8942E]
             "
           >
             <span>Contact Us</span>
@@ -1556,7 +1560,7 @@ useEffect(() => {
               size={16}
               className="
                 text-[#C8942E]
-                group-hover:text-[#E85C91]
+                group-hover:text-[#C8942E]
               "
             />
           </Link>
@@ -1626,7 +1630,7 @@ useEffect(() => {
                 w-2
                 h-2
                 rounded-full
-                bg-[#E85C91]
+                bg-[#C8942E]
               "
             />
 

@@ -1,4 +1,6 @@
-import { useState } from "react";
+import {
+  useState,
+} from "react";
 
 import {
   useNavigate,
@@ -7,74 +9,88 @@ import {
 
 import PasswordForm from "../components/auth/PasswordForm";
 
-import { resetPassword } from "../services/authService";
+import {
+  resetPassword,
+} from "../services/authService";
 
 export default function ResetPassword({
   embedded = false,
   onLogin,
+  token: tokenProp,
 }) {
-  const navigate = useNavigate();
+  const navigate =
+    useNavigate();
 
-  const [searchParams] = useSearchParams();
+  const [searchParams] =
+    useSearchParams();
 
   const token =
-    searchParams.get("token") || "";
+    tokenProp ||
+    searchParams.get("token") ||
+    "";
 
   const [loading, setLoading] =
     useState(false);
 
-  const [error, setError] = useState("");
+  const [error, setError] =
+    useState("");
+
   const [success, setSuccess] =
     useState("");
 
-  const handleSubmit = async (password) => {
-    if (!token) {
-      setError(
-        "Invalid or missing reset token."
-      );
-      return;
-    }
+  const handleSubmit =
+    async (password) => {
+      if (!token) {
+        setError(
+          "Invalid or missing reset token."
+        );
 
-    try {
-      setLoading(true);
-      setError("");
-      setSuccess("");
+        return;
+      }
 
-      const data = await resetPassword({
-        token,
-        password,
-      });
+      try {
+        setLoading(true);
+        setError("");
+        setSuccess("");
 
-      setSuccess(
-        data?.message ||
-          "Password reset successfully."
-      );
+        const data =
+          await resetPassword({
+            token,
+            password,
+          });
 
-      setTimeout(() => {
-        if (embedded && onLogin) {
-          onLogin();
-        } else {
-          navigate(
-            "/login?passwordReset=1",
-            {
-              replace: true,
-            }
-          );
-        }
-      }, 1200);
-    } catch (err) {
-      setError(
-        err?.message ||
-          "Could not reset password. The link may be invalid or expired."
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
+        setSuccess(
+          data?.message ||
+            "Password reset successfully."
+        );
+
+        setTimeout(() => {
+          if (
+            embedded &&
+            onLogin
+          ) {
+            onLogin();
+          } else {
+            navigate(
+              "/login",
+              {
+                replace: true,
+              }
+            );
+          }
+        }, 900);
+      } catch (err) {
+        setError(
+          err?.message ||
+            "Could not reset password."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
 
   return (
     <PasswordForm
-      embedded={embedded}
       title="Reset Password"
       subtitle="Account Recovery"
       description="Enter and confirm your new password."
