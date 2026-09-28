@@ -1,566 +1,725 @@
 import {
-  CalendarDays,
-  ChevronRight,
-  Search,
+  ArrowRight,
+  Check,
+  MapPin,
+  Quote,
   Stethoscope,
+  Users,
 } from "lucide-react";
 
 import {
   Link,
-  useNavigate,
   useParams,
 } from "react-router-dom";
+
+import Breadcrumb from "../components/Breadcrumb";
+
+import SectionHeading from "../components/speciality/SectionHeading";
+
+import TechnologySlider from "../components/speciality/TechnologySlider";
+
+import PatientStories from "../components/speciality/PatientStories";
 
 import {
   specialties,
 } from "../data/navigation";
 
-import Breadcrumb from "../components/Breadcrumb";
+import {
+  getSpecialityDetails,
+} from "../data/specialityDetails";
+
+import {
+  slugify,
+} from "../data/subSpecialityDetails";
 
 export default function SpecialityDetails() {
-  const { slug } = useParams();
-  const navigate = useNavigate();
+  const { slug } =
+    useParams();
 
-  const speciality = specialties.find(
-    (item) => item[1] === slug
-  );
-
-  if (!speciality) {
-    return (
-      <main className="min-h-[60vh] flex items-center justify-center px-4">
-        <div className="text-center">
-          <h1 className="text-[30px] font-semibold text-[#064B50]">
-            Speciality Not Found
-          </h1>
-
-          <Link
-            to="/specialities"
-            className="inline-flex mt-5 text-[#E85C91] font-medium"
-          >
-            View All Specialities
-          </Link>
-        </div>
-      </main>
+  const navigationItem =
+    specialties.find(
+      (item) =>
+        item[1] === slug
     );
+
+  if (!navigationItem) {
+    return <NotFound />;
   }
 
-  const [name, , Icon] = speciality;
+  const data =
+    getSpecialityDetails(
+      slug,
+      navigationItem
+    );
+
+  if (!data) {
+    return <NotFound />;
+  }
 
   return (
     <main className="bg-white">
-      {/* =========================
-          BREADCRUMB
-      ========================= */}
 
+      {/* BREADCRUMB */}
       <Breadcrumb
-        parent="Specialities"
-        parentPath="/specialities"
-        current={name}
+  title={data.title}
+  description={
+    data.intro ||
+    `Explore specialist care, treatments and coordinated medical support available within ${data.title}.`
+  }
+  items={[
+    {
+      label: "Specialities",
+      to: "/specialities",
+    },
+    {
+      label: data.title,
+    },
+  ]}
+/>
+
+      {/* ABOUT */}
+      <AboutSection
+        data={data}
       />
 
-      {/* =========================
-          SPECIALITY HERO
-      ========================= */}
+      {/* HIGHLIGHTS */}
+      <HighlightsSection
+        data={data}
+      />
 
-      <section className="relative bg-[#f8fbfa] overflow-visible">
-        {/* decorative background */}
+      {/* SUB SPECIALITIES */}
+      <SubSpecialitiesSection
+        data={data}
+        slug={slug}
+      />
 
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -left-28 top-8 w-[520px] h-[260px] rounded-[50%] border border-[#E85C91]/15 rotate-[-8deg]" />
+      {/* CHAIRMAN */}
+      <ChairmanSection
+        data={data}
+      />
 
-          <div className="absolute -right-32 top-6 w-[500px] h-[280px] rounded-[50%] border border-[#C8942E]/15 rotate-[10deg]" />
-        </div>
+      {/* TEAM */}
+      <TeamSection
+        data={data}
+      />
+
+      {/* TREATMENTS */}
+      <CardsSection
+        eyebrow="Care Options"
+        title="Treatments"
+        description={`Explore commonly coordinated treatment options related to ${data.title}. Final recommendations depend on specialist medical evaluation.`}
+        items={
+          data.treatments
+        }
+        viewMore={`/speciality/${slug}/treatments`}
+      />
+
+      {/* AILMENTS */}
+      <CardsSection
+        eyebrow="Conditions We Support"
+        title="Ailments"
+        description={`Explore conditions commonly associated with ${data.title} that may require specialist medical evaluation.`}
+        items={
+          data.ailments
+        }
+        viewMore={`/speciality/${slug}/ailments`}
+        alternate
+      />
+
+      {/* TECHNOLOGY */}
+      <TechnologySlider
+        items={
+          data.technologies
+        }
+      />
+
+      {/* STORIES */}
+      <PatientStories
+        stories={
+          data.patientStories
+        }
+      />
+
+    </main>
+  );
+}
+
+/* =========================================================
+   NOT FOUND
+========================================================= */
+
+function NotFound() {
+  return (
+    <main className="flex min-h-[60vh] items-center justify-center px-5">
+      <div className="text-center">
+
+        <h1 className="text-[28px] font-semibold text-[#064B50] sm:text-[34px]">
+          Speciality Not Found
+        </h1>
+
+        <Link
+          to="/specialities"
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#064B50] px-6 py-3.5 text-[14px] font-semibold text-white hover:bg-[#0B6268]"
+        >
+          View Specialities
+
+          <ArrowRight
+            size={17}
+          />
+        </Link>
+
+      </div>
+    </main>
+  );
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+function AboutSection({
+  data,
+}) {
+  const image =
+    data.aboutImage ||
+    data.team?.cards?.[0]
+      ?.image ||
+    data.chairman?.image;
+
+  return (
+    <section className="bg-white py-12 sm:py-14 md:py-16 lg:py-20">
+
+      <div className="mx-auto max-w-[1350px] px-4 sm:px-6 lg:px-10">
+
+        <SectionHeading
+          eyebrow="Specialist Care"
+          title={`About ${data.title}`}
+          description={`Learn more about our coordinated approach to ${data.title}.`}
+        />
 
         <div
           className="
-            relative
+            mt-8
+            grid
+            items-center
+            gap-8
 
-            max-w-[1450px]
-            mx-auto
-
-            px-4
-            sm:px-6
-            lg:px-8
-
-            pt-12
-            pb-24
-
-            md:pt-16
-            md:pb-28
+            md:mt-10
+            lg:grid-cols-2
+            lg:gap-14
           "
         >
-          <div
-            className="
-              grid
-              grid-cols-1
-              lg:grid-cols-[1fr_300px_1fr]
-              gap-8
-              lg:gap-12
 
-              items-center
-            "
-          >
-            {/* LEFT */}
-
-            <div className="text-center lg:text-left">
-              <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-[#C8942E]">
-                World-Class
-              </p>
-
-              <h1
-                className="
-                  mt-2
-
-                  text-[34px]
-                  md:text-[44px]
-
-                  leading-tight
-                  font-semibold
-
-                  text-[#064B50]
-                "
-              >
-                {name}
-              </h1>
-
-              <p
-                className="
-                  mt-4
-
-                  max-w-[470px]
-
-                  mx-auto
-                  lg:mx-0
-
-                  text-[14px]
-                  md:text-[15px]
-
-                  leading-7
-
-                  text-[#667576]
-                "
-              >
-                Comprehensive, patient-focused care
-                supported by experienced specialists,
-                modern technology and personalised
-                treatment planning.
-              </p>
-            </div>
-
-            {/* CENTER ICON */}
-
-            <div className="flex justify-center">
-              <div
-                className="
-                  w-[190px]
-                  h-[190px]
-
-                  md:w-[220px]
-                  md:h-[220px]
-
-                  rounded-full
-
-                  bg-white
-
-                  border
-                  border-[#C8942E]/25
-
-                  shadow-[0_18px_45px_rgba(6,75,80,0.10)]
-
-                  flex
-                  items-center
-                  justify-center
-                "
-              >
-                <div
-                  className="
-                    w-[145px]
-                    h-[145px]
-
-                    md:w-[165px]
-                    md:h-[165px]
-
-                    rounded-full
-
-                    bg-[#edf7f6]
-
-                    flex
-                    items-center
-                    justify-center
-                  "
-                >
-                  {Icon && (
-                    <Icon
-                      size={78}
-                      strokeWidth={1.15}
-                      className="text-[#C8942E]"
-                    />
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT */}
-
-            <div
+          {/* CONTENT */}
+          <div>
+            <p
               className="
-                max-w-[380px]
-                w-full
+                text-[15px]
+                leading-7
+                text-[#52696A]
 
-                mx-auto
-                lg:ml-auto
+                sm:text-[16px]
+                sm:leading-8
 
-                bg-white
-
-                rounded-2xl
-
-                border
-                border-[#e6eceb]
-
-                shadow-[0_14px_40px_rgba(6,75,80,0.08)]
-
-                p-6
+                md:text-[17px]
+                md:leading-9
               "
             >
-              <p className="text-[12px] uppercase tracking-[0.14em] font-semibold text-[#E85C91]">
-                Need Assistance?
-              </p>
+              {data.about ||
+                data.intro}
+            </p>
 
-              <h2 className="mt-2 text-[21px] font-semibold text-[#064B50]">
-                Connect With Our Team
-              </h2>
+            <div className="mt-6 h-[3px] w-[65px] rounded-full bg-[#C8942E]" />
+          </div>
 
-              <p className="mt-2 text-[13px] leading-6 text-[#667576]">
-                Our care team can help you find the
-                right specialist and appointment.
-              </p>
+          {/* IMAGE */}
+          <div className="overflow-hidden rounded-[20px] bg-[#EEF6F5] shadow-[0_15px_40px_rgba(6,75,80,0.08)] sm:rounded-[24px]">
 
-              <button
-                type="button"
-                onClick={() => navigate("/contact")}
+            {image ? (
+              <img
+                src={image}
+                alt={data.title}
                 className="
-                  mt-5
+                  h-[240px]
                   w-full
-                  h-11
+                  object-cover
 
-                  rounded-lg
-
-                  bg-[#064B50]
-
-                  text-white
-                  text-[14px]
-                  font-semibold
-
-                  flex
-                  items-center
-                  justify-center
-                  gap-2
-
-                  hover:bg-[#0B6B70]
+                  sm:h-[320px]
+                  md:h-[360px]
+                  lg:h-[390px]
                 "
-              >
-                <CalendarDays
-                  size={17}
+              />
+            ) : (
+              <div className="flex h-[260px] items-center justify-center sm:h-[340px]">
+
+                <Stethoscope
+                  size={80}
+                  strokeWidth={1.2}
                   className="text-[#C8942E]"
                 />
 
-                Book Appointment
-              </button>
-            </div>
+              </div>
+            )}
+
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
 
-        {/* =========================
-            FLOATING SEARCH BAR
-        ========================= */}
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
 
-        <div
-          className="
-            absolute
+function HighlightsSection({
+  data,
+}) {
+  if (
+    !data.highlights?.length
+  ) {
+    return null;
+  }
 
-            left-1/2
-            -translate-x-1/2
+  return (
+    <section className="bg-[#F4F8F7] py-12 sm:py-14 md:py-16 lg:py-20">
 
-            bottom-0
-            translate-y-1/2
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
 
-            z-20
+        <SectionHeading
+          eyebrow="Key Highlights"
+          title={`${data.title} Highlights`}
+          description={`Key areas of specialist support available within ${data.title}.`}
+        />
 
-            w-full
-            max-w-[950px]
+        <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
 
-            px-4
-          "
-        >
-          <div
-            className="
-              bg-white
+          {data.highlights.map(
+            (
+              highlight,
+              index
+            ) => {
+              const text =
+                typeof highlight ===
+                "string"
+                  ? highlight
+                  : highlight.title ||
+                    highlight.text;
 
-              rounded-xl
+              return (
+                <article
+                  key={`${text}-${index}`}
+                  className="flex min-h-[105px] gap-4 rounded-[18px] border border-[#D8E7E5] bg-white p-5 transition hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(6,75,80,0.08)] sm:min-h-[120px] sm:p-6"
+                >
 
-              shadow-[0_16px_45px_rgba(6,75,80,0.14)]
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#EEF6F5] text-[#C8942E]">
 
-              overflow-hidden
+                    <Check
+                      size={17}
+                    />
 
-              grid
-              grid-cols-1
-              md:grid-cols-[1fr_190px_210px]
-            "
-          >
+                  </span>
+
+                  <p className="text-[14px] font-medium leading-7 text-[#263F41] sm:text-[15px]">
+                    {text}
+                  </p>
+
+                </article>
+              );
+            }
+          )}
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================
+   SUB SPECIALITIES
+========================================================= */
+
+function SubSpecialitiesSection({
+  data,
+  slug,
+}) {
+  if (
+    !data.subSpecialities
+      ?.length
+  ) {
+    return null;
+  }
+
+  return (
+    <section className="bg-white py-12 sm:py-14 md:py-16 lg:py-20">
+
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
+
+        <SectionHeading
+          eyebrow="Focused Expertise"
+          title="Sub-specialities"
+          description={`Explore specialised areas within ${data.title}.`}
+        />
+
+        <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
+
+          {data.subSpecialities.map(
+            (name, index) => (
+              <Link
+                key={name}
+                to={`/speciality/${slug}/sub-speciality/${slugify(
+                  name
+                )}`}
+                className="group flex min-h-[90px] items-center justify-between rounded-[18px] border border-[#D7E6E4] bg-[#F9FBFB] p-5 transition hover:-translate-y-1 hover:border-[#C8942E] hover:bg-white hover:shadow-[0_12px_30px_rgba(6,75,80,0.08)] sm:min-h-[105px] sm:p-6"
+              >
+
+                <div className="flex items-center gap-3 sm:gap-4">
+
+                  <span className="text-[12px] font-bold text-[#C8942E]">
+                    {String(
+                      index + 1
+                    ).padStart(
+                      2,
+                      "0"
+                    )}
+                  </span>
+
+                  <span className="text-[15px] font-semibold text-[#064B50] sm:text-[16px]">
+                    {name}
+                  </span>
+
+                </div>
+
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#EEF6F5] text-[#064B50] transition group-hover:bg-[#064B50] group-hover:text-white sm:h-9 sm:w-9">
+
+                  <ArrowRight
+                    size={15}
+                  />
+
+                </span>
+
+              </Link>
+            )
+          )}
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================
+   CHAIRMAN
+========================================================= */
+
+function ChairmanSection({
+  data,
+}) {
+  if (!data.chairman) {
+    return null;
+  }
+
+  const chairman =
+    data.chairman;
+
+  return (
+    <section className="bg-[#F4F8F7] py-12 sm:py-14 md:py-16 lg:py-20">
+
+      <div className="mx-auto max-w-[1250px] px-4 sm:px-6 lg:px-10">
+
+        <SectionHeading
+          eyebrow="Leadership"
+          title="Our Chairman Message"
+          description={`A patient-focused approach to coordinated ${data.title} care.`}
+        />
+
+        <div className="mt-8 overflow-hidden rounded-[22px] border border-[#D6E6E4] bg-white shadow-[0_15px_40px_rgba(6,75,80,0.08)] sm:mt-10 sm:rounded-[26px]">
+
+          <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
+
+            {/* LEFT IMAGE */}
             <div
               className="
-                min-h-[68px]
-
-                px-5
-
+                relative
                 flex
-                items-center
-                gap-3
+                min-h-[300px]
+                items-end
+                justify-center
+                overflow-hidden
+                bg-[#E7F1F0]
+                px-5
+                pt-7
+
+                sm:min-h-[370px]
+                md:min-h-[400px]
               "
             >
-              <Search
-                size={19}
-                className="text-[#E85C91]"
-              />
 
-              <input
-                type="text"
-                placeholder="Search for Specialities"
-                className="
-                  w-full
+              {chairman.image ? (
+                <img
+                  src={
+                    chairman.image
+                  }
+                  alt={
+                    chairman.name ||
+                    "Chairman"
+                  }
+                  className="relative z-10 max-h-[400px] max-w-full object-contain"
+                />
+              ) : (
+                <Users
+                  size={110}
+                  className="mb-16 text-[#ABCBC8]"
+                  strokeWidth={1}
+                />
+              )}
 
-                  outline-none
-
-                  text-[14px]
-
-                  text-[#263F41]
-
-                  placeholder:text-[#9aa5a5]
-                "
-              />
             </div>
 
-            <button
-              type="button"
-              onClick={() => {
-                const token =
-                  localStorage.getItem("akeso_token");
+            {/* RIGHT CONTENT */}
+            <div className="flex flex-col justify-center p-6 sm:p-8 md:p-10 lg:p-12">
 
-                if (token) {
-                  navigate("/doctors");
-                } else {
-                  navigate(
-                    "/login?redirect=/doctors"
-                  );
+              <Quote
+                size={40}
+                className="text-[#C8942E]/40"
+              />
+
+              <p className="mt-4 text-[15px] leading-7 text-[#52696A] sm:text-[16px] sm:leading-8 md:text-[17px] md:leading-9">
+                {
+                  chairman.message
                 }
-              }}
-              className="
-                min-h-[68px]
+              </p>
 
-                bg-[#064B50]
+              <div className="mt-7 border-l-[3px] border-[#C8942E] pl-4 sm:pl-5">
 
-                text-white
-                font-semibold
+                <h3 className="text-[19px] font-semibold text-[#064B50] sm:text-[21px]">
+                  {chairman.name}
+                </h3>
 
-                flex
-                items-center
-                justify-center
-                gap-2
+                {chairman.designation && (
+                  <p className="mt-1 text-[13px] font-semibold text-[#C8942E] sm:text-[14px]">
+                    {
+                      chairman.designation
+                    }
+                  </p>
+                )}
 
-                hover:bg-[#0B6B70]
-              "
-            >
-              <Stethoscope
-                size={18}
-                className="text-[#C8942E]"
-              />
+                {(chairman.location ||
+                  data.location) && (
+                  <div className="mt-3 flex items-center gap-2 text-[13px] text-[#667576] sm:text-[14px]">
 
-              Find a Doctor
-            </button>
-
-            <button
-              type="button"
-              onClick={() => navigate("/contact")}
-              className="
-                min-h-[68px]
-
-                bg-white
-
-                border-t
-                md:border-t-0
-                md:border-l
-                border-[#e6eceb]
-
-                text-[#064B50]
-                font-semibold
-
-                flex
-                items-center
-                justify-center
-                gap-2
-
-                hover:bg-[#fff3f7]
-                hover:text-[#E85C91]
-              "
-            >
-              <CalendarDays
-                size={18}
-                className="text-[#C8942E]"
-              />
-
-              Book Appointment
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================
-          ABOUT
-      ========================= */}
-
-      <section className="pt-24 md:pt-28 pb-14 md:pb-16">
-        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-[12px] uppercase tracking-[0.16em] font-semibold text-[#E85C91]">
-            Centre of Excellence
-          </p>
-
-          <h2 className="mt-2 text-[27px] md:text-[34px] font-semibold text-[#064B50]">
-            About {name}
-          </h2>
-
-          <p className="mt-4 max-w-[850px] mx-auto text-[14px] md:text-[15px] leading-7 text-[#667576]">
-            Akeso Global Medical Services provides
-            comprehensive support for patients seeking
-            {` ${name}`} care. Detailed speciality content,
-            doctors, treatments, technologies and patient
-            information can later be managed from your
-            admin panel and API.
-          </p>
-        </div>
-      </section>
-
-      {/* =========================
-          OTHER SPECIALITIES
-      ========================= */}
-
-      <section className="py-14 md:py-20 bg-[#f5f8f7]">
-        <div className="max-w-[1450px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-[700px] mx-auto mb-10">
-            <p className="text-[12px] uppercase tracking-[0.17em] font-semibold text-[#C8942E]">
-              Explore Our Expertise
-            </p>
-
-            <h2 className="mt-2 text-[28px] md:text-[36px] font-semibold text-[#064B50]">
-              Our Specialities
-            </h2>
-
-            <p className="mt-3 text-[14px] md:text-[15px] leading-7 text-[#667576]">
-              Explore other areas of medical expertise
-              available through Akeso Global Medical
-              Services.
-            </p>
-          </div>
-
-          <div
-            className="
-              grid
-              grid-cols-1
-              sm:grid-cols-2
-              lg:grid-cols-4
-              gap-5
-            "
-          >
-            {specialties
-              .filter((item) => item[1] !== slug)
-              .slice(0, 8)
-              .map(([itemName, itemSlug, ItemIcon]) => (
-                <Link
-                  key={itemSlug}
-                  to={`/speciality/${itemSlug}`}
-                  className="
-                    group
-
-                    min-h-[185px]
-
-                    rounded-2xl
-
-                    bg-white
-
-                    border
-                    border-[#e5eceb]
-
-                    p-5
-
-                    flex
-                    flex-col
-                    items-center
-                    justify-center
-
-                    text-center
-
-                    shadow-[0_7px_24px_rgba(6,75,80,0.05)]
-
-                    transition-all
-                    duration-300
-
-                    hover:-translate-y-1
-                    hover:border-[#E85C91]/40
-                    hover:shadow-[0_14px_34px_rgba(6,75,80,0.10)]
-                  "
-                >
-                  {ItemIcon && (
-                    <ItemIcon
-                      size={33}
-                      strokeWidth={1.35}
-                      className="text-[#C8942E]"
+                    <MapPin
+                      size={15}
                     />
-                  )}
 
-                  <h3 className="mt-4 text-[15px] leading-[21px] font-semibold text-[#263F41]">
-                    {itemName}
+                    {chairman.location ||
+                      data.location}
+
+                  </div>
+                )}
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================
+   TEAM
+========================================================= */
+
+function TeamSection({
+  data,
+}) {
+  if (!data.team) {
+    return null;
+  }
+
+  const cards =
+    Array.isArray(data.team)
+      ? data.team
+      : data.team.cards ||
+        [];
+
+  if (!cards.length) {
+    return null;
+  }
+
+  return (
+    <section className="bg-white py-12 sm:py-14 md:py-16 lg:py-20">
+
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
+
+        <SectionHeading
+          eyebrow="Multidisciplinary Care"
+          title={
+            data.team.title ||
+            `${data.title} Team`
+          }
+          description={
+            data.team.description ||
+            `Coordinated specialist support for ${data.title}.`
+          }
+        />
+
+        <div className="mt-8 grid gap-5 sm:mt-10 md:grid-cols-2 lg:grid-cols-3">
+
+          {cards.map(
+            (card, index) => (
+              <article
+                key={`${card.title}-${index}`}
+                className="overflow-hidden rounded-[20px] border border-[#DCE8E7] bg-[#F9FBFB] transition hover:-translate-y-1 hover:bg-white hover:shadow-[0_15px_40px_rgba(6,75,80,0.09)]"
+              >
+
+                {card.image && (
+                  <img
+                    src={
+                      card.image
+                    }
+                    alt={
+                      card.title
+                    }
+                    className="h-[210px] w-full object-cover sm:h-[235px]"
+                  />
+                )}
+
+                <div className="p-5 sm:p-6">
+
+                  <div className="mb-4 h-[3px] w-[42px] rounded-full bg-[#C8942E]" />
+
+                  <h3 className="text-[17px] font-semibold text-[#064B50] sm:text-[19px]">
+                    {card.title}
                   </h3>
 
-                  <div className="mt-3 flex items-center gap-2 text-[13px] font-medium text-[#064B50]">
-                    Know More
+                  <p className="mt-3 text-[14px] leading-7 text-[#667576] sm:text-[15px]">
+                    {card.description ||
+                      card.text}
+                  </p>
 
-                    <span className="w-7 h-7 rounded-full bg-[#E85C91] text-white flex items-center justify-center group-hover:bg-[#C8942E]">
-                      <ChevronRight size={14} />
-                    </span>
-                  </div>
-                </Link>
-              ))}
-          </div>
+                </div>
+              </article>
+            )
+          )}
 
-          <div className="mt-9 text-center">
-            <Link
-              to="/specialities"
-              className="
-                inline-flex
-                items-center
-                justify-center
-
-                min-h-[46px]
-
-                px-7
-
-                rounded-lg
-
-                border
-                border-[#E85C91]
-
-                text-[14px]
-                font-semibold
-                text-[#E85C91]
-
-                hover:bg-[#E85C91]
-                hover:text-white
-              "
-            >
-              View All Specialities
-            </Link>
-          </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================
+   TREATMENTS / AILMENTS
+========================================================= */
+
+function CardsSection({
+  eyebrow,
+  title,
+  description,
+  items = [],
+  viewMore,
+  alternate = false,
+}) {
+  if (!items.length) {
+    return null;
+  }
+
+  return (
+    <section
+      className={`py-12 sm:py-14 md:py-16 lg:py-20 ${
+        alternate
+          ? "bg-[#F4F8F7]"
+          : "bg-white"
+      }`}
+    >
+
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
+
+        <SectionHeading
+          eyebrow={eyebrow}
+          title={title}
+          description={
+            description
+          }
+        />
+
+        <div className="mt-8 grid gap-4 sm:mt-10 md:grid-cols-2 lg:grid-cols-3">
+
+          {items
+            .slice(0, 6)
+            .map(
+              (
+                current,
+                index
+              ) => {
+                const name =
+                  typeof current ===
+                  "string"
+                    ? current
+                    : current.title ||
+                      current.name;
+
+                const content =
+                  typeof current ===
+                  "object"
+                    ? current.description ||
+                      current.text
+                    : "";
+
+                return (
+                  <article
+                    key={`${name}-${index}`}
+                    className="min-h-[160px] rounded-[18px] border border-[#D5E4E2] bg-white p-5 transition hover:-translate-y-1 hover:border-[#C8942E]/70 hover:shadow-[0_12px_30px_rgba(6,75,80,0.08)] sm:min-h-[185px] sm:p-6"
+                  >
+
+                    <span className="text-[12px] font-bold tracking-[0.12em] text-[#C8942E] sm:text-[13px]">
+                      {String(
+                        index + 1
+                      ).padStart(
+                        2,
+                        "0"
+                      )}
+                    </span>
+
+                    <h3 className="mt-4 text-[17px] font-semibold text-[#064B50] sm:mt-5 sm:text-[18px]">
+                      {name}
+                    </h3>
+
+                    {content && (
+                      <p className="mt-3 text-[14px] leading-7 text-[#667576] sm:text-[15px]">
+                        {content}
+                      </p>
+                    )}
+
+                  </article>
+                );
+              }
+            )}
+
+        </div>
+
+        {viewMore && (
+          <div className="mt-8 text-center sm:mt-10">
+
+            <Link
+              to={viewMore}
+              className="inline-flex items-center gap-2 rounded-xl bg-[#064B50] px-6 py-3.5 text-[14px] font-semibold text-white transition hover:bg-[#0B6268] sm:px-7"
+            >
+              View More
+
+              <ArrowRight
+                size={17}
+              />
+
+            </Link>
+
+          </div>
+        )}
+
+      </div>
+    </section>
   );
 }

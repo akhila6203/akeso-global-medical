@@ -29,12 +29,16 @@ import {
 import CallbackModal from "./CallbackModal";
 
 
-function DropdownRow({ item, prefix, onNavigate }) {
+function DropdownRow({ item, prefix, onNavigate, directPath = false, }) {
   const Icon = item?.[2];
+  const itemPath = directPath
+    ? `/${item[1]}`
+    : `/${prefix}/${item[1]}`;
 
   return (
     <Link
-      to={`/${prefix}/${item[1]}`}
+      // to={`/${prefix}/${item[1]}`}
+      to={itemPath}
       onClick={onNavigate}
       className="
         group
@@ -321,6 +325,7 @@ function HealthLibraryDropdown() {
               key={item[1]}
               item={item}
               prefix="health-library"
+              directPath={true}
             />
           );
         })}
@@ -719,7 +724,7 @@ const desktopDropdownClass = (open, active) => `
                 {specialityOpen && (
                   <DesktopDropdown
                     items={specialties.slice(0, 6)}
-                    prefix="specialities"
+                    prefix="speciality"
                     viewAllPath="/specialities"
                     viewAllText="View All Specialities"
                   />
@@ -1251,10 +1256,10 @@ const desktopDropdownClass = (open, active) => `
               {specialties
                 .slice(0, 6)
                 .map((item) => (
-                  <MobileItem
+                 <MobileItem
                     key={item[1]}
                     item={item}
-                    prefix="specialities"
+                    prefix="speciality"
                     closeMenu={closeMobile}
                   />
                 ))}

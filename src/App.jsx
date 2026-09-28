@@ -27,6 +27,26 @@ import InternationalPatients from "./pages/InternationalPatients";
 import RequestEstimate from "./pages/RequestEstimate";
 import PlanYourTrip from "./pages/PlanYourTrip";
 
+import SpecialityDetails from "./pages/SpecialityDetails";
+import SubSpecialityDetails from "./pages/SubSpecialityDetails";
+import SpecialityTreatments from "./pages/SpecialityTreatments";
+import SpecialityAilments from "./pages/SpecialityAilments";
+import AllTechnologies from "./pages/AllTechnologies";
+
+import HealthLibrary from "./pages/HealthLibrary";
+import HealthConditionDetails from "./pages/HealthConditionDetails";
+import Research from "./pages/Research";
+
+import AllTreatments from "./pages/AllTreatments";
+import AllAilments from "./pages/AllAilments";
+import TechnologyDetails from "./pages/TechnologyDetails";
+
+import Blogs from "./pages/Blogs";
+import Videos from "./pages/Videos";
+import CaseStudies from "./pages/CaseStudies";
+import BlogDetails from "./pages/BlogDetails";
+import CaseStudyDetails from "./pages/CaseStudyDetails";
+
 export default function App() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -231,10 +251,34 @@ export default function App() {
           element={<Specialities />}
         />
 
-        <Route
+        {/* <Route
           path="/speciality/:slug"
           element={<DynamicPage />}
-        />
+        /> */}
+       <Route
+  path="/speciality/:slug"
+  element={<SpecialityDetails />}
+/>
+
+<Route
+  path="/speciality/:slug/sub-speciality/:subSpecialitySlug"
+  element={<SubSpecialityDetails />}
+/>
+
+<Route
+  path="/speciality/:slug/treatments"
+  element={<SpecialityTreatments />}
+/>
+
+<Route
+  path="/speciality/:slug/ailments"
+  element={<SpecialityAilments />}
+/>
+
+<Route
+  path="/technologies"
+  element={<AllTechnologies />}
+/>
 
         <Route
           path="/contact"
@@ -244,18 +288,61 @@ export default function App() {
         {/* HEALTH LIBRARY */}
 
         <Route
-          path="/health-library"
-          element={
-            <DynamicPage
-              fixedTitle="Health Library"
-            />
-          }
-        />
+  path="/health-library"
+  element={<HealthLibrary />}
+/>
 
-        <Route
-          path="/health-library/:slug"
-          element={<DynamicPage />}
-        />
+<Route
+  path="/health-library/:slug"
+  element={
+    <HealthConditionDetails />
+  }
+/>
+
+<Route
+  path="/research"
+  element={<Research />}
+/>
+
+<Route
+  path="/treatments"
+  element={<AllTreatments />}
+/>
+
+<Route
+  path="/ailments"
+  element={<AllAilments />}
+/>
+
+<Route
+  path="/technologies/:slug"
+  element={<TechnologyDetails />}
+/>
+
+<Route
+  path="/health-library/blogs"
+  element={<Blogs />}
+/>
+
+<Route
+  path="/health-library/blogs/:slug"
+  element={<BlogDetails />}
+/>
+
+<Route
+  path="/health-library/videos"
+  element={<Videos />}
+/>
+
+<Route
+  path="/health-library/case-studies"
+  element={<CaseStudies />}
+/>
+
+<Route
+  path="/health-library/case-studies/:slug"
+  element={<CaseStudyDetails />}
+/>
 
         {/* SERVICES */}
 

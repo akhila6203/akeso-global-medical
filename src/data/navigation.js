@@ -224,29 +224,16 @@ export const specialties = [
 ========================================================= */
 
 export const healthLibrary = [
-//   ["Health Library", "health-library", BookOpen],
-
   ["Treatments", "treatments", Stethoscope],
-
   ["Technologies", "technologies", Cpu],
-
   ["Ailments", "ailments", ShieldPlus],
-
   ["Web Stories", "web-stories", Newspaper],
-
   ["Knowledge Center", "knowledge", Lightbulb],
-
 ];
-
-/* =========================================================
-   KNOWLEDGE CENTER
-========================================================= */
 
 export const knowledgeCenter = [
   ["Blogs", "blogs", BookOpen],
-
   ["Videos", "videos", Video],
-
   ["Case Studies", "case-studies", ClipboardPlus],
 ];
 
@@ -282,47 +269,6 @@ export const services = [
     "post-op-care",
     Activity,
   ],
-  // [
-  //   "Buy Medicine",
-  //   "buy-medicine",
-  //   Pill,
-  // ],
-
-  // [
-  //   "Telemedicine",
-  //   "telemedicine",
-  //   Video,
-  // ],
-
-  // [
-  //   "Air Ambulance",
-  //   "air-ambulance",
-  //   Plane,
-  // ],
-
-  // [
-  //   "Emergency 1068",
-  //   "emergency-1068",
-  //   Siren,
-  // ],
-
-  // [
-  //   "Akeso e-ICU",
-  //   "akeso-e-icu",
-  //   Hospital,
-  // ],
-
-  // [
-  //   "Health Checkup",
-  //   "health-checkup",
-  //   ClipboardPlus,
-  // ],
-
-  // [
-  //   "Elder Care",
-  //   "elder-care",
-  //   Accessibility,
-  // ],
 ];
 
 /* =========================================================
