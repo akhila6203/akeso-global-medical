@@ -342,12 +342,17 @@ function MobileItem({
   item,
   prefix,
   closeMenu,
+  directPath = false,
 }) {
   const Icon = item?.[2];
+   const itemPath = directPath
+    ? `/${item[1]}`
+    : `/${prefix}/${item[1]}`;
 
   return (
     <Link
-      to={`/${prefix}/${item[1]}`}
+      // to={`/${prefix}/${item[1]}`}
+       to={itemPath}
       onClick={closeMenu}
       className="
         group
@@ -400,19 +405,18 @@ function MobileItem({
 /* =========================================================
    MOBILE ACCORDION
 ========================================================= */
-
 function MobileAccordion({
   title,
+  mainPath,
   children,
   active = false,
+  closeMenu,
 }) {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="border-b border-[#e5eceb]">
-      <button
-        type="button"
-        onClick={() => setOpen((prev) => !prev)}
+      <div
         className="
           relative
           w-full
@@ -420,34 +424,62 @@ function MobileAccordion({
           items-center
           justify-between
           py-[14px]
-          text-left
         "
       >
-        <span
+        {/* MAIN HEADING - OPENS MAIN PAGE */}
+        <Link
+          to={mainPath}
+          onClick={closeMenu}
           className={`
+            flex-1
+            text-left
             text-[15px]
             font-medium
+            transition-colors
+            duration-200
+
             ${
               active
                 ? "text-[#C8942E]"
-                : "text-[#064B50]"
+                : "text-[#064B50] hover:text-[#C8942E]"
             }
           `}
         >
           {title}
-        </span>
+        </Link>
 
-        <ChevronDown
-          size={17}
-          strokeWidth={1.8}
-          className={`
+        {/* ARROW ONLY - OPENS/CLOSES DROPDOWN */}
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setOpen((prev) => !prev);
+          }}
+          aria-label={`Toggle ${title} menu`}
+          className="
+            w-9
+            h-9
+            flex
+            items-center
+            justify-center
+            rounded-lg
             text-[#C8942E]
-            transition-transform
-            duration-300
-            ${open ? "rotate-180" : ""}
-          `}
-        />
-      </button>
+            transition-colors
+            hover:bg-[#edf7f6]
+          "
+        >
+          <ChevronDown
+            size={17}
+            strokeWidth={1.8}
+            className={`
+              transition-transform
+              duration-300
+              ${open ? "rotate-180" : ""}
+            `}
+          />
+        </button>
+      </div>
 
       {open && (
         <div className="pb-3">
@@ -1248,9 +1280,12 @@ const desktopDropdownClass = (open, active) => `
               SPECIALITY
           =============================================== */}
 
+        
           <MobileAccordion
             title="Speciality"
+            mainPath="/specialities"
             active={isActive("/special")}
+            closeMenu={closeMobile}
           >
             <div className="space-y-[2px]">
               {specialties
@@ -1303,9 +1338,11 @@ const desktopDropdownClass = (open, active) => `
           =============================================== */}
 
           <MobileAccordion
-            title="Health Library"
-            active={isActive("/health-library")}
-          >
+              title="Health Library"
+              mainPath="/health-library"
+              active={isActive("/health-library")}
+              closeMenu={closeMobile}
+            >
             <div className="space-y-[2px]">
               {healthLibrary.map((item) => {
                 const Icon = item?.[2];
@@ -1416,6 +1453,7 @@ const desktopDropdownClass = (open, active) => `
                     item={item}
                     prefix="health-library"
                     closeMenu={closeMobile}
+                     directPath={true}
                   />
                 );
               })}
@@ -1471,10 +1509,13 @@ const desktopDropdownClass = (open, active) => `
               SERVICES
           =============================================== */}
 
+
           <MobileAccordion
-            title="Services"
-            active={isActive("/services")}
-          >
+              title="Services"
+              mainPath="/services"
+              active={isActive("/services")}
+              closeMenu={closeMobile}
+            >
             <div className="space-y-[2px]">
               {services.map((item) => (
                 <MobileItem
@@ -1523,7 +1564,9 @@ const desktopDropdownClass = (open, active) => `
 
           <MobileAccordion
             title="International Patients"
+            mainPath="/international-patients"
             active={isActive("/international")}
+            closeMenu={closeMobile}
           >
             <div className="space-y-[2px]">
               {international.map((item) => (

@@ -31,15 +31,20 @@ import SpecialityDetails from "./pages/SpecialityDetails";
 import SubSpecialityDetails from "./pages/SubSpecialityDetails";
 import SpecialityTreatments from "./pages/SpecialityTreatments";
 import SpecialityAilments from "./pages/SpecialityAilments";
-import AllTechnologies from "./pages/AllTechnologies";
+
+
 
 import HealthLibrary from "./pages/HealthLibrary";
 import HealthConditionDetails from "./pages/HealthConditionDetails";
 import Research from "./pages/Research";
 
 import AllTreatments from "./pages/AllTreatments";
+import TreatmentDetails from "./pages/TreatmentDetails";
 import AllAilments from "./pages/AllAilments";
+import AilmentDetails from "./pages/AilmentDetails";
+import AllTechnologies from "./pages/AllTechnologies";
 import TechnologyDetails from "./pages/TechnologyDetails";
+import WebStories from "./pages/WebStories";
 
 import Blogs from "./pages/Blogs";
 import Videos from "./pages/Videos";
@@ -308,17 +313,32 @@ export default function App() {
   path="/treatments"
   element={<AllTreatments />}
 />
+<Route
+  path="/treatments/:slug"
+  element={<TreatmentDetails />}
+/>
 
 <Route
   path="/ailments"
   element={<AllAilments />}
+/>
+<Route
+  path="/ailments/:slug"
+  element={
+    <AilmentDetails />
+  }
 />
 
 <Route
   path="/technologies/:slug"
   element={<TechnologyDetails />}
 />
-
+<Route
+  path="/web-stories"
+  element={
+    <WebStories />
+  }
+/>
 <Route
   path="/health-library/blogs"
   element={<Blogs />}
