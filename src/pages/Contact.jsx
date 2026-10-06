@@ -296,8 +296,8 @@ export default function Contact() {
               <ContactCard
                 icon={Phone}
                 label="Call"
-                value="+91 91005 85435"
-                href="tel:+919100585435"
+                value="+91 9885106619"
+                href="tel:+919885106619"
               />
 
               {/* WHATSAPP */}
@@ -305,7 +305,7 @@ export default function Contact() {
               <ContactCard
                 icon={MessageCircle}
                 label="WhatsApp / Call"
-                value="+91 98851 06619"
+                value="+91 9885106619"
                 href="https://wa.me/919885106619"
               />
 

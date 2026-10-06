@@ -1564,8 +1564,8 @@ function GetInTouch() {
           <ContactCard
             icon={Phone}
             title="Call Us"
-            text="+91-956-039-8936"
-            href="tel:+919560398936"
+            text="+91-9885106619"
+            href="tel:+919885106619"
           />
 
           <ContactCard

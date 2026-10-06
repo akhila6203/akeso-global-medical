@@ -2002,8 +2002,8 @@ function GetInTouch() {
           <ContactItem
             icon={Phone}
             title="Call Us"
-            value="+91-956-039-8936"
-            href="tel:+919560398936"
+            value="+91-9885106619"
+            href="tel:+919885106619"
           />
 
 
