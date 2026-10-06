@@ -26,6 +26,7 @@ import Contact from "./pages/Contact";
 import InternationalPatients from "./pages/InternationalPatients";
 import RequestEstimate from "./pages/RequestEstimate";
 import PlanYourTrip from "./pages/PlanYourTrip";
+import PatientHelpDesk from "./pages/PatientHelpDesk";
 
 import SpecialityDetails from "./pages/SpecialityDetails";
 import SubSpecialityDetails from "./pages/SubSpecialityDetails";
@@ -388,7 +389,10 @@ export default function App() {
     />
   }
 />
-
+<Route
+  path="/international/patient-help-desk"
+  element={<PatientHelpDesk />}
+/>
 <Route
   path="/international/request-an-estimate"
   element={<RequestEstimate />}

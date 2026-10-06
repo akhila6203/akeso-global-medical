@@ -314,6 +314,7 @@ export const caseStudyData = [
   },
 ];
 
+
 export const getBlogBySlug = (slug) =>
   blogData.find((item) => item.slug === slug);
 
