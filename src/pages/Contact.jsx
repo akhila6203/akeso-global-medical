@@ -422,7 +422,7 @@ export default function Contact() {
                 <SocialButton
                   icon={InstagramIcon}
                   label="Instagram"
-                  href="#"
+                  href="https://www.instagram.com/akesoglobalhealth?exln=bG9xeGNpZnVkdWVu&utm_source=qr"
                 />
 
                 {/* FACEBOOK */}
@@ -430,7 +430,7 @@ export default function Contact() {
                 <SocialButton
                   icon={FacebookIcon}
                   label="Facebook"
-                  href="#"
+                   href="https://www.facebook.com/share/1F9UN3AYxF/?mibextid=wwXIfr"
                 />
 
                 {/* LINKEDIN */}
@@ -438,7 +438,8 @@ export default function Contact() {
                 <SocialButton
                   icon={LinkedInIcon}
                   label="LinkedIn"
-                  href="#"
+                  href="https://www.linkedin.com/in/akeso-global-health-medical-services-537595429?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                  // href="https://www.linkedin.com/in/akeso-global-health-medical-services-537595429/"
                 />
 
                 {/* WHATSAPP */}
