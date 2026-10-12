@@ -1,10 +1,27 @@
+
+import heartImage from "../assets/knowledge/blog-heart.jpg";
+import kneeImage from "../assets/knowledge/blog-knee.jpg";
+import cancerImage from "../assets/knowledge/blog-cancer.jpg";
+import diabetesImage from "../assets/knowledge/blog-diabetes.jpg";
+import neuroImage from "../assets/knowledge/blog-neuro.jpg";
+import digestiveImage from "../assets/knowledge/blog-digestive.jpg";
+
+
+import caseKneeImage from "../assets/knowledge/case-knee.jpg";
+import caseHeartImage from "../assets/knowledge/case-heart.jpg";
+import caseCancerImage from "../assets/knowledge/case-cancer.jpg";
+import caseNeuroImage from "../assets/knowledge/case-neuro.jpg";
+import caseRenalImage from "../assets/knowledge/case-renal.jpg";
+import caseGastroImage from "../assets/knowledge/case-gastro.jpg";
+
+
 export const blogData = [
   {
     id: 1,
     slug: "understanding-heart-health",
     category: "Heart Health",
     title: "Understanding Heart Health: Everyday Habits That Matter",
-    image: "/images/knowledge/blog-heart.jpg",
+    image: heartImage,
     date: "Sep 28, 2026",
     author: "Akeso Medical Team",
     excerpt:
@@ -39,7 +56,7 @@ export const blogData = [
     slug: "managing-knee-pain",
     category: "Orthopaedics",
     title: "Managing Knee Pain: When Should You Consult a Specialist?",
-    image: "/images/knowledge/blog-knee.jpg",
+    image: kneeImage,
     date: "Sep 26, 2026",
     author: "Akeso Medical Team",
     excerpt:
@@ -66,7 +83,7 @@ export const blogData = [
     slug: "importance-of-early-cancer-screening",
     category: "Cancer Care",
     title: "The Importance of Early Cancer Screening",
-    image: "/images/knowledge/blog-cancer.jpg",
+    image: cancerImage,
     date: "Sep 24, 2026",
     author: "Akeso Medical Team",
     excerpt:
@@ -87,7 +104,7 @@ export const blogData = [
     slug: "understanding-diabetes-care",
     category: "Endocrinology",
     title: "Understanding Diabetes Care and Regular Monitoring",
-    image: "/images/knowledge/blog-diabetes.jpg",
+    image: diabetesImage,
     date: "Sep 22, 2026",
     author: "Akeso Medical Team",
     excerpt:
@@ -107,7 +124,7 @@ export const blogData = [
     slug: "brain-health-warning-signs",
     category: "Neurosciences",
     title: "Brain Health: Symptoms That Should Not Be Ignored",
-    image: "/images/knowledge/blog-neuro.jpg",
+    image: neuroImage,
     date: "Sep 20, 2026",
     author: "Akeso Medical Team",
     excerpt:
@@ -127,7 +144,7 @@ export const blogData = [
     slug: "healthy-digestive-system",
     category: "Gastrosciences",
     title: "Simple Ways to Support Digestive Health",
-    image: "/images/knowledge/blog-digestive.jpg",
+    image: digestiveImage,
     date: "Sep 18, 2026",
     author: "Akeso Medical Team",
     excerpt:
@@ -143,63 +160,51 @@ export const blogData = [
   },
 ];
 
+
 export const videoData = [
   {
     id: 1,
     slug: "heart-health-explained",
     category: "Cardiac Care",
     title: "Heart Health Explained by Our Medical Team",
-    image: "/images/knowledge/video-heart.jpg",
-
-    // Replace with your approved YouTube ID.
-    youtubeId: "dQw4w9WgXcQ",
+    image: "https://i.ytimg.com/vi/vZqgw3MKQPo/hqdefault.jpg",
+    youtubeId: "vZqgw3MKQPo",
   },
-
   {
     id: 2,
     slug: "understanding-knee-replacement",
     category: "Orthopaedics",
     title: "Understanding Knee Replacement",
-    image: "/images/knowledge/video-knee.jpg",
-    youtubeId: "dQw4w9WgXcQ",
+    image: "https://i.ytimg.com/vi/ifoywK1O9JA/hqdefault.jpg",
+    youtubeId: "ifoywK1O9JA",
   },
-
   {
     id: 3,
     slug: "cancer-care-awareness",
     category: "Cancer Care",
     title: "Cancer Care and Early Evaluation",
-    image: "/images/knowledge/video-cancer.jpg",
-    youtubeId: "dQw4w9WgXcQ",
+    image: "https://i.ytimg.com/vi/z7-vFN8MAKw/hqdefault.jpg",
+    youtubeId: "z7-vFN8MAKw",
   },
-
   {
     id: 4,
     slug: "brain-health-awareness",
     category: "Neurosciences",
     title: "Understanding Brain Health",
-    image: "/images/knowledge/video-brain.jpg",
-    youtubeId: "dQw4w9WgXcQ",
+    image: "https://i.ytimg.com/vi/9e9h_s1v4Tw/hqdefault.jpg",
+    youtubeId: "9e9h_s1v4Tw",
   },
-
   {
     id: 5,
     slug: "digestive-health-guide",
     category: "Gastrosciences",
     title: "A Guide to Digestive Health",
-    image: "/images/knowledge/video-digestive.jpg",
-    youtubeId: "dQw4w9WgXcQ",
-  },
-
-  {
-    id: 6,
-    slug: "kidney-health-guide",
-    category: "Renal Care",
-    title: "Understanding Kidney Health",
-    image: "/images/knowledge/video-kidney.jpg",
-    youtubeId: "dQw4w9WgXcQ",
+    image: "https://i.ytimg.com/vi/AmvTWJXmIyA/hqdefault.jpg",
+    youtubeId: "AmvTWJXmIyA",
   },
 ];
+
+
 
 export const caseStudyData = [
   {
@@ -207,7 +212,7 @@ export const caseStudyData = [
     slug: "complex-knee-care-case",
     category: "Orthopaedics",
     title: "Coordinated Care for a Complex Knee Condition",
-    image: "/images/knowledge/case-knee.jpg",
+     image: caseKneeImage,
     date: "Sep 28, 2026",
     author: "Akeso Medical Team",
     excerpt:
@@ -239,7 +244,7 @@ export const caseStudyData = [
     slug: "cardiac-care-coordination",
     category: "Cardiac Care",
     title: "Coordinated International Cardiac Care",
-    image: "/images/knowledge/case-heart.jpg",
+    image: caseHeartImage,
     date: "Sep 25, 2026",
     author: "Akeso Medical Team",
     excerpt:
@@ -259,7 +264,7 @@ export const caseStudyData = [
     slug: "cancer-treatment-coordination",
     category: "Cancer Care",
     title: "Multidisciplinary Cancer Care Coordination",
-    image: "/images/knowledge/case-cancer.jpg",
+    image: caseCancerImage,
     date: "Sep 22, 2026",
     author: "Akeso Medical Team",
     excerpt:
@@ -279,7 +284,7 @@ export const caseStudyData = [
     slug: "neuroscience-care-case",
     category: "Neurosciences",
     title: "Coordinated Neuroscience Evaluation",
-    image: "/images/knowledge/case-neuro.jpg",
+    image: caseNeuroImage,
     date: "Sep 19, 2026",
     author: "Akeso Medical Team",
     excerpt:
@@ -292,7 +297,7 @@ export const caseStudyData = [
     slug: "renal-care-case",
     category: "Renal Care",
     title: "International Renal Care Coordination",
-    image: "/images/knowledge/case-renal.jpg",
+    image: caseRenalImage,
     date: "Sep 17, 2026",
     author: "Akeso Medical Team",
     excerpt:
@@ -305,7 +310,7 @@ export const caseStudyData = [
     slug: "gastro-care-case",
     category: "Gastrosciences",
     title: "Digestive Health Treatment Coordination",
-    image: "/images/knowledge/case-gastro.jpg",
+    image: caseGastroImage,
     date: "Sep 15, 2026",
     author: "Akeso Medical Team",
     excerpt:

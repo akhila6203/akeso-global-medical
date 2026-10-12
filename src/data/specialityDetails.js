@@ -10,6 +10,27 @@ import {
   Microscope,
 } from "lucide-react";
 
+
+/* COMMON CHAIRMAN IMAGE */
+import chairmanImage from "../assets/home/founder.png";
+
+/* COMMON DOCTOR IMAGE */
+import doctorImage from "../assets/doctor.jpg";
+
+/* SPECIALITY ABOUT IMAGES */
+import orthoAbout from "../assets/specialities/ortho-about.jpg";
+import cancerAbout from "../assets/specialities/cancer-about.jpg";
+import neuroAbout from "../assets/specialities/neuro-doctor.jpg";
+import cardiacAbout from "../assets/specialities/cardiac-doctor.jpg";
+import gastroAbout from "../assets/specialities/gastro-doctor.jpg";
+import renalAbout from "../assets/specialities/renal-doctor.jpg";
+import liverAbout from "../assets/specialities/liver-doctor.jpg";
+import lungAbout from "../assets/specialities/lung-doctor.jpg";
+
+
+
+
+
 export const specialityDetails = {
   /* ======================================================
      ORTHOPAEDICS
@@ -17,6 +38,7 @@ export const specialityDetails = {
 
   orthopaedics: {
     title: "Orthopaedics",
+    aboutImage: orthoAbout,
 
     shortTitle: "Advanced Bone & Joint Care",
 
@@ -54,7 +76,7 @@ export const specialityDetails = {
       designation: "Specialist Coordination",
       location:"India",
 
-      image: "/images/specialities/orthopaedics-doctor.png",
+      image: chairmanImage,
     },
 
     team: {
@@ -69,21 +91,21 @@ export const specialityDetails = {
           description:
             "Coordinated evaluation and treatment planning for patients requiring knee, hip and other joint procedures.",
           image:
-            "/images/specialities/ortho-team-1.jpg",
+            doctorImage,
         },
         {
           title: "Sports & Arthroscopy Care",
           description:
             "Specialist support for sports injuries, ligament conditions and minimally invasive joint procedures.",
           image:
-            "/images/specialities/ortho-team-2.jpg",
+            doctorImage,
         },
         {
           title: "Recovery & Rehabilitation",
           description:
             "Post-treatment rehabilitation planning to support mobility, strength and functional recovery.",
           image:
-            "/images/specialities/ortho-team-3.jpg",
+           doctorImage,
         },
       ],
     },
@@ -161,6 +183,7 @@ export const specialityDetails = {
 
   "cancer-care": {
     title: "Cancer Care",
+     aboutImage: cancerAbout,
 
     shortTitle: "Comprehensive Cancer Care",
 
@@ -197,9 +220,7 @@ export const specialityDetails = {
 
       designation: "Oncology Coordination",
        location:"India",
-
-
-      image: "/images/specialities/cancer-doctor.png",
+        image: chairmanImage,  
     },
 
     team: {
@@ -214,21 +235,21 @@ export const specialityDetails = {
           description:
             "Coordination for systemic cancer treatment and specialist medical oncology consultation.",
           image:
-            "/images/specialities/cancer-team-1.jpg",
+            doctorImage,
         },
         {
           title: "Surgical Oncology",
           description:
             "Specialist surgical assessment and treatment planning for appropriate cancer conditions.",
           image:
-            "/images/specialities/cancer-team-2.jpg",
+            doctorImage,
         },
         {
           title: "Recovery Support",
           description:
             "Support for treatment recovery, follow-up planning and patient wellbeing.",
           image:
-            "/images/specialities/cancer-team-3.jpg",
+            doctorImage,
         },
       ],
     },
@@ -301,7 +322,7 @@ export const specialityDetails = {
 
   neurosciences: {
     title: "Neurosciences",
-
+     aboutImage: neuroAbout,
     shortTitle: "Advanced Brain, Spine & Nerve Care",
 
     icon: Brain,
@@ -339,7 +360,7 @@ export const specialityDetails = {
        location:"India",
 
 
-      image: "/images/specialities/neuro-doctor.png",
+      image: chairmanImage,
     },
 
     team: {
@@ -354,21 +375,21 @@ export const specialityDetails = {
           description:
             "Specialist evaluation and surgical planning for selected brain and neurological conditions.",
           image:
-            "/images/specialities/neuro-team-1.jpg",
+            doctorImage,
         },
         {
           title: "Spine Care",
           description:
             "Coordinated specialist assessment for spinal and neurological conditions.",
           image:
-            "/images/specialities/neuro-team-2.jpg",
+            doctorImage,
         },
         {
           title: "Neuro Rehabilitation",
           description:
             "Recovery planning and rehabilitation support after neurological treatment.",
           image:
-            "/images/specialities/neuro-team-3.jpg",
+            doctorImage,
         },
       ],
     },
@@ -441,7 +462,7 @@ export const specialityDetails = {
 
   "cardiac-care": {
     title: "Cardiac Care",
-
+     aboutImage: cardiacAbout,
     shortTitle: "Advanced Heart Care",
 
     icon: HeartPulse,
@@ -479,7 +500,7 @@ export const specialityDetails = {
        location:"India",
 
 
-      image: "/images/specialities/cardiac-doctor.png",
+      image: chairmanImage,
     },
 
     team: {
@@ -494,21 +515,21 @@ export const specialityDetails = {
           description:
             "Coordination for specialist evaluation and planned cardiac surgical procedures.",
           image:
-            "/images/specialities/cardiac-team-1.jpg",
+            doctorImage,
         },
         {
           title: "Interventional Cardiology",
           description:
             "Specialist support for catheter-based cardiac procedures and treatment planning.",
           image:
-            "/images/specialities/cardiac-team-2.jpg",
+            doctorImage,
         },
         {
           title: "Cardiac Rehabilitation",
           description:
             "Recovery and rehabilitation planning following cardiac treatment.",
           image:
-            "/images/specialities/cardiac-team-3.jpg",
+            doctorImage,
         },
       ],
     },
@@ -576,6 +597,7 @@ export const specialityDetails = {
 
   gastrosciences: {
     title: "Gastrosciences",
+    aboutImage: gastroAbout,
 
     shortTitle: "Digestive & Gastrointestinal Care",
 
@@ -612,7 +634,7 @@ export const specialityDetails = {
       designation: "Specialist Coordination",
        location:"India",
 
-      image: "/images/specialities/gastro-doctor.png",
+      image: chairmanImage,
     },
 
     team: {
@@ -627,21 +649,21 @@ export const specialityDetails = {
           description:
             "Specialist evaluation for digestive and gastrointestinal conditions.",
           image:
-            "/images/specialities/gastro-team-1.jpg",
+            doctorImage,
         },
         {
           title: "GI Surgery",
           description:
             "Surgical consultation and treatment planning for selected gastrointestinal conditions.",
           image:
-            "/images/specialities/gastro-team-2.jpg",
+            doctorImage,
         },
         {
           title: "Liver & Pancreatic Care",
           description:
             "Coordinated specialist support for liver and pancreatic disorders.",
           image:
-            "/images/specialities/gastro-team-3.jpg",
+            doctorImage,
         },
       ],
     },
@@ -709,6 +731,7 @@ export const specialityDetails = {
 
   "renal-care": {
     title: "Renal Care",
+     aboutImage: renalAbout,
 
     shortTitle: "Kidney & Urinary Care",
 
@@ -744,7 +767,7 @@ export const specialityDetails = {
       designation: "Renal Care Coordination",
        location:"India",
 
-      image: "/images/specialities/renal-doctor.png",
+      image: chairmanImage,
     },
 
     team: {
@@ -759,21 +782,21 @@ export const specialityDetails = {
           description:
             "Specialist medical care for kidney function and renal disorders.",
           image:
-            "/images/specialities/renal-team-1.jpg",
+            doctorImage,
         },
         {
           title: "Urology",
           description:
             "Specialist evaluation and surgical planning for urinary tract conditions.",
           image:
-            "/images/specialities/renal-team-2.jpg",
+            doctorImage,
         },
         {
           title: "Kidney Transplant Support",
           description:
             "Coordination for transplant evaluation and treatment planning where clinically appropriate.",
           image:
-            "/images/specialities/renal-team-3.jpg",
+            doctorImage,
         },
       ],
     },
@@ -831,6 +854,7 @@ export const specialityDetails = {
 
   "liver-transplant": {
     title: "Liver Transplant",
+    aboutImage: liverAbout,
 
     shortTitle: "Advanced Liver Care",
 
@@ -866,7 +890,7 @@ export const specialityDetails = {
        location:"India",
 
 
-      image: "/images/specialities/liver-doctor.png",
+      image: chairmanImage,
     },
 
     team: {
@@ -881,21 +905,21 @@ export const specialityDetails = {
           description:
             "Coordination of specialist assessment for patients being considered for transplantation.",
           image:
-            "/images/specialities/liver-team-1.jpg",
+            doctorImage,
         },
         {
           title: "Liver Surgery",
           description:
             "Specialist surgical evaluation for selected liver conditions.",
           image:
-            "/images/specialities/liver-team-2.jpg",
+            doctorImage,
         },
         {
           title: "Recovery & Follow-Up",
           description:
             "Post-treatment coordination and follow-up planning.",
           image:
-            "/images/specialities/liver-team-3.jpg",
+            doctorImage,
         },
       ],
     },
@@ -948,6 +972,7 @@ export const specialityDetails = {
 
   "lung-transplant": {
     title: "Lung Transplant",
+    aboutImage: lungAbout,
 
     shortTitle: "Advanced Lung & Transplant Care",
 
@@ -983,7 +1008,7 @@ export const specialityDetails = {
        location:"India",
 
 
-      image: "/images/specialities/lung-doctor.png",
+      image: chairmanImage,
     },
 
     team: {
@@ -998,21 +1023,21 @@ export const specialityDetails = {
           description:
             "Specialist assessment for advanced lung and respiratory conditions.",
           image:
-            "/images/specialities/lung-team-1.jpg",
+            doctorImage,
         },
         {
           title: "Transplant Coordination",
           description:
             "Support throughout the evaluation and planned transplant journey.",
           image:
-            "/images/specialities/lung-team-2.jpg",
+            doctorImage,
         },
         {
           title: "Recovery Support",
           description:
             "Rehabilitation and follow-up coordination after treatment.",
           image:
-            "/images/specialities/lung-team-3.jpg",
+            doctorImage,
         },
       ],
     },
@@ -1117,7 +1142,7 @@ export const getSpecialityDetails = (
         "Specialist Coordination",
 
       image:
-        "/images/specialities/default-doctor.png",
+        chairmanImage,
     },
 
     team: {
@@ -1132,21 +1157,21 @@ export const getSpecialityDetails = (
           description:
             "Coordination with suitable specialists based on the patient's medical requirements.",
           image:
-            "/images/specialities/default-team-1.jpg",
+            doctorImage,
         },
         {
           title: "Treatment Planning",
           description:
             "Support in understanding the planned medical journey and treatment pathway.",
           image:
-            "/images/specialities/default-team-2.jpg",
+            doctorImage,
         },
         {
           title: "Recovery Support",
           description:
             "Coordination for follow-up and recovery after treatment.",
           image:
-            "/images/specialities/default-team-3.jpg",
+            doctorImage,
         },
       ],
     },

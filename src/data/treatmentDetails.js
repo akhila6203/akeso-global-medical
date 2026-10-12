@@ -1,3 +1,12 @@
+
+import preparationImage from "../assets/treatments/treatment-preparation.jpg";
+import procedureImage from "../assets/treatments/treatment-procedure.jpg";
+import postTreatmentImage from "../assets/treatments/post-treatment.jpg";
+import benefitsImage from "../assets/treatments/treatment-benefits.jpg";
+import risksImage from "../assets/treatments/treatment-risks.jpg";
+import limitationsImage from "../assets/treatments/treatment-limitations.jpg";
+
+
 export function slugifyTreatment(value = "") {
   return value
     .toLowerCase()
@@ -88,9 +97,9 @@ export function getTreatmentDetail(treatment) {
         "Required investigations may be advised before treatment",
         "Treatment-specific instructions are provided by the clinical team",
       ],
-
-      image:
-        "/images/treatments/treatment-preparation.jpg",
+      image: preparationImage,
+      // image:
+      //   "/images/treatments/treatment-preparation.jpg",
     },
 
     procedure: {
@@ -107,7 +116,7 @@ export function getTreatmentDetail(treatment) {
       ],
 
       image:
-        "/images/treatments/treatment-procedure.jpg",
+        procedureImage,
     },
 
     postTreatment: {
@@ -124,7 +133,7 @@ export function getTreatmentDetail(treatment) {
       ],
 
       image:
-        "/images/treatments/post-treatment.jpg",
+        postTreatmentImage,
     },
 
     benefits: {
@@ -141,7 +150,7 @@ export function getTreatmentDetail(treatment) {
       ],
 
       image:
-        "/images/treatments/treatment-benefits.jpg",
+        benefitsImage,
     },
 
     risks: {
@@ -158,7 +167,7 @@ export function getTreatmentDetail(treatment) {
       ],
 
       image:
-        "/images/treatments/treatment-risks.jpg",
+        risksImage,
     },
 
     limitations: {
@@ -175,7 +184,7 @@ export function getTreatmentDetail(treatment) {
       ],
 
       image:
-        "/images/treatments/treatment-limitations.jpg",
+        limitationsImage,
     },
   };
 }

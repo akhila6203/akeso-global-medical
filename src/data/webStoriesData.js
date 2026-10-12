@@ -1,16 +1,36 @@
-/* =========================================================
-   WEB STORIES DATA
-   Akeso Global Medical Services
 
-   IMPORTANT:
-   1. Every web story has its own slides.
-   2. relatedBlogSlug must exactly match the slug
-      available in your Blogs data.
-   3. If a story has no related blog, keep:
-      relatedBlogSlug: null
-   4. Images should be placed inside:
-      public/images/web-stories/...
-========================================================= */
+/* HEART STORY IMAGES */
+import heartCover from "../assets/web-stories/heart/cover.jpg";
+import heartSlide1 from "../assets/web-stories/heart/slide-1.jpg";
+import heartSlide2 from "../assets/web-stories/heart/slide-2.jpg";
+import heartSlide3 from "../assets/web-stories/heart/slide-3.jpg";
+import heartSlide4 from "../assets/web-stories/heart/slide-4.jpg";
+import heartSlide5 from "../assets/web-stories/heart/slide-5.jpg";
+
+/* KNEE STORY IMAGES */
+import kneeCover from "../assets/web-stories/knee/cover.jpg";
+import kneeSlide1 from "../assets/web-stories/knee/slide-1.jpg";
+import kneeSlide2 from "../assets/web-stories/knee/slide-2.jpg";
+import kneeSlide3 from "../assets/web-stories/knee/slide-3.jpg";
+import kneeSlide4 from "../assets/web-stories/knee/slide-4.jpg";
+import kneeSlide5 from "../assets/web-stories/knee/slide-5.jpg";
+
+/* DIABETES STORY IMAGES */
+import diabetesCover from "../assets/web-stories/diabetes/cover.jpg";
+import diabetesSlide1 from "../assets/web-stories/diabetes/slide-1.jpg";
+import diabetesSlide2 from "../assets/web-stories/diabetes/slide-2.jpg";
+import diabetesSlide3 from "../assets/web-stories/diabetes/slide-3.jpg";
+// import diabetesSlide4 from "../assets/web-stories/diabetes/slide-4.jpg";
+
+/* CHILD HEALTH STORY IMAGES */
+import childCover from "../assets/web-stories/child-health/cover.jpg";
+import childSlide1 from "../assets/web-stories/child-health/slide-1.jpg";
+import childSlide2 from "../assets/web-stories/child-health/slide-2.jpg";
+import childSlide3 from "../assets/web-stories/child-health/slide-3.jpg";
+import childSlide4 from "../assets/web-stories/child-health/slide-4.jpg";
+
+
+
 
 export const webStories = [
   /* =======================================================
@@ -27,15 +47,14 @@ export const webStories = [
     description:
       "Simple everyday habits that can support better heart health and overall wellbeing.",
 
-    thumbnail:
-      "/images/web-stories/heart/cover.jpg",
+      thumbnail: heartCover,
 
     slides: [
       {
         id: 1,
 
         image:
-          "/images/web-stories/heart/slide-1.jpg",
+          heartSlide1,
 
         title:
           "Healthy Heart Habits",
@@ -48,7 +67,7 @@ export const webStories = [
         id: 2,
 
         image:
-          "/images/web-stories/heart/slide-2.jpg",
+          heartSlide2,
 
         title:
           "Stay Active",
@@ -61,7 +80,7 @@ export const webStories = [
         id: 3,
 
         image:
-          "/images/web-stories/heart/slide-3.jpg",
+          heartSlide3,
 
         title:
           "Choose Balanced Meals",
@@ -74,7 +93,7 @@ export const webStories = [
         id: 4,
 
         image:
-          "/images/web-stories/heart/slide-4.jpg",
+          heartSlide4,
 
         title:
           "Manage Everyday Stress",
@@ -87,7 +106,7 @@ export const webStories = [
         id: 5,
 
         image:
-          "/images/web-stories/heart/slide-5.jpg",
+          heartSlide5,
 
         title:
           "Regular Health Checks",
@@ -124,14 +143,13 @@ export const webStories = [
       "A simple visual guide to general recovery and rehabilitation considerations after knee replacement.",
 
     thumbnail:
-      "/images/web-stories/knee/cover.jpg",
+      kneeCover,
 
     slides: [
       {
         id: 1,
 
-        image:
-          "/images/web-stories/knee/slide-1.jpg",
+        image: kneeSlide1,
 
         title:
           "Knee Replacement Recovery",
@@ -144,7 +162,7 @@ export const webStories = [
         id: 2,
 
         image:
-          "/images/web-stories/knee/slide-2.jpg",
+          kneeSlide2,
 
         title:
           "Follow Your Care Plan",
@@ -157,7 +175,7 @@ export const webStories = [
         id: 3,
 
         image:
-          "/images/web-stories/knee/slide-3.jpg",
+          kneeSlide3,
 
         title:
           "Rehabilitation",
@@ -170,7 +188,7 @@ export const webStories = [
         id: 4,
 
         image:
-          "/images/web-stories/knee/slide-4.jpg",
+          kneeSlide4,
 
         title:
           "Monitor Recovery",
@@ -183,7 +201,7 @@ export const webStories = [
         id: 5,
 
         image:
-          "/images/web-stories/knee/slide-5.jpg",
+          kneeSlide5,
 
         title:
           "Gradual Return",
@@ -218,14 +236,14 @@ export const webStories = [
       "A short visual introduction to diabetes, monitoring and everyday health management.",
 
     thumbnail:
-      "/images/web-stories/diabetes/cover.jpg",
+      diabetesCover,
 
     slides: [
       {
         id: 1,
 
         image:
-          "/images/web-stories/diabetes/slide-1.jpg",
+          diabetesSlide1,
 
         title:
           "Understanding Diabetes",
@@ -238,7 +256,7 @@ export const webStories = [
         id: 2,
 
         image:
-          "/images/web-stories/diabetes/slide-2.jpg",
+          diabetesSlide2,
 
         title:
           "Blood Glucose Monitoring",
@@ -251,7 +269,7 @@ export const webStories = [
         id: 3,
 
         image:
-          "/images/web-stories/diabetes/slide-3.jpg",
+          diabetesSlide3,
 
         title:
           "Healthy Eating",
@@ -260,18 +278,18 @@ export const webStories = [
           "Balanced nutrition can form part of an individual diabetes management plan.",
       },
 
-      {
-        id: 4,
+      // {
+      //   id: 4,
 
-        image:
-          "/images/web-stories/diabetes/slide-4.jpg",
+      //   image:
+      //     diabetesSlide4,
 
-        title:
-          "Stay Active",
+      //   title:
+      //     "Stay Active",
 
-        text:
-          "Appropriate physical activity may support general health when suitable for the individual.",
-      },
+      //   text:
+      //     "Appropriate physical activity may support general health when suitable for the individual.",
+      // },
     ],
 
     /*
@@ -298,15 +316,13 @@ export const webStories = [
     description:
       "General information to help parents stay attentive to changes in a child's health.",
 
-    thumbnail:
-      "/images/web-stories/child-health/cover.jpg",
+   thumbnail: childCover,
 
     slides: [
       {
         id: 1,
 
-        image:
-          "/images/web-stories/child-health/slide-1.jpg",
+        image: childSlide1,
 
         title:
           "Child Health Awareness",
@@ -318,8 +334,7 @@ export const webStories = [
       {
         id: 2,
 
-        image:
-          "/images/web-stories/child-health/slide-2.jpg",
+        image: childSlide2,
 
         title:
           "Notice Changes",
@@ -331,8 +346,7 @@ export const webStories = [
       {
         id: 3,
 
-        image:
-          "/images/web-stories/child-health/slide-3.jpg",
+        image: childSlide3,
 
         title:
           "Hydration Matters",
@@ -344,8 +358,7 @@ export const webStories = [
       {
         id: 4,
 
-        image:
-          "/images/web-stories/child-health/slide-4.jpg",
+        image: childSlide4,
 
         title:
           "Seek Medical Advice",
@@ -363,298 +376,7 @@ export const webStories = [
     */
     relatedBlogSlug: null,
   },
-
-  /* =======================================================
-     5. EVERYDAY BALANCED NUTRITION
-  ======================================================= */
-
-  {
-    id: 5,
-
-    slug:
-      "balanced-nutrition",
-
-    title:
-      "Everyday Balanced Nutrition",
-
-    description:
-      "Simple ideas for building a varied and balanced everyday diet.",
-
-    thumbnail:
-      "/images/web-stories/nutrition/cover.jpg",
-
-    slides: [
-      {
-        id: 1,
-
-        image:
-          "/images/web-stories/nutrition/slide-1.jpg",
-
-        title:
-          "Balanced Nutrition",
-
-        text:
-          "A varied diet can provide different nutrients needed for general health.",
-      },
-
-      {
-        id: 2,
-
-        image:
-          "/images/web-stories/nutrition/slide-2.jpg",
-
-        title:
-          "Include Variety",
-
-        text:
-          "Including a variety of appropriate food groups can support balanced nutrition.",
-      },
-
-      {
-        id: 3,
-
-        image:
-          "/images/web-stories/nutrition/slide-3.jpg",
-
-        title:
-          "Choose Appropriate Portions",
-
-        text:
-          "Individual nutrition needs and appropriate portions can differ between people.",
-      },
-
-      {
-        id: 4,
-
-        image:
-          "/images/web-stories/nutrition/slide-4.jpg",
-
-        title:
-          "Stay Hydrated",
-
-        text:
-          "Adequate fluid intake is an important part of general health.",
-      },
-    ],
-
-    /*
-      Final URL:
-      /health-library/blogs/balanced-nutrition-guide
-    */
-    relatedBlogSlug: null,
-  },
-
-  /* =======================================================
-     6. KIDNEY HEALTH AWARENESS
-  ======================================================= */
-
-  {
-    id: 6,
-
-    slug:
-      "kidney-health-awareness",
-
-    title:
-      "Kidney Health Awareness",
-
-    description:
-      "A simple visual introduction to supporting kidney health and recognising health concerns.",
-
-    thumbnail:
-      "/images/web-stories/kidney/cover.jpg",
-
-    slides: [
-      {
-        id: 1,
-
-        image:
-          "/images/web-stories/kidney/slide-1.jpg",
-
-        title:
-          "Kidney Health",
-
-        text:
-          "The kidneys perform important functions including filtering waste from the blood.",
-      },
-
-      {
-        id: 2,
-
-        image:
-          "/images/web-stories/kidney/slide-2.jpg",
-
-        title:
-          "Know Your Health",
-
-        text:
-          "Some health conditions can affect kidney health and may require regular monitoring.",
-      },
-
-      {
-        id: 3,
-
-        image:
-          "/images/web-stories/kidney/slide-3.jpg",
-
-        title:
-          "Follow Medical Advice",
-
-        text:
-          "People with kidney-related concerns should follow individual advice from their healthcare team.",
-      },
-
-      {
-        id: 4,
-
-        image:
-          "/images/web-stories/kidney/slide-4.jpg",
-
-        title:
-          "Health Assessments",
-
-        text:
-          "Appropriate medical assessment can help evaluate kidney function when clinically indicated.",
-      },
-    ],
-
-    /*
-      No related blog currently.
-    */
-    relatedBlogSlug: null,
-  },
-
-  /* =======================================================
-     7. BLOOD PRESSURE AWARENESS
-  ======================================================= */
-
-  {
-    id: 7,
-
-    slug:
-      "blood-pressure-awareness",
-
-    title:
-      "Blood Pressure Awareness",
-
-    description:
-      "Understand why blood pressure awareness and appropriate monitoring can matter.",
-
-    thumbnail:
-      "/images/web-stories/blood-pressure/cover.jpg",
-
-    slides: [
-      {
-        id: 1,
-
-        image:
-          "/images/web-stories/blood-pressure/slide-1.jpg",
-
-        title:
-          "Know Your Blood Pressure",
-
-        text:
-          "Blood pressure measurement provides useful information about cardiovascular health.",
-      },
-
-      {
-        id: 2,
-
-        image:
-          "/images/web-stories/blood-pressure/slide-2.jpg",
-
-        title:
-          "Regular Monitoring",
-
-        text:
-          "Monitoring may be recommended for some people based on their individual health needs.",
-      },
-
-      {
-        id: 3,
-
-        image:
-          "/images/web-stories/blood-pressure/slide-3.jpg",
-
-        title:
-          "Lifestyle Matters",
-
-        text:
-          "Healthy lifestyle choices can form part of an individual blood pressure management plan.",
-      },
-    ],
-
-    /*
-      Final URL:
-      /health-library/blogs/blood-pressure-awareness
-    */
-    relatedBlogSlug: null,
-  },
-
-  /* =======================================================
-     8. EVERYDAY DIGESTIVE HEALTH
-  ======================================================= */
-
-  {
-    id: 8,
-
-    slug:
-      "digestive-health",
-
-    title:
-      "Everyday Digestive Health",
-
-    description:
-      "General lifestyle considerations that may support digestive wellbeing.",
-
-    thumbnail:
-      "/images/web-stories/digestive/cover.jpg",
-
-    slides: [
-      {
-        id: 1,
-
-        image:
-          "/images/web-stories/digestive/slide-1.jpg",
-
-        title:
-          "Digestive Health",
-
-        text:
-          "Digestive health can be influenced by diet, lifestyle and individual medical factors.",
-      },
-
-      {
-        id: 2,
-
-        image:
-          "/images/web-stories/digestive/slide-2.jpg",
-
-        title:
-          "Balanced Meals",
-
-        text:
-          "A varied diet appropriate for the individual can support general digestive wellbeing.",
-      },
-
-      {
-        id: 3,
-
-        image:
-          "/images/web-stories/digestive/slide-3.jpg",
-
-        title:
-          "Persistent Symptoms",
-
-        text:
-          "Persistent or severe digestive symptoms should be discussed with a healthcare professional.",
-      },
-    ],
-
-    /*
-      No related blog currently.
-    */
-   slug: "healthy-digestive-system",
-  },
+ 
 ];
 
 

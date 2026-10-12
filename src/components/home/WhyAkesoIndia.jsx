@@ -4,7 +4,7 @@ const indiaCards = [
     label: "WHY INDIA",
     title: "What Makes India a Destination for Medical Care?",
     paragraphs: [
-      "India — where ancient healing heritage meets modern medical excellence. For centuries, India has been a land of healing, wellness and medical knowledge.",
+      "India , where ancient healing heritage meets modern medical excellence. For centuries, India has been a land of healing, wellness and medical knowledge.",
 
       "Today, that heritage stands alongside advanced hospitals, experienced specialists, modern medical technology and internationally oriented healthcare.",
 

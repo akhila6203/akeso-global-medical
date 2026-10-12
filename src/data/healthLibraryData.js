@@ -2,6 +2,12 @@ import {
   specialties,
 } from "./navigation";
 
+import doctorsImage from "../assets/patient-support/support-doctors.jpg";
+import specialitiesImage from "../assets/patient-support/support-specialities.jpg";
+import treatmentsImage from "../assets/patient-support/support-treatments.jpg";
+import ailmentsImage from "../assets/patient-support/support-ailments.jpg";
+
+
 export const slugifyHealth = (value = "") =>
   value
     .toLowerCase()
@@ -505,7 +511,7 @@ export const healthcareCards = [
       "Our Doctors",
 
     image:
-      "/images/health-library/doctors.jpg",
+      doctorsImage,
 
     path:
       "/doctors",
@@ -516,7 +522,7 @@ export const healthcareCards = [
       "Our Specialities",
 
     image:
-      "/images/health-library/specialities.jpg",
+      specialitiesImage,
 
     path:
       "/specialities",
@@ -527,7 +533,7 @@ export const healthcareCards = [
       "Treatments",
 
     image:
-      "/images/health-library/treatments.jpg",
+      treatmentsImage,
 
     path:
       "/treatments",
@@ -538,7 +544,7 @@ export const healthcareCards = [
       "Ailments",
 
     image:
-      "/images/health-library/ailments.jpg",
+      ailmentsImage,
 
     path:
       "/ailments",

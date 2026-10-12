@@ -223,44 +223,45 @@ const faqs = [
    Replace with approved Akeso patient videos later.
 ========================================================= */
 
+
 const patientStories = [
   {
     id: 1,
-    youtubeId: "YOUR_VIDEO_ID_1",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80",
-    title: "Healthcare Journey in India",
-    text:
-      "An international patient journey from initial medical review through treatment and recovery.",
+    youtubeId: "vZqgw3MKQPo",
+    image: "https://i.ytimg.com/vi/vZqgw3MKQPo/hqdefault.jpg",
+    title: "International Patient Treatment Journey",
+    text: "A closer look at a patient's healthcare journey, from consultation to treatment and recovery.",
   },
   {
     id: 2,
-    youtubeId: "YOUR_VIDEO_ID_2",
-    image:
-      "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=80",
-    title: "Treatment & Recovery Experience",
-    text:
-      "A healthcare journey involving specialist consultation, planned treatment and coordinated recovery.",
+    youtubeId: "ifoywK1O9JA",
+    image: "https://i.ytimg.com/vi/ifoywK1O9JA/hqdefault.jpg",
+    title: "Recovery & Post-Treatment Experience",
+    text: "Discover a patient's experience with medical care, recovery and post-treatment support.",
   },
   {
     id: 3,
-    youtubeId: "YOUR_VIDEO_ID_3",
-    image:
-      "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1000&q=80",
-    title: "International Patient Experience",
-    text:
-      "An international patient's experience receiving coordinated support during treatment in India.",
+    youtubeId: "z7-vFN8MAKw",
+    image: "https://i.ytimg.com/vi/z7-vFN8MAKw/hqdefault.jpg",
+    title: "Healthcare Journey in India",
+    text: "Explore a personal healthcare journey and the experiences shared throughout treatment.",
   },
   {
     id: 4,
-    youtubeId: "YOUR_VIDEO_ID_4",
-    image:
-      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1000&q=80",
-    title: "Recovery & Follow-Up Journey",
-    text:
-      "A patient experience covering treatment support, recovery planning and medical follow-up.",
+    youtubeId: "9e9h_s1v4Tw",
+    image: "https://i.ytimg.com/vi/9e9h_s1v4Tw/hqdefault.jpg",
+    title: "Surgery & Recovery Experience",
+    text: "An insight into a patient's experience of specialist consultation, treatment and recovery.",
+  },
+  {
+    id: 5,
+    youtubeId: "AmvTWJXmIyA",
+    image: "https://i.ytimg.com/vi/AmvTWJXmIyA/hqdefault.jpg",
+    title: "International Care Experience",
+    text: "A personal perspective on healthcare services, medical guidance and patient support.",
   },
 ];
+
 
 
 /* =========================================================
@@ -931,125 +932,115 @@ function RequiredDocuments() {
 ========================================================= */
 
 function FaqSection() {
-  const [openIndex, setOpenIndex] =
-    useState(0);
+  const [openIndex, setOpenIndex] = useState(0);
+
+  // Separate columns - same as Patient Help Desk
+  const leftFaqs = faqs.filter((_, index) => index % 2 === 0);
+  const rightFaqs = faqs.filter((_, index) => index % 2 !== 0);
+
+  const renderFaq = (faq) => {
+    const index = faqs.indexOf(faq);
+    const isOpen = openIndex === index;
+
+    return (
+      <div
+        key={index}
+        className={`
+          overflow-hidden
+          rounded-[18px]
+          border
+          transition-all duration-300
+          ${
+            isOpen
+              ? "border-[#BCD7D5] bg-white shadow-[0_8px_24px_rgba(6,75,80,0.06)]"
+              : "border-[#D5E4E3] bg-[#F8FBFA]"
+          }
+        `}
+      >
+        <button
+          type="button"
+          onClick={() => setOpenIndex(isOpen ? null : index)}
+          aria-expanded={isOpen}
+          className="
+            flex w-full items-center justify-between
+            gap-5 px-7 py-6 text-left
+          "
+        >
+          <span className="
+            text-[16px] font-semibold
+            leading-7 text-[#064B50]
+            sm:text-[18px]
+          ">
+            {faq.question}
+          </span>
+
+          <ChevronDown
+            size={19}
+            strokeWidth={2}
+            className={`
+              shrink-0 text-[#C8942E]
+              transition-transform duration-300
+              ${isOpen ? "rotate-180" : ""}
+            `}
+          />
+        </button>
+
+        <div
+          className={`
+            grid transition-all duration-300
+            ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}
+          `}
+        >
+          <div className="overflow-hidden">
+            <div className="
+              border-t border-[#DDE9E8]
+              px-7 pb-6 pt-5
+            ">
+              <p className="
+                text-[16px] leading-9
+                text-[#526566]
+                md:text-[17px]
+              ">
+                {faq.answer}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <section className="bg-white py-16 md:py-20">
-      <div
-        className="
-          mx-auto
-          max-w-[1250px]
-          px-5
-          sm:px-7
-          lg:px-10
-        "
-      >
+      <div className="mx-auto max-w-[1450px] px-5 sm:px-7 lg:px-10">
+
         <SectionHeading
           eyebrow="Helpful Information"
           title="FAQ’s"
           text="Answers to common questions international patients may have while preparing for their medical journey."
         />
 
-        <div
-          className="
-            mt-10
-            grid
-            grid-cols-1
-            gap-x-8
-            gap-y-3
-            lg:grid-cols-2
-          "
-        >
-          {faqs.map((faq, index) => {
-            const open =
-              openIndex === index;
+        {/* INDEPENDENT LEFT & RIGHT COLUMNS */}
+        <div className="
+          mt-11 grid grid-cols-1
+          items-start gap-4
+          lg:grid-cols-2 lg:gap-10
+        ">
+          {/* LEFT COLUMN */}
+          <div className="space-y-4">
+            {leftFaqs.map(renderFaq)}
+          </div>
 
-            return (
-              <div
-                key={faq.question}
-                className="
-                  overflow-hidden
-                  rounded-xl
-                  border
-                  border-[#DCE8E7]
-                  bg-[#F7FAF9]
-                "
-              >
-                <button
-                  type="button"
-                  onClick={() =>
-                    setOpenIndex(
-                      open ? -1 : index
-                    )
-                  }
-                  className="
-                    flex
-                    w-full
-                    items-center
-                    justify-between
-                    gap-4
-                    px-5
-                    py-4
-                    text-left
-                  "
-                >
-                  <span
-                    className="
-                      text-[14px]
-                      font-semibold
-                      leading-6
-                      text-[#064B50]
-                      md:text-[15px]
-                    "
-                  >
-                    {faq.question}
-                  </span>
-
-                  <ChevronDown
-                    size={18}
-                    className={`
-                      shrink-0
-                      text-[#C8942E]
-                      transition-transform
-                      duration-300
-                      ${
-                        open
-                          ? "rotate-180"
-                          : ""
-                      }
-                    `}
-                  />
-                </button>
-
-                {open && (
-                  <div
-                    className="
-                      border-t
-                      border-[#DCE8E7]
-                      px-5
-                      py-4
-                    "
-                  >
-                    <p
-                      className="
-                        text-[14px]
-                        leading-6
-                        text-[#263F41]
-                      "
-                    >
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          {/* RIGHT COLUMN */}
+          <div className="space-y-4">
+            {rightFaqs.map(renderFaq)}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 
 /* =========================================================
@@ -1448,7 +1439,8 @@ function VideoModal({
           "
         >
           <iframe
-            src={`https://www.youtube.com/embed/${story.youtubeId}?autoplay=1&rel=0`}
+          src={`https://www.youtube.com/embed/${story.youtubeId}?autoplay=1&playsinline=1&rel=0`}
+            // src={`https://www.youtube.com/embed/${story.youtubeId}?autoplay=1&rel=0`}
             title={story.title}
             className="
               absolute

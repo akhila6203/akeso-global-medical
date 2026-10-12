@@ -544,7 +544,7 @@ const getItemPath = (item) => {
                   )}
 
 
-                  <Link
+                  {/* <Link
                     to={getItemPath(
                       item
                     )}
@@ -571,7 +571,37 @@ const getItemPath = (item) => {
                         group-hover:translate-x-1
                       "
                     />
-                  </Link>
+                  </Link> */}
+                  
+{isTreatment && (
+  <Link
+    to={getItemPath(item)}
+    className="
+      mt-auto
+      inline-flex
+      items-center
+      gap-2
+      pt-5
+      text-[14px]
+      font-semibold
+      text-[#064B50]
+      transition
+      hover:text-[#C8942E]
+    "
+  >
+    Know More
+
+    <ArrowRight
+      size={17}
+      className="
+        transition-transform
+        duration-300
+        group-hover:translate-x-1
+      "
+    />
+  </Link>
+)}
+
                 </article>
               )
             )}

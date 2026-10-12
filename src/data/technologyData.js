@@ -1,3 +1,15 @@
+
+import ctScanImage from "../assets/technology/ct-scan.jpg";
+import mriImage from "../assets/technology/mri.jpg";
+import roboticSurgeryImage from "../assets/technology/robotic-surgery.jpg";
+import imageGuidedSurgeryImage from "../assets/technology/image-guided-surgery.jpg";
+import radiationImage from "../assets/technology/radiation.jpg";
+import cathLabImage from "../assets/technology/cath-lab.jpg";
+import surgicalNavigationImage from "../assets/technology/surgical-navigation.jpg";
+import neuroNavigationImage from "../assets/technology/neuro-navigation.jpg";
+
+
+
 /*
 =========================================================
 GLOBAL TECHNOLOGY REGISTRY
@@ -300,7 +312,7 @@ export const technologies = [
       "Advanced CT Imaging",
 
     image:
-      "/images/technology/ct-scan.jpg",
+      ctScanImage,
 
     description:
       "Advanced CT imaging supports detailed diagnostic assessment and treatment planning across appropriate clinical indications.",
@@ -338,7 +350,7 @@ export const technologies = [
         ],
 
         image:
-          "/images/technology/ct-scan.jpg",
+          ctScanImage,
       },
 
       {
@@ -359,7 +371,7 @@ export const technologies = [
         ],
 
         image:
-          "/images/technology/ct-scan.jpg",
+          ctScanImage,
       },
     ],
 
@@ -390,7 +402,7 @@ export const technologies = [
       "Advanced MRI",
 
     image:
-      "/images/technology/mri.jpg",
+      mriImage,
 
     description:
       "Advanced magnetic resonance imaging provides detailed imaging that may support diagnosis and treatment planning.",
@@ -428,7 +440,7 @@ export const technologies = [
         ],
 
         image:
-          "/images/technology/mri.jpg",
+          mriImage,
       },
 
       {
@@ -449,7 +461,7 @@ export const technologies = [
         ],
 
         image:
-          "/images/technology/mri.jpg",
+          mriImage,
       },
     ],
 
@@ -480,7 +492,7 @@ export const technologies = [
       "Robotic Surgery",
 
     image:
-      "/images/technology/robotic-surgery.jpg",
+      roboticSurgeryImage,
 
     description:
       "Robotic-assisted platforms may support selected minimally invasive surgical procedures.",
@@ -518,7 +530,7 @@ export const technologies = [
         ],
 
         image:
-          "/images/technology/robotic-surgery.jpg",
+          roboticSurgeryImage,
       },
 
       {
@@ -539,7 +551,7 @@ export const technologies = [
         ],
 
         image:
-          "/images/technology/robotic-surgery.jpg",
+          roboticSurgeryImage,
       },
     ],
 
@@ -562,7 +574,7 @@ export const technologies = [
         ],
 
         image:
-          "/images/technology/robotic-surgery.jpg",
+          roboticSurgeryImage,
       },
 
       {
@@ -583,7 +595,7 @@ export const technologies = [
         ],
 
         image:
-          "/images/technology/robotic-surgery.jpg",
+          roboticSurgeryImage,
       },
 
       {
@@ -604,7 +616,7 @@ export const technologies = [
         ],
 
         image:
-          "/images/technology/robotic-surgery.jpg",
+          roboticSurgeryImage,
       },
     ],
 
@@ -627,7 +639,7 @@ export const technologies = [
         ],
 
         image:
-          "/images/technology/robotic-surgery.jpg",
+          roboticSurgeryImage,
       },
 
       {
@@ -648,7 +660,7 @@ export const technologies = [
         ],
 
         image:
-          "/images/technology/robotic-surgery.jpg",
+          roboticSurgeryImage,
       },
     ],
 
@@ -679,7 +691,7 @@ export const technologies = [
       "Image-Guided Surgery",
 
     image:
-      "/images/technology/image-guided-surgery.jpg",
+      imageGuidedSurgeryImage,
 
     description:
       "Image-guided systems may assist specialists during selected procedures by providing enhanced visual guidance.",
@@ -725,7 +737,7 @@ export const technologies = [
       "Radiation Technology",
 
     image:
-      "/images/technology/radiation.jpg",
+      radiationImage,
 
     description:
       "Modern radiation platforms may support carefully planned treatment for selected cancer conditions.",
@@ -771,7 +783,7 @@ export const technologies = [
       "Advanced Cath Lab",
 
     image:
-      "/images/technology/cath-lab.jpg",
+      cathLabImage,
 
     description:
       "Cardiac catheterisation facilities may support selected diagnostic and interventional cardiac procedures.",
@@ -817,7 +829,7 @@ export const technologies = [
       "Surgical Navigation",
 
     image:
-      "/images/technology/surgical-navigation.jpg",
+      surgicalNavigationImage,
 
     description:
       "Navigation systems may support selected orthopaedic and surgical procedures with image-based guidance.",
@@ -863,7 +875,7 @@ export const technologies = [
       "Neuro Navigation",
 
     image:
-      "/images/technology/neuro-navigation.jpg",
+      neuroNavigationImage,
 
     description:
       "Neuro-navigation technology may provide image-based guidance during selected neurological procedures.",
@@ -935,64 +947,41 @@ PATIENT STORIES
 =========================================================
 */
 
+
 export const specialityPatientStories = [
   {
     id: 1,
-
-    title:
-      "International Patient Journey",
-
-    subtitle:
-      "Coordinated medical care in India",
-
-    image:
-      "/images/patient-stories/patient-1.jpg",
-
-    videoId: "",
+    title: "International Patient Treatment Journey",
+    subtitle: "International patient healthcare experience",
+    image: "https://i.ytimg.com/vi/vZqgw3MKQPo/hqdefault.jpg",
+    videoId: "vZqgw3MKQPo",
   },
-
   {
     id: 2,
-
-    title:
-      "Treatment & Recovery Journey",
-
-    subtitle:
-      "Specialist care and patient support",
-
-    image:
-      "/images/patient-stories/patient-2.jpg",
-
-    videoId: "",
+    title: "Recovery & Post-Treatment Experience",
+    subtitle: "Patient care and recovery experience",
+    image: "https://i.ytimg.com/vi/ifoywK1O9JA/hqdefault.jpg",
+    videoId: "ifoywK1O9JA",
   },
-
   {
     id: 3,
-
-    title:
-      "Patient Experience",
-
-    subtitle:
-      "From consultation to follow-up",
-
-    image:
-      "/images/patient-stories/patient-3.jpg",
-
-    videoId: "",
+    title: "Healthcare Journey in India",
+    subtitle: "International healthcare journey",
+    image: "https://i.ytimg.com/vi/z7-vFN8MAKw/hqdefault.jpg",
+    videoId: "z7-vFN8MAKw",
   },
-
   {
     id: 4,
-
-    title:
-      "Recovery Story",
-
-    subtitle:
-      "Coordinated support throughout treatment",
-
-    image:
-      "/images/patient-stories/patient-4.jpg",
-
-    videoId: "",
+    title: "Surgery & Recovery Experience",
+    subtitle: "Medical treatment and recovery journey",
+    image: "https://i.ytimg.com/vi/9e9h_s1v4Tw/hqdefault.jpg",
+    videoId: "9e9h_s1v4Tw",
+  },
+  {
+    id: 5,
+    title: "International Care Experience",
+    subtitle: "Patient support and healthcare experience",
+    image: "https://i.ytimg.com/vi/AmvTWJXmIyA/hqdefault.jpg",
+    videoId: "AmvTWJXmIyA",
   },
 ];

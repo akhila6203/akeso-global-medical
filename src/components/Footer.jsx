@@ -17,11 +17,14 @@ export default function Footer() {
   const phoneNumber = "+919885106619";
   const displayPhone = "+91 9885106619";
 
+  const phoneNumber2 = "+919100585435";
+  const displayPhone2 = "+91 9100585435";
+
   // WhatsApp number: country code + number
   // Do not use +, spaces or -
   const whatsappNumber = "919885106619";
 
-  const email = "care@akesoglobal.com";
+  const email = "akesoglobalhealth@gmail.com";
 
 
   /* =========================================================
@@ -288,6 +291,47 @@ export default function Footer() {
 
               </a>
 
+              
+{/* SECOND PHONE NUMBER */}
+<a
+  href={`tel:${phoneNumber2}`}
+  className="group flex items-start gap-3"
+>
+  <span
+    className="
+      flex h-10 w-10 shrink-0
+      items-center justify-center
+      rounded-lg bg-white/10
+      text-[#f1c75b]
+      transition duration-300
+      group-hover:bg-[#f1c75b]
+      group-hover:text-[#07565b]
+    "
+  >
+    <Phone size={18} strokeWidth={2} />
+  </span>
+
+  <div>
+    <span
+      className="
+        mb-1 block text-[11px]
+        font-semibold uppercase
+        tracking-[0.08em] text-white/85
+      "
+    >
+      Alternate Mobile
+    </span>
+
+    <span
+      className="
+        text-[16px] text-white
+        transition group-hover:text-white
+      "
+    >
+      {displayPhone2}
+    </span>
+  </div>
+</a>
 
               {/* EMAIL */}
 

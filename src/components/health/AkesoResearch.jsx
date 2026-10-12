@@ -6,6 +6,8 @@ import {
   Link,
 } from "react-router-dom";
 
+import researchImage from "../../assets/health/research.jpg";
+
 
 export default function AkesoResearch() {
   return (
@@ -85,7 +87,7 @@ export default function AkesoResearch() {
               sm:min-h-[340px]
             "
           >
-            <img
+            {/* <img
               src="/images/health-library/research.jpg"
               alt="Akeso Research"
               className="
@@ -93,7 +95,12 @@ export default function AkesoResearch() {
                 w-full
                 object-cover
               "
-            />
+            /> */}
+            <img
+  src={researchImage}
+  alt="Medical Research and Healthcare Innovation"
+  className="h-full w-full object-cover"
+/>
           </div>
 
 
@@ -112,12 +119,12 @@ export default function AkesoResearch() {
           >
             <h3
               className="
-                text-[25px]
+                text-[28px]
                 font-semibold
                 leading-tight
                 text-[#064B50]
 
-                sm:text-[30px]
+                sm:text-[34px]
               "
             >
               Research, Knowledge &
@@ -127,7 +134,7 @@ export default function AkesoResearch() {
             <p
               className="
                 mt-5
-                text-[16px]
+                text-[18px]
                 leading-8
                 text-[#272828]
               "

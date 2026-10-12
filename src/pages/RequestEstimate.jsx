@@ -31,80 +31,42 @@ import {
    youtubeId = "ABC123XYZ"
 ========================================================= */
 
+
 const patientStories = [
   {
     id: 1,
-
-    youtubeId: "YOUR_VIDEO_ID_1",
-
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80",
-
-    title:
-      "Healthcare Journey in India",
-
-    text:
-      "An international healthcare experience from initial consultation through treatment and recovery.",
+    youtubeId: "vZqgw3MKQPo",
+    image: "https://i.ytimg.com/vi/vZqgw3MKQPo/hqdefault.jpg",
+    title: "International Patient Treatment Journey",
+    text: "A closer look at a patient's healthcare journey, from consultation to treatment and recovery.",
   },
-
   {
     id: 2,
-
-    youtubeId: "YOUR_VIDEO_ID_2",
-
-    image:
-      "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=80",
-
-    title:
-      "Surgery & Recovery Experience",
-
-    text:
-      "A patient journey through specialist consultation, planned treatment and coordinated recovery.",
+    youtubeId: "ifoywK1O9JA",
+    image: "https://i.ytimg.com/vi/ifoywK1O9JA/hqdefault.jpg",
+    title: "Recovery & Post-Treatment Experience",
+    text: "Discover a patient's experience with medical care, recovery and post-treatment support.",
   },
-
   {
     id: 3,
-
-    youtubeId: "YOUR_VIDEO_ID_3",
-
-    image:
-      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1000&q=80",
-
-    title:
-      "International Care Experience",
-
-    text:
-      "A patient shares their experience of receiving coordinated healthcare assistance during their visit to India.",
+    youtubeId: "z7-vFN8MAKw",
+    image: "https://i.ytimg.com/vi/z7-vFN8MAKw/hqdefault.jpg",
+    title: "Healthcare Journey in India",
+    text: "Explore a personal healthcare journey and the experiences shared throughout treatment.",
   },
-
   {
     id: 4,
-
-    youtubeId: "YOUR_VIDEO_ID_4",
-
-    image:
-      "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1000&q=80",
-
-    title:
-      "Treatment Support Experience",
-
-    text:
-      "A coordinated medical journey with hospital support, treatment guidance and recovery assistance.",
+    youtubeId: "9e9h_s1v4Tw",
+    image: "https://i.ytimg.com/vi/9e9h_s1v4Tw/hqdefault.jpg",
+    title: "Surgery & Recovery Experience",
+    text: "An insight into a patient's experience of specialist consultation, treatment and recovery.",
   },
-
   {
     id: 5,
-
-    youtubeId: "YOUR_VIDEO_ID_5",
-
-    image:
-      "https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&w=1000&q=80",
-
-    title:
-      "Recovery & Follow-Up Journey",
-
-    text:
-      "Support throughout treatment, recovery planning and follow-up care for an international patient.",
+    youtubeId: "AmvTWJXmIyA",
+    image: "https://i.ytimg.com/vi/AmvTWJXmIyA/hqdefault.jpg",
+    title: "International Care Experience",
+    text: "A personal perspective on healthcare services, medical guidance and patient support.",
   },
 ];
 
@@ -1804,7 +1766,8 @@ function VideoModal({
           "
         >
           <iframe
-            src={`https://www.youtube.com/embed/${story.youtubeId}?autoplay=1&rel=0`}
+           src={`https://www.youtube.com/embed/${story.youtubeId}?autoplay=1&playsinline=1&rel=0`}
+            // src={`https://www.youtube.com/embed/${story.youtubeId}?autoplay=1&rel=0`}
 
             title={story.title}
 

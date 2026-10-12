@@ -17,82 +17,55 @@ import {
    Later approved patient videos tho replace cheyyandi.
 ===================================================== */
 
+
 const stories = [
   {
     id: 1,
-
-    title:
-      "International Patient Treatment Journey",
-
+    title: "International Patient Treatment Journey",
     description:
-      "A patient shares their experience of consultation, treatment and coordinated healthcare support.",
-
+      "A closer look at a patient's healthcare journey, from consultation to treatment and recovery.",
+    youtubeId: "vZqgw3MKQPo",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80",
-
-    youtubeId: "ysz5S6PUM-U",
+      "https://i.ytimg.com/vi/vZqgw3MKQPo/hqdefault.jpg",
   },
-
   {
     id: 2,
-
-    title:
-      "Recovery & Post-Treatment Experience",
-
+    title: "Recovery & Post-Treatment Experience",
     description:
-      "A healthcare journey covering treatment planning, recovery and post-treatment support.",
-
+      "Discover a patient's experience with medical care, recovery and post-treatment support.",
+    youtubeId: "ifoywK1O9JA",
     image:
-      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=900&q=80",
-
-    youtubeId: "ysz5S6PUM-U",
+      "https://i.ytimg.com/vi/ifoywK1O9JA/hqdefault.jpg",
   },
-
   {
     id: 3,
-
-    title:
-      "Healthcare Journey in India",
-
+    title: "Healthcare Journey in India",
     description:
-      "An international healthcare experience from initial consultation through treatment and recovery.",
-
+      "Explore a personal healthcare journey and the experiences shared throughout treatment.",
+    youtubeId: "z7-vFN8MAKw",
     image:
-      "https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&w=900&q=80",
-
-    youtubeId: "ysz5S6PUM-U",
+      "https://i.ytimg.com/vi/z7-vFN8MAKw/hqdefault.jpg",
   },
-
   {
     id: 4,
-
-    title:
-      "Surgery & Recovery Experience",
-
+    title: "Surgery & Recovery Experience",
     description:
-      "A patient journey through specialist consultation, planned treatment and coordinated recovery.",
-
+      "An insight into a patient's experience of specialist consultation, treatment and recovery.",
+    youtubeId: "9e9h_s1v4Tw",
     image:
-      "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=900&q=80",
-
-    youtubeId: "ysz5S6PUM-U",
+      "https://i.ytimg.com/vi/9e9h_s1v4Tw/hqdefault.jpg",
   },
-
   {
     id: 5,
-
-    title:
-      "International Care Experience",
-
+    title: "International Care Experience",
     description:
-      "A patient shares their experience of receiving coordinated healthcare assistance during their visit to India.",
-
+      "A personal perspective on healthcare services, medical guidance and patient support.",
+    youtubeId: "AmvTWJXmIyA",
     image:
-      "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=900&q=80",
-
-    youtubeId: "ysz5S6PUM-U",
+      "https://i.ytimg.com/vi/AmvTWJXmIyA/hqdefault.jpg",
   },
 ];
+
 
 export default function PatientStories() {
   const [
@@ -688,26 +661,18 @@ function StoryCard({
    VIDEO POPUP
 ===================================================== */
 
-function VideoPopup({
-  story,
-  onClose,
-}) {
+/* =====================================================
+   VIDEO POPUP
+===================================================== */
+
+function VideoPopup({ story, onClose }) {
   return (
     <div
       className="
-        fixed
-        inset-0
-        z-[9999]
-
-        flex
-        items-center
-        justify-center
-
+        fixed inset-0 z-[9999]
+        flex items-center justify-center
         bg-[#021f21]/90
-
-        p-4
-        sm:p-6
-
+        p-4 sm:p-6
         backdrop-blur-sm
       "
       onClick={onClose}
@@ -715,49 +680,28 @@ function VideoPopup({
       <div
         className="
           relative
-
           w-full
           max-w-[1100px]
-
           overflow-hidden
-
           rounded-[20px]
-
           bg-black
-
           shadow-[0_30px_90px_rgba(0,0,0,0.45)]
         "
-        onClick={(event) =>
-          event.stopPropagation()
-        }
+        onClick={(event) => event.stopPropagation()}
       >
+        {/* CLOSE BUTTON */}
         <button
           type="button"
           onClick={onClose}
           aria-label="Close video"
           className="
-            absolute
-            right-3
-            top-3
-            z-20
-
-            flex
-            h-12
-            w-12
-            items-center
-            justify-center
-
-            rounded-full
-
-            bg-white
-
+            absolute right-3 top-3 z-20
+            flex h-12 w-12
+            items-center justify-center
+            rounded-full bg-white
             text-[#064B50]
-
             shadow-lg
-
-            transition-all
-            duration-300
-
+            transition-all duration-300
             hover:rotate-90
             hover:bg-[#C8942E]
             hover:text-white
@@ -766,16 +710,15 @@ function VideoPopup({
           <X size={22} />
         </button>
 
-        <div className="aspect-video">
+        {/* VIDEO */}
+        <div className="aspect-video w-full bg-black">
           <iframe
-            src={`https://www.youtube.com/embed/${story.youtubeId}?autoplay=1&rel=0`}
+            key={story.youtubeId}
+            src={`https://www.youtube.com/embed/${story.youtubeId}?autoplay=1&playsinline=1&rel=0`}
             title={story.title}
-            className="h-full w-full"
-            allow="
-              autoplay;
-              encrypted-media;
-              picture-in-picture
-            "
+            className="h-full w-full border-0"
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           />
         </div>

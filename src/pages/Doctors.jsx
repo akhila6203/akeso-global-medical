@@ -1,42 +1,43 @@
 
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+
 import {
   ArrowRight,
+  CalendarDays,
   Search,
   Stethoscope,
-  GraduationCap,
-  MapPin,
-  Clock3,
-  BadgeCheck,
   UserRound,
+  X,
 } from "lucide-react";
 
 import Breadcrumb from "../components/Breadcrumb";
-import { doctors } from "../data/doctorsData";
+
+import {
+  doctors,
+  getAppointmentLink,
+} from "../data/doctorsData";
 
 export default function Doctors() {
   const [search, setSearch] = useState("");
   const [speciality, setSpeciality] = useState("All");
 
-  const specialities = [
-    "All",
-    ...new Set(doctors.map((doctor) => doctor.speciality)),
-  ];
+  const specialities = useMemo(() => {
+    return [
+      "All",
+      ...Array.from(
+        new Set(doctors.map((doctor) => doctor.speciality))
+      ).sort(),
+    ];
+  }, []);
 
   const filteredDoctors = useMemo(() => {
-    return doctors.filter((doctor) => {
-      const keyword = search.trim().toLowerCase();
+    const keyword = search.trim().toLowerCase();
 
-      const matchesSearch = [
-        doctor.name,
-        doctor.speciality,
-        doctor.designation,
-        doctor.location,
-      ]
-        .join(" ")
-        .toLowerCase()
-        .includes(keyword);
+    return doctors.filter((doctor) => {
+      const matchesSearch =
+        doctor.name.toLowerCase().includes(keyword) ||
+        doctor.speciality.toLowerCase().includes(keyword);
 
       const matchesSpeciality =
         speciality === "All" ||
@@ -50,50 +51,68 @@ export default function Doctors() {
     <main className="min-h-screen bg-white">
       <Breadcrumb
         title="Our Doctors"
-        description="Explore doctor profiles and areas of medical expertise."
-        items={[{ label: "Doctors" }]}
+        description="Explore our doctors and connect with our team for consultation and appointment assistance."
+        items={[{ label: "Our Doctors" }]}
       />
 
-      <section className="py-14 md:py-20">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-7 lg:px-10">
+      <section className="bg-white py-6 sm:py-10 lg:py-14">
+        <div className="mx-auto max-w-[1350px] px-4 sm:px-6 lg:px-10">
 
+          {/* PAGE HEADING */}
           <div className="mx-auto max-w-[800px] text-center">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#C8942E]">
-              Our Specialist Network
-            </p>
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#EEF6F5] px-4 py-2 text-[12px] font-semibold text-[#064B50]">
+              <Stethoscope size={16} />
+              Medical Specialists
+            </span>
 
-            <h2 className="mt-3 text-[30px] font-semibold text-[#064B50] md:text-[42px]">
+            <h1 className="mt-3 text-[29px] font-semibold text-[#064B50] sm:text-[36px] lg:text-[42px]">
               Meet Our Doctors
-            </h2>
+            </h1>
 
-            <p className="mt-4 text-[15px] leading-8 text-gray-600">
-              Explore specialist profiles, qualifications,
-              clinical expertise and practice information.
+            <p className="mt-2 text-[15px] leading-8 text-[#52696A] sm:text-[16px]">
+              Explore medical specialists across different
+              areas of healthcare. View doctor profiles and
+              connect with our team for appointment support.
             </p>
           </div>
 
           {/* SEARCH AND FILTER */}
-          <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-gray-100 bg-[#F7FAF9] p-4 sm:flex-row sm:p-5">
+          <div className="mt-4 grid gap-4  p-3 sm:grid-cols-[1fr_250px] sm:p-4">
 
-            <div className="relative flex-1">
+            <div className="relative">
               <Search
                 size={19}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-[#78908E]"
               />
 
               <input
                 type="text"
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search doctors or specialities..."
-                className="h-12 w-full rounded-xl border border-gray-200 bg-white pl-11 pr-4 text-[14px] outline-none focus:border-[#064B50]"
+                onChange={(event) =>
+                  setSearch(event.target.value)
+                }
+                placeholder="Search doctor or speciality..."
+                className="h-12 w-full rounded-xl border border-[#D8E5E3] bg-white pl-11 pr-10 text-[14px] text-[#064B50] outline-none focus:border-[#C8942E]"
               />
+
+              {search && (
+                <button
+                  type="button"
+                  onClick={() => setSearch("")}
+                  aria-label="Clear search"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#52696A]"
+                >
+                  <X size={18} />
+                </button>
+              )}
             </div>
 
             <select
               value={speciality}
-              onChange={(e) => setSpeciality(e.target.value)}
-              className="h-12 w-full rounded-xl border border-gray-200 bg-white px-4 text-[14px] text-gray-700 outline-none focus:border-[#064B50] sm:w-[240px]"
+              onChange={(event) =>
+                setSpeciality(event.target.value)
+              }
+              className="h-12 w-full rounded-xl border border-[#D8E5E3] bg-white px-4 text-[14px] text-[#064B50] outline-none focus:border-[#C8942E]"
             >
               {specialities.map((item) => (
                 <option key={item} value={item}>
@@ -105,131 +124,124 @@ export default function Doctors() {
             </select>
           </div>
 
-          {/* DOCTOR CARDS */}
-          {filteredDoctors.length > 0 ? (
-            <div className="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+          {/* RESULTS */}
+          <div className="mt-6 flex items-center justify-between gap-3">
+            <p className="text-[14px] text-[#52696A]">
+              Showing{" "}
+              <span className="font-semibold text-[#064B50]">
+                {filteredDoctors.length}
+              </span>{" "}
+              doctors
+            </p>
 
-              {filteredDoctors.map((doctor) => (
-                <article
-                  key={doctor.id}
-                  className="group overflow-hidden rounded-2xl border border-[#E5ECEB] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.035)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                >
-
-                  {/* DOCTOR IMAGE */}
-                  <div className="relative flex h-[280px] items-center justify-center overflow-hidden bg-[#EEF5F3] sm:h-[300px]">
-
-                    <img
-                      src={doctor.image}
-                      alt={doctor.name}
-                      loading="lazy"
-                      className="h-full w-full object-contain p-5 transition-transform duration-500 group-hover:scale-105"
-                    />
-
-                    <span className="absolute bottom-4 left-4 rounded-full bg-white px-4 py-2 text-[12px] font-semibold text-[#064B50] shadow-sm">
-                      {doctor.speciality}
-                    </span>
-                  </div>
-
-                  {/* CONTENT */}
-                  <div className="p-6">
-                    <h3 className="text-[21px] font-semibold text-[#064B50]">
-                      {doctor.name}
-                    </h3>
-
-                    <p className="mt-2 text-[13px] leading-6 text-gray-500">
-                      {doctor.designation}
-                    </p>
-
-                    <div className="mt-5 space-y-3 border-t border-gray-100 pt-4">
-
-                      {/* EXPERIENCE */}
-                      <div className="flex items-start gap-3">
-                        <Clock3
-                          size={18}
-                          className="mt-1 shrink-0 text-[#C8942E]"
-                        />
-                        <p className="text-[13px] text-gray-600">
-                          <strong>Experience:</strong>{" "}
-                          {doctor.experience != null
-                            ? `${doctor.experience} Years`
-                            : "To be confirmed"}
-                        </p>
-                      </div>
-
-                      {/* QUALIFICATIONS */}
-                      <div className="flex items-start gap-3">
-                        <GraduationCap
-                          size={18}
-                          className="mt-1 shrink-0 text-[#C8942E]"
-                        />
-                        <p className="text-[13px] leading-6 text-gray-600">
-                          <strong>Qualifications:</strong>{" "}
-                          {doctor.qualifications.join(", ")}
-                        </p>
-                      </div>
-
-                      {/* LOCATION */}
-                      <div className="flex items-start gap-3">
-                        <MapPin
-                          size={18}
-                          className="mt-1 shrink-0 text-[#C8942E]"
-                        />
-                        <p className="text-[13px] text-gray-600">
-                          <strong>Location:</strong>{" "}
-                          {doctor.location}
-                        </p>
-                      </div>
-
-                      {/* REGISTRATION */}
-                      {/* <div className="flex items-start gap-3">
-                        <BadgeCheck
-                          size={18}
-                          className="mt-1 shrink-0 text-[#C8942E]"
-                        />
-                        <p className="text-[13px] text-gray-600">
-                          <strong>Registration No:</strong>{" "}
-                          {doctor.registrationNumber ||
-                            "To be verified"}
-                        </p>
-                      </div> */}
-                    </div>
-
-                    <Link
-                      to={`/doctors/${doctor.id}`}
-                      className="mt-6 flex h-11 items-center justify-center gap-2 rounded-lg bg-[#064B50] text-[13px] font-semibold text-white transition-colors hover:bg-[#08666C]"
-                    >
-                      Know More
-                      <ArrowRight size={17} />
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="mt-12 flex flex-col items-center rounded-2xl bg-[#F7FAF9] px-6 py-16 text-center">
-              <UserRound size={42} className="text-[#064B50]" />
-
-              <h3 className="mt-4 text-xl font-semibold text-[#064B50]">
-                No Doctors Found
-              </h3>
-
-              <p className="mt-2 text-sm text-gray-500">
-                Try a different name or speciality.
-              </p>
-
+            {(search || speciality !== "All") && (
               <button
+                type="button"
                 onClick={() => {
                   setSearch("");
                   setSpeciality("All");
                 }}
-                className="mt-5 rounded-lg bg-[#064B50] px-5 py-3 text-sm font-medium text-white"
+                className="text-[13px] font-semibold text-[#A9781F]"
               >
                 Clear Filters
               </button>
+            )}
+          </div>
+
+          {/* DOCTORS GRID */}
+          {filteredDoctors.length ? (
+            <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {filteredDoctors.map((doctor) => (
+                <DoctorCard
+                  key={doctor.id}
+                  doctor={doctor}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="mt-8 rounded-[20px] border border-[#DCE8E6] bg-[#F7FAF9] px-5 py-16 text-center">
+              <UserRound
+                size={42}
+                className="mx-auto text-[#A5BCB9]"
+              />
+
+              <h3 className="mt-4 text-[20px] font-semibold text-[#064B50]">
+                No doctors found
+              </h3>
+
+              <p className="mt-2 text-[14px] text-[#52696A]">
+                Try searching with another name or speciality.
+              </p>
             </div>
           )}
         </div>
       </section>
     </main>
+  );
+}
+
+/* ==========================================
+   DOCTOR CARD
+========================================== */
+
+function DoctorCard({ doctor }) {
+  return (
+    <article className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-[#DCE8E6] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#C8942E]/50 hover:shadow-[0_16px_38px_rgba(6,75,80,0.10)]">
+
+      {/* DOCTOR IMAGE - NO FEATURED BADGE */}
+      <div className="overflow-hidden bg-[#EEF6F5]">
+        <img
+          src={doctor.image}
+          alt={`Illustration for ${doctor.name}`}
+          loading="lazy"
+          className="h-[245px] w-full object-contain transition-transform duration-500 group-hover:scale-[1.03] sm:h-[260px] lg:h-[270px]"
+        />
+      </div>
+
+      {/* CONTENT */}
+      <div className="flex flex-1 flex-col p-4 sm:p-5">
+        <h2 className="min-h-[52px] text-[18px] font-semibold leading-[1.5] text-[#064B50] sm:text-[19px]">
+          {doctor.name}
+        </h2>
+
+        <div className="mt-1 flex items-start gap-2 text-[15px] leading-6 text-[#232525] sm:text-[16px]">
+          <Stethoscope
+            size={16}
+            className="mt-1 shrink-0 text-[#C8942E]"
+          />
+          <span>{doctor.speciality}</span>
+        </div>
+
+        <div className="mt-auto pt-6">
+          <div className="h-px bg-[#E5EFED]" />
+
+        
+          <div className="mt-4 flex w-full gap-2">
+
+            <Link
+              to={`/doctors/${doctor.id}`}
+              title="Know More"
+              className="flex min-h-[40px] min-w-0 flex-[34_1_0%] items-center justify-center rounded-lg bg-[#064B50] px-1 py-2 text-center text-[10px] font-semibold leading-tight text-white transition hover:bg-[#0B6268] sm:text-[13px]"
+            >
+              Know More
+            </Link>
+
+            <a
+              href={getAppointmentLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-[40px] min-w-0 flex-[66_1_0%] items-center justify-center gap-2 rounded-lg bg-[#C8942E] px-2 py-2 text-center text-[12px] font-semibold leading-tight text-white transition hover:bg-[#A9781F] sm:text-[13px]"
+            >
+              <CalendarDays
+                size={15}
+                className="shrink-0"
+              />
+              <span>Book Appointment</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </article>
   );
 }

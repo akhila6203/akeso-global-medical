@@ -8,14 +8,14 @@ import { Link } from "react-router-dom";
 const treatments = [
   {
     name: "Knee Replacement",
-    usa: "$47,500",
-    india: "$40,000+",
+    usa: "$42,500",
+    india: "$9,999",
     saving: "≈79% less",
   },
   {
     name: "Hip Replacement",
-    usa: "$42,500+",
-    india: "$45,000+",
+    usa: "$47,500+",
+    india: "$16,500",
     saving: "≈75% less",
   },
 ];
@@ -60,7 +60,8 @@ export default function CostComparison() {
             </p>
 
             <Link
-              to="/contact"
+              // to="/contact"
+               to="/international/request-an-estimate"
               className="
                 group
                 mt-7
@@ -147,7 +148,7 @@ export default function CostComparison() {
           </div>
         </div>
 
-        <p className="mt-8 text-center text-[15px] leading-7 text-white/80">
+        <p className="mt-8 text-center text-[16px] leading-7 text-white/80">
           Indicative comparison figures from the Akeso
           company portfolio. Final pricing depends on
           medical evaluation, implant selection, hospital

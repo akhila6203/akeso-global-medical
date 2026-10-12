@@ -1,5 +1,5 @@
 import Breadcrumb from "../components/Breadcrumb";
-
+import researchImage from "../assets/health/research.jpg";
 
 export default function Research() {
   return (
@@ -61,7 +61,7 @@ export default function Research() {
               bg-[#EEF6F5]
             "
           >
-            <img
+            {/* <img
               src="/images/health-library/research.jpg"
               alt="Akeso Research"
               className="
@@ -73,7 +73,13 @@ export default function Research() {
 
                 lg:h-[430px]
               "
-            />
+            /> */}
+            <img
+  src={researchImage}
+  alt="Medical Research and Healthcare Innovation"
+  className=" h-[300px] w-full object-cover sm:h-[380px]  lg:h-[430px]
+              "
+/>
           </div>
 
 

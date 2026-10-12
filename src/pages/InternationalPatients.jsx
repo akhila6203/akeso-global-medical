@@ -4,7 +4,7 @@ import InternationalServices from "../components/international/InternationalServ
 import TreatmentJourney from "../components/international/TreatmentJourney";
 import InternationalDoctors from "../components/international/InternationalDoctors";
 import PatientStories from "../components/international/PatientStories";
-import AwardsAccreditations from "../components/international/AwardsAccreditations";
+// import AwardsAccreditations from "../components/international/AwardsAccreditations";
 
 // export default function InternationalPatients() {
 export default function InternationalPatients({
@@ -27,7 +27,7 @@ export default function InternationalPatients({
 
       <PatientStories />
 
-      <AwardsAccreditations />
+      {/* <AwardsAccreditations /> */}
     </main>
   );
 }

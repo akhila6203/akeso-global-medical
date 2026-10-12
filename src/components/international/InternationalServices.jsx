@@ -16,16 +16,16 @@ import {
   Navigation name, slug and icon come directly
   from your existing navigation.js file.
 */
+import patientHelpDesk from "../../assets/international/patient-help-desk.jpg";
+import planYourTrip from "../../assets/international/plan-your-trip.jpg";
+import requestEstimate from "../../assets/international/request-estimate.jpg";
+
+
 
 const serviceImages = {
-  "patient-help-desk":
-    "/images/international/patient-help-desk.jpg",
-
-  "plan-your-trip":
-    "/images/international/plan-your-trip.jpg",
-
-  "request-an-estimate":
-    "/images/international/request-estimate.jpg",
+  "patient-help-desk": patientHelpDesk,
+  "plan-your-trip": planYourTrip,
+  "request-an-estimate": requestEstimate,
 };
 
 const serviceDescriptions = {

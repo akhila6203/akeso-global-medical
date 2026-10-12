@@ -536,188 +536,188 @@ export const services = [
      HOMECARE
   ======================================================= */
 
-  {
-    id: 4,
+  // {
+  //   id: 4,
 
-    name: "Homecare Services",
+  //   name: "Homecare Services",
 
-    slug: "homecare-services",
+  //   slug: "homecare-services",
 
-    icon: House,
+  //   icon: House,
 
-    eyebrow: "Care at Home",
+  //   eyebrow: "Care at Home",
 
-    shortDescription:
-      "Coordinate suitable healthcare and recovery support for patients who need continued care at home.",
+  //   shortDescription:
+  //     "Coordinate suitable healthcare and recovery support for patients who need continued care at home.",
 
-    heroDescription:
-      "Home-based support can help selected patients continue recovery, rehabilitation and clinical care outside the hospital.",
+  //   heroDescription:
+  //     "Home-based support can help selected patients continue recovery, rehabilitation and clinical care outside the hospital.",
 
-    aboutTitle:
-      "Continuity of Care in a Familiar Environment",
+  //   aboutTitle:
+  //     "Continuity of Care in a Familiar Environment",
 
-    about:
-      "Some patients need ongoing support after hospital discharge or during recovery from illness, injury or treatment. Homecare can help coordinate appropriate nursing, rehabilitation and patient-support requirements based on the treating team's care plan and the services available.",
+  //   about:
+  //     "Some patients need ongoing support after hospital discharge or during recovery from illness, injury or treatment. Homecare can help coordinate appropriate nursing, rehabilitation and patient-support requirements based on the treating team's care plan and the services available.",
 
-    introTitle:
-      "What Can Homecare Help With?",
+  //   introTitle:
+  //     "What Can Homecare Help With?",
 
-    introText:
-      "The exact homecare plan depends on the patient's condition. The goal is to support continuity of care, help families follow medical instructions and coordinate qualified assistance where clinically appropriate.",
-
-
-    features: [
-      {
-        icon: HeartPulse,
-        title: "Nursing Support",
-        text:
-          "Selected nursing needs may include monitoring, dressing support and other clinician-directed care.",
-      },
-
-      {
-        icon: Dumbbell,
-        title: "Physiotherapy",
-        text:
-          "Rehabilitation support can help suitable patients work on mobility, strength and functional recovery.",
-      },
-
-      {
-        icon: Pill,
-        title: "Medication Support",
-        text:
-          "Patients and caregivers can receive support in following the medication plan provided by the treating clinician.",
-      },
-
-      {
-        icon: Activity,
-        title: "Health Monitoring",
-        text:
-          "Selected observations can be tracked according to the patient's care plan and clinical requirements.",
-      },
-
-      {
-        icon: Users,
-        title: "Caregiver Guidance",
-        text:
-          "Families can be supported in understanding appropriate day-to-day care instructions.",
-      },
-
-      {
-        icon: Stethoscope,
-        title: "Follow-Up Coordination",
-        text:
-          "Medical follow-up can be coordinated when the treating team needs to review recovery progress.",
-      },
-    ],
+  //   introText:
+  //     "The exact homecare plan depends on the patient's condition. The goal is to support continuity of care, help families follow medical instructions and coordinate qualified assistance where clinically appropriate.",
 
 
-    careTitle:
-      "Homecare Support Areas",
+  //   features: [
+  //     {
+  //       icon: HeartPulse,
+  //       title: "Nursing Support",
+  //       text:
+  //         "Selected nursing needs may include monitoring, dressing support and other clinician-directed care.",
+  //     },
 
-    careItems: [
-      {
-        icon: HeartPulse,
-        title: "Skilled Nursing",
-        text:
-          "Appropriate nursing support based on the patient's clinical requirements.",
-      },
+  //     {
+  //       icon: Dumbbell,
+  //       title: "Physiotherapy",
+  //       text:
+  //         "Rehabilitation support can help suitable patients work on mobility, strength and functional recovery.",
+  //     },
 
-      {
-        icon: Dumbbell,
-        title: "Physical Rehabilitation",
-        text:
-          "Selected physiotherapy support for mobility, strength and functional recovery.",
-      },
+  //     {
+  //       icon: Pill,
+  //       title: "Medication Support",
+  //       text:
+  //         "Patients and caregivers can receive support in following the medication plan provided by the treating clinician.",
+  //     },
 
-      {
-        icon: Activity,
-        title: "Recovery Monitoring",
-        text:
-          "Support in following the monitoring plan advised by the treating healthcare team.",
-      },
+  //     {
+  //       icon: Activity,
+  //       title: "Health Monitoring",
+  //       text:
+  //         "Selected observations can be tracked according to the patient's care plan and clinical requirements.",
+  //     },
 
-      {
-        icon: FileText,
-        title: "Care Instructions",
-        text:
-          "Helping patients and caregivers organise discharge instructions and follow-up requirements.",
-      },
+  //     {
+  //       icon: Users,
+  //       title: "Caregiver Guidance",
+  //       text:
+  //         "Families can be supported in understanding appropriate day-to-day care instructions.",
+  //     },
 
-      {
-        icon: Users,
-        title: "Family Support",
-        text:
-          "Practical guidance for caregivers involved in the patient's recovery journey.",
-      },
-
-      {
-        icon: CalendarCheck,
-        title: "Medical Follow-Up",
-        text:
-          "Coordination of appropriate consultations when medical reassessment is required.",
-      },
-    ],
+  //     {
+  //       icon: Stethoscope,
+  //       title: "Follow-Up Coordination",
+  //       text:
+  //         "Medical follow-up can be coordinated when the treating team needs to review recovery progress.",
+  //     },
+  //   ],
 
 
-    highlightTitle:
-      "Hospital Care Does Not Always End at Discharge",
+  //   careTitle:
+  //     "Homecare Support Areas",
 
-    highlightText:
-      "A structured transition to home can help patients and families understand the care plan, rehabilitation needs and follow-up requirements.",
+  //   careItems: [
+  //     {
+  //       icon: HeartPulse,
+  //       title: "Skilled Nursing",
+  //       text:
+  //         "Appropriate nursing support based on the patient's clinical requirements.",
+  //     },
 
+  //     {
+  //       icon: Dumbbell,
+  //       title: "Physical Rehabilitation",
+  //       text:
+  //         "Selected physiotherapy support for mobility, strength and functional recovery.",
+  //     },
 
-    processTitle:
-      "How Homecare Is Coordinated",
+  //     {
+  //       icon: Activity,
+  //       title: "Recovery Monitoring",
+  //       text:
+  //         "Support in following the monitoring plan advised by the treating healthcare team.",
+  //     },
 
-    process: [
-      {
-        title: "Understand the Patient's Needs",
-        text:
-          "Review the available medical recommendations, discharge advice and required support.",
-      },
+  //     {
+  //       icon: FileText,
+  //       title: "Care Instructions",
+  //       text:
+  //         "Helping patients and caregivers organise discharge instructions and follow-up requirements.",
+  //     },
 
-      {
-        title: "Plan Appropriate Care",
-        text:
-          "Identify suitable nursing, rehabilitation or patient-support requirements.",
-      },
+  //     {
+  //       icon: Users,
+  //       title: "Family Support",
+  //       text:
+  //         "Practical guidance for caregivers involved in the patient's recovery journey.",
+  //     },
 
-      {
-        title: "Coordinate Home Support",
-        text:
-          "Available healthcare support is coordinated according to the agreed care requirements.",
-      },
-
-      {
-        title: "Follow the Care Plan",
-        text:
-          "The patient and caregivers follow instructions provided by the treating healthcare team.",
-      },
-
-      {
-        title: "Review Progress",
-        text:
-          "Follow-up requirements can be reassessed as the patient's condition changes.",
-      },
-    ],
-
-
-    benefitsTitle:
-      "Who May Benefit From Homecare?",
-
-    benefits: [
-      "Patients recovering after hospital discharge",
-      "Patients with reduced mobility",
-      "Patients requiring selected nursing support",
-      "Patients undergoing rehabilitation",
-      "Older adults who need additional care support",
-      "Families who need help coordinating continued care",
-    ],
+  //     {
+  //       icon: CalendarCheck,
+  //       title: "Medical Follow-Up",
+  //       text:
+  //         "Coordination of appropriate consultations when medical reassessment is required.",
+  //     },
+  //   ],
 
 
-    note:
-      "Homecare services depend on clinical suitability and service availability. Sudden or severe symptoms require appropriate emergency medical assessment.",
-  },
+  //   highlightTitle:
+  //     "Hospital Care Does Not Always End at Discharge",
+
+  //   highlightText:
+  //     "A structured transition to home can help patients and families understand the care plan, rehabilitation needs and follow-up requirements.",
+
+
+  //   processTitle:
+  //     "How Homecare Is Coordinated",
+
+  //   process: [
+  //     {
+  //       title: "Understand the Patient's Needs",
+  //       text:
+  //         "Review the available medical recommendations, discharge advice and required support.",
+  //     },
+
+  //     {
+  //       title: "Plan Appropriate Care",
+  //       text:
+  //         "Identify suitable nursing, rehabilitation or patient-support requirements.",
+  //     },
+
+  //     {
+  //       title: "Coordinate Home Support",
+  //       text:
+  //         "Available healthcare support is coordinated according to the agreed care requirements.",
+  //     },
+
+  //     {
+  //       title: "Follow the Care Plan",
+  //       text:
+  //         "The patient and caregivers follow instructions provided by the treating healthcare team.",
+  //     },
+
+  //     {
+  //       title: "Review Progress",
+  //       text:
+  //         "Follow-up requirements can be reassessed as the patient's condition changes.",
+  //     },
+  //   ],
+
+
+  //   benefitsTitle:
+  //     "Who May Benefit From Homecare?",
+
+  //   benefits: [
+  //     "Patients recovering after hospital discharge",
+  //     "Patients with reduced mobility",
+  //     "Patients requiring selected nursing support",
+  //     "Patients undergoing rehabilitation",
+  //     "Older adults who need additional care support",
+  //     "Families who need help coordinating continued care",
+  //   ],
+
+
+  //   note:
+  //     "Homecare services depend on clinical suitability and service availability. Sudden or severe symptoms require appropriate emergency medical assessment.",
+  // },
 
 
   /* =======================================================

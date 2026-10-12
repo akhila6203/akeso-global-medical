@@ -113,7 +113,7 @@ export default function FounderWords() {
               "
             >
               We connect patients with trusted medical
-              expertise in India while supporting them
+              experts in India while supporting them
               throughout their healthcare journey,
               from consultation to recovery.
             </p>
@@ -121,15 +121,15 @@ export default function FounderWords() {
             <div className="mt-7 h-[2px] w-14 bg-[#C8942E]" />
 
             <p className="mt-5 text-[19px] font-semibold text-white">
-              Prasad
+              Prasad Chintalapati
             </p>
 
             <p className="mt-1 text-[15px] text-white/70">
-              Founder &amp; Managing Director
+              Chairman &amp; Managing Director
             </p>
 
             <p className="mt-1 text-[15px] text-white/70">
-              Akeso Global Medical Services
+              Akeso Global Medical Services pvt. Ltd.
             </p>
           </div>
 
