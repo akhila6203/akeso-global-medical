@@ -4,6 +4,7 @@ import {
   Phone,
   MapPin,
   ChevronRight,
+  MessageSquare,
 } from "lucide-react";
 
 
@@ -25,6 +26,11 @@ export default function Footer() {
   const whatsappNumber = "919885106619";
 
   const email = "akesoglobalhealth@gmail.com";
+
+  const teamsEmail = "akesoglobalhealth@gmail.com";
+
+const teamsChatLink =
+  `https://teams.microsoft.com/l/chat/0/0?users=${encodeURIComponent(teamsEmail)}`;
 
 
   /* =========================================================
@@ -549,15 +555,37 @@ export default function Footer() {
             "
           >
 
-            <p>
-              © {new Date().getFullYear()} Akeso Global Medical
-              Services. All rights reserved.
-            </p>
+            
+{/* LEFT - COPYRIGHT */}
+<p>
+  © {new Date().getFullYear()} Akeso Global Medical
+  Services. All rights reserved.
+</p>
 
+{/* MIDDLE - POLICY LINKS */}
+<div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+  <Link
+    to="/terms-and-conditions"
+    className="text-white transition-colors duration-300 hover:text-[#f1c75b]"
+  >
+    Terms &amp; Conditions
+  </Link>
 
-            <p className="text-white">
-              Healing Beyond Borders
-            </p>
+  <span className="text-white/50">|</span>
+
+  <Link
+    to="/privacy-policy"
+    className="text-white transition-colors duration-300 hover:text-[#f1c75b]"
+  >
+    Privacy Policy
+  </Link>
+</div>
+
+{/* RIGHT - TAGLINE */}
+<p className="text-white">
+  Healing Beyond Borders
+</p>
+
 
           </div>
 
@@ -630,14 +658,88 @@ export default function Footer() {
         </a>
 
 
+{/* =================================================
+    MICROSOFT TEAMS CHAT BUTTON
+    Below Call and Above WhatsApp
+================================================= */}
+
+<a
+  href={teamsChatLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with Akeso on Microsoft Teams"
+  title="Microsoft Teams Chat"
+  className="
+    flex
+    h-[52px]
+    w-[52px]
+    items-center
+    justify-center
+    rounded-full
+    border-[3px]
+    border-white
+    bg-[#6264A7]
+    text-white
+    shadow-[0_5px_18px_rgba(0,0,0,0.25)]
+    transition
+    duration-300
+    hover:-translate-y-1
+    hover:bg-[#464775]
+    sm:h-[58px]
+    sm:w-[58px]
+  "
+>
+
+{/* MICROSOFT TEAMS ICON */}
+<svg
+  viewBox="0 0 32 32"
+  xmlns="http://www.w3.org/2000/svg"
+  className="h-[29px] w-[29px] sm:h-[32px] sm:w-[32px]"
+  aria-hidden="true"
+>
+  <rect
+    x="12"
+    y="5"
+    width="13"
+    height="13"
+    rx="3"
+    fill="#B8B9F3"
+  />
+  <circle cx="26" cy="10" r="4" fill="#D8D9FF" />
+  <path
+    d="M13 15h15v6a7.5 7.5 0 0 1-15 0z"
+    fill="#8B8CCB"
+  />
+  <rect
+    x="3"
+    y="10"
+    width="17"
+    height="17"
+    rx="3"
+    fill="#FFFFFF"
+  />
+  <path
+    d="M7 14h10v2.5h-3.5V24h-3v-7.5H7z"
+    fill="#6264A7"
+  />
+</svg>
+
+</a>
+
+
         {/* =================================================
             WHATSAPP BUTTON
         ================================================== */}
 
         <a
+          // href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+          //   "Hello Akeso Global Medical, I would like to know more about your healthcare services."
+          // )}`}
+          
           href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-            "Hello Akeso Global Medical, I would like to know more about your healthcare services."
+            "Hello Akeso Global Medical Services, I’m interested in exploring medical treatment in India. I would like to know about the treatment options, estimated cost, and the process for international patients. Could you please assist me?"
           )}`}
+
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

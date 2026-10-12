@@ -58,6 +58,8 @@ import Services from "./pages/Services";
 import ServiceDetails from "./pages/ServiceDetails";
 
 // import PatientProfileDemo from "./pages/PatientProfileDemo";
+import TermsConditions from "./pages/TermsConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 export default function App() {
   const location = useLocation();
@@ -414,6 +416,16 @@ export default function App() {
 <Route
   path="/international/plan-your-trip"
   element={<PlanYourTrip />}
+/>
+
+<Route
+  path="/terms-and-conditions"
+  element={<TermsConditions />}
+/>
+
+<Route
+  path="/privacy-policy"
+  element={<PrivacyPolicy />}
 />
 
 

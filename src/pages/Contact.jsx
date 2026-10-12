@@ -300,6 +300,13 @@ export default function Contact() {
                 href="tel:+919885106619"
               />
 
+{/* SECOND MOBILE NUMBER */}
+<ContactCard
+  icon={Phone}
+  label="Alternate Mobile"
+  value="+91 9100585435"
+  href="tel:+919100585435"
+/>
               {/* WHATSAPP */}
 
               <ContactCard
@@ -374,8 +381,7 @@ export default function Contact() {
                     text-[#343535]
                   "
                 >
-                  Official location details
-                  will be updated here.
+                  Hyderabad, Telangana, India
                 </p>
               </div>
             </div>
