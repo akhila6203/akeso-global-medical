@@ -104,7 +104,7 @@ export default function KnowledgeCenterSection() {
               text-[15px]
               md:text-[16px]
               leading-7
-              text-[#667576]
+              text-[#262727]
             ">
               Explore educational articles,
               healthcare videos and selected

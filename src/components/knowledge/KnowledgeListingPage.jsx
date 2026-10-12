@@ -113,7 +113,7 @@ export default function KnowledgeListingPage({
                   left-4
                   top-1/2
                   -translate-y-1/2
-                  text-[#667576]
+                  text-[#2b2c2c]
                 "
               />
 
@@ -181,7 +181,7 @@ export default function KnowledgeListingPage({
               bg-white
               p-10
               text-center
-              text-[#667576]
+              text-[#1f2020]
             ">
               No matching results found.
             </div>

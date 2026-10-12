@@ -155,11 +155,11 @@ function SectionHeading({
             mx-auto
             mt-4
             max-w-[740px]
-            text-[14px]
+            text-[15px]
             leading-7
-            text-[#667576]
+            text-[#2c2e2e]
 
-            sm:text-[15px]
+            sm:text-[16px]
             sm:leading-8
           "
         >
@@ -398,11 +398,11 @@ function TechnologyTabs({
           <p
             className="
               mt-4
-              text-[14px]
+              text-[15px]
               leading-7
-              text-[#667576]
+              text-[#313333]
 
-              sm:text-[15px]
+              sm:text-[16px]
               sm:leading-8
             "
           >
@@ -639,11 +639,11 @@ export default function TechnologyDetails() {
               <p
                 className="
                   mt-5
-                  text-[14px]
+                  text-[15px]
                   leading-7
-                  text-[#667576]
+                  text-[#28292a]
 
-                  sm:text-[15px]
+                  sm:text-[16px]
                   sm:leading-8
                 "
               >
@@ -682,11 +682,11 @@ export default function TechnologyDetails() {
 
                   <p
                     className="
-                      text-[12px]
+                      text-[15px]
                       leading-6
-                      text-[#667576]
+                      text-[#232424]
 
-                      sm:text-[13px]
+                      sm:text-[16px]
                     "
                   >
                     Availability and
@@ -951,11 +951,11 @@ export default function TechnologyDetails() {
             <p
               className="
                 mt-5
-                text-[14px]
+                text-[15px]
                 leading-7
-                text-[#667576]
+                text-[#2a2b2b]
 
-                sm:text-[15px]
+                sm:text-[16px]
                 sm:leading-8
               "
             >
@@ -1076,9 +1076,9 @@ export default function TechnologyDetails() {
                   <p
                     className="
                       mt-3
-                      text-[13px]
+                      text-[16px]
                       leading-6
-                      text-[#667576]
+                      text-[#2b2c2c]
                     "
                   >
                     {
@@ -1092,7 +1092,7 @@ export default function TechnologyDetails() {
                       inline-flex
                       items-center
                       gap-1
-                      text-[13px]
+                      text-[16px]
                       font-semibold
                       text-[#064B50]
                       transition

@@ -177,10 +177,10 @@ export default function InternationalStats() {
                   <p
                     className="
                       mt-3
-                       text-[14px]
-                       md:text-[16px]
+                       text-[15px]
+                       md:text-[17px]
                       leading-6
-                      text-[#667576]
+                      text-[#212323]
                     "
                   >
                     {text}

@@ -105,7 +105,7 @@ export default function Breadcrumb({
                 >
                   {/* ARROW */}
                   <ChevronRight
-                    size={15}
+                    size={16}
                     strokeWidth={2}
                     className="
                       shrink-0

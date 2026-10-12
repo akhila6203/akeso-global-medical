@@ -67,7 +67,7 @@ export default function BlogDetails() {
             items-center
             gap-4
             text-sm
-            text-[#667576]
+            text-[#252525]
           ">
             <span className="
               rounded-full
@@ -125,7 +125,7 @@ export default function BlogDetails() {
             mt-8
             text-[17px]
             leading-8
-            text-[#526566]
+            text-[#252525]
           ">
             {blog.excerpt}
           </p>
@@ -184,7 +184,7 @@ export default function BlogDetails() {
             p-5
             text-sm
             leading-6
-            text-[#667576]
+            text-[#2b2c2c]
           ">
             This content is for general
             educational purposes and does not

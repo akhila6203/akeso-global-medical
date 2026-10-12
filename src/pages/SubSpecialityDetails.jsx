@@ -736,11 +736,11 @@ function ChairmanSection({
                   <p
                     className="
                       mt-1
-                      text-[13px]
+                      text-[15px]
                       font-semibold
                       text-[#C8942E]
 
-                      sm:text-[14px]
+                      sm:text-[16px]
                     "
                   >
                     {chairman.designation}
@@ -755,10 +755,10 @@ function ChairmanSection({
                       flex
                       items-center
                       gap-2
-                      text-[13px]
-                      text-[#667576]
+                      text-[15px]
+                      text-[#272828]
 
-                      sm:text-[14px]
+                      sm:text-[16px]
                     "
                   >
                     <MapPin size={15} />
@@ -937,11 +937,11 @@ function SubTeam({
                   <p
                     className="
                       mt-3
-                      text-[14px]
+                      text-[15px]
                       leading-7
-                      text-[#667576]
+                      text-[#313333]
 
-                      sm:text-[15px]
+                      sm:text-[16px]
                     "
                   >
                     {card.description}
@@ -1079,11 +1079,11 @@ function SubCards({
                     <p
                       className="
                         mt-3
-                        text-[14px]
+                        text-[15px]
                         leading-7
-                        text-[#667576]
+                        text-[#313333]
 
-                        sm:text-[15px]
+                        sm:text-[16px]
                       "
                     >
                       {description}

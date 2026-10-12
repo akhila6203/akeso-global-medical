@@ -201,11 +201,11 @@ export default function WebStoryCard({
           className="
             mt-3
             line-clamp-2
-            text-[13px]
+            text-[15px]
             leading-6
-            text-[#667576]
+            text-[#222323]
 
-            sm:text-[14px]
+            sm:text-[16px]
           "
         >
           {story.description}

@@ -569,10 +569,10 @@ function HelpAccordion({
               max-w-[1000px]
               pb-6
               pr-8
-              text-[15px]
+              text-[16px]
               leading-7
-              text-[#667576]
-              md:text-[16px]
+              text-[#2b2c2c]
+              md:text-[17px]
               md:leading-8
             "
           >
@@ -860,9 +860,9 @@ function PatientStoryCard({
         <p
           className="
             mt-3
-            text-[15px]
+            text-[16px]
             leading-7
-            text-[#667576]
+            text-[#313232]
           "
         >
           {story.description}
@@ -1062,9 +1062,9 @@ function VideoModal({
           <p
             className="
               mt-2
-              text-[15px]
+              text-[16px]
               leading-7
-              text-[#667576]
+              text-[#313232]
             "
           >
             {story.description}
@@ -1340,10 +1340,10 @@ export default function PatientHelpDesk() {
                 mx-auto
                 mt-5
                 max-w-[800px]
-                text-[15px]
+                text-[16px]
                 leading-7
-                text-[#667576]
-                md:text-[16px]
+                text-[#313232]
+                md:text-[17px]
                 md:leading-8
               "
             >
@@ -1571,7 +1571,7 @@ export default function PatientHelpDesk() {
                     mt-3
                     text-[15px]
                     leading-7
-                    text-[#667576]
+                    text-[#2c2e2e]
                     md:text-[16px]
                     md:leading-8
                   "

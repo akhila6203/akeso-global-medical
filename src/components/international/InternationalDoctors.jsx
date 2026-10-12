@@ -6,6 +6,8 @@ import {
   Stethoscope,
 } from "lucide-react";
 
+import doctorImage from "../../assets/doctor.jpg";
+
 import {
   useEffect,
   useState,
@@ -39,8 +41,7 @@ const doctors = [
       "Senior Consultant - Orthopaedics",
 
     image:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80",
-
+      doctorImage,
     qualifications: [
       "MBBS",
       "MS - Orthopaedics",
@@ -66,7 +67,7 @@ const doctors = [
       "Senior Consultant - Medical Oncology",
 
     image:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=80",
+      doctorImage,
 
     qualifications: [
       "MBBS",
@@ -93,7 +94,7 @@ const doctors = [
       "Senior Consultant - Neurosurgery",
 
     image:
-      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80",
+      doctorImage,
 
     qualifications: [
       "MBBS",
@@ -120,7 +121,7 @@ const doctors = [
       "Senior Consultant - Cardiology",
 
     image:
-      "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=600&q=80",
+      doctorImage,
 
     qualifications: [
       "MBBS",
@@ -147,7 +148,7 @@ const doctors = [
       "Senior Consultant - Gastroenterology",
 
     image:
-      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80",
+      doctorImage,
 
     qualifications: [
       "MBBS",
@@ -433,11 +434,11 @@ export default function InternationalDoctors({
             className="
               mt-4
 
-              text-[14px]
+              text-[15px]
               leading-7
-              text-[#667576]
+              text-[#262727]
 
-              md:text-[15px]
+              md:text-[16px]
             "
           >
             Connect with suitable
@@ -845,9 +846,9 @@ function DoctorCard({
             className="
               mt-1
 
-              text-[12px]
+              text-[15px]
               leading-5
-              text-[#667576]
+              text-[#303232]
             "
           >
             {doctor.designation}
@@ -1035,9 +1036,9 @@ function DoctorInfo({
                 items-start
                 gap-2
 
-                text-[12px]
+                text-[15px]
                 leading-5
-                text-[#667576]
+                text-[#303232]
               "
             >
               <BadgeCheck

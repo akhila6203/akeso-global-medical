@@ -170,9 +170,9 @@ export default function Login({
         <p
           className="
             mt-3
-            text-[14px]
+            text-[15px]
             leading-6
-            text-[#667576]
+            text-[#252525]
           "
         >
           Access your account and
@@ -431,8 +431,8 @@ export default function Login({
       >
         <p
           className="
-            text-[13px]
-            text-[#667576]
+            text-[15px]
+            text-[#313232]
           "
         >
           Don't have an account?{" "}

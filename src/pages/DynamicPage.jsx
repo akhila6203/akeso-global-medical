@@ -29,7 +29,7 @@ export default function DynamicPage({ fixedTitle }) {
             {title}
           </h1>
 
-          <p className="mt-4 max-w-[650px] mx-auto text-[14px] md:text-[15px] leading-7 text-[#667576]">
+          <p className="mt-4 max-w-[650px] mx-auto text-[14px] md:text-[15px] leading-7 text-[#303232]">
             Premium healthcare information and support for {title}.
           </p>
         </div>
@@ -44,7 +44,7 @@ export default function DynamicPage({ fixedTitle }) {
               {title}
             </h2>
 
-            <p className="mt-4 text-[15px] text-[#667576] leading-7">
+            <p className="mt-4 text-[16px] text-[#2a2b2b] leading-7">
               This page is ready for your final content and future
               admin/API integration.
             </p>
@@ -54,7 +54,7 @@ export default function DynamicPage({ fixedTitle }) {
                 Akeso Global Medical Services
               </strong>
 
-              <p className="mt-1 text-[#667576]">
+              <p className="mt-1 text-[#2c2e2e]">
                 Healing Beyond Borders.
               </p>
             </div>

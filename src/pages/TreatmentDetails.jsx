@@ -167,10 +167,10 @@ function PointList({
 
             <p
               className="
-                text-[13px]
+                text-[15px]
                 leading-6
-                text-[#667576]
-                sm:text-[14px]
+                text-[#2f3030]
+                sm:text-[16px]
                 sm:leading-7
               "
             >
@@ -265,9 +265,9 @@ export default function TreatmentDetails() {
               mx-auto
               mt-4
               max-w-[600px]
-              text-[14px]
+              text-[15px]
               leading-7
-              text-[#667576]
+              text-[#363737]
             "
           >
             The requested treatment
@@ -647,11 +647,11 @@ export default function TreatmentDetails() {
 
           <p
             className="
-              text-[12px]
+              text-[15px]
               leading-6
-              text-[#667576]
+              text-[#2e3030]
 
-              sm:text-[13px]
+              sm:text-[16px]
               sm:leading-6
             "
           >
@@ -698,12 +698,12 @@ export default function TreatmentDetails() {
           >
             <p
               className="
-                text-[11px]
+                text-[15px]
                 font-bold
                 uppercase
                 tracking-[0.2em]
                 text-[#C8942E]
-                sm:text-[12px]
+                sm:text-[16px]
               "
             >
               Treatment Journey
@@ -729,10 +729,10 @@ export default function TreatmentDetails() {
                 mx-auto
                 mt-4
                 max-w-[680px]
-                text-[14px]
+                text-[15px]
                 leading-7
-                text-[#667576]
-                sm:text-[15px]
+                text-[#2e3030]
+                sm:text-[16px]
               "
             >
               Explore the general
@@ -790,7 +790,7 @@ export default function TreatmentDetails() {
             >
               <p
                 className="
-                  text-[11px]
+                  text-[15px]
                   font-bold
                   uppercase
                   tracking-[0.18em]
@@ -820,10 +820,10 @@ export default function TreatmentDetails() {
               <p
                 className="
                   mt-5
-                  text-[14px]
+                  text-[15px]
                   leading-7
-                  text-[#536466]
-                  sm:text-[15px]
+                  text-[#2e3030]
+                  sm:text-[16px]
                   sm:leading-8
                 "
               >
@@ -841,7 +841,7 @@ export default function TreatmentDetails() {
               <div
                 className="
                   mt-7
-                  rounded-[14px]
+                  rounded-[15px]
                   border
                   border-[#DCECEB]
                   bg-white
@@ -851,9 +851,9 @@ export default function TreatmentDetails() {
               >
                 <p
                   className="
-                    text-[12px]
+                    text-[15px]
                     leading-6
-                    text-[#667576]
+                    text-[#2e3030]
                   "
                 >
                   The exact treatment
@@ -923,12 +923,12 @@ export default function TreatmentDetails() {
           >
             <p
               className="
-                text-[11px]
+                text-[15px]
                 font-bold
                 uppercase
                 tracking-[0.2em]
                 text-[#C8942E]
-                sm:text-[12px]
+                sm:text-[16px]
               "
             >
               Important Information
@@ -955,10 +955,10 @@ export default function TreatmentDetails() {
                 mx-auto
                 mt-4
                 max-w-[700px]
-                text-[14px]
+                text-[15px]
                 leading-7
-                text-[#667576]
-                sm:text-[15px]
+                text-[#2e3030]
+                sm:text-[16px]
               "
             >
               Review potential benefits
@@ -1052,7 +1052,7 @@ export default function TreatmentDetails() {
               <p
                 className="
                   mt-5
-                  text-[11px]
+                  text-[15px]
                   font-bold
                   uppercase
                   tracking-[0.18em]
@@ -1082,10 +1082,10 @@ export default function TreatmentDetails() {
               <p
                 className="
                   mt-5
-                  text-[14px]
+                  text-[15px]
                   leading-7
-                  text-[#536466]
-                  sm:text-[15px]
+                  text-[#2e3030]
+                  sm:text-[16px]
                   sm:leading-8
                 "
               >
@@ -1112,9 +1112,9 @@ export default function TreatmentDetails() {
               >
                 <p
                   className="
-                    text-[12px]
+                    text-[15px]
                     leading-6
-                    text-[#667576]
+                    text-[#2e3030]
                   "
                 >
                   Benefits, risks and
@@ -1150,7 +1150,7 @@ export default function TreatmentDetails() {
                 bg-white
                 px-6
                 py-3.5
-                text-[14px]
+                text-[15px]
                 font-semibold
                 text-[#064B50]
                 transition

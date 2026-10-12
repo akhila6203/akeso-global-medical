@@ -143,7 +143,7 @@ export default function ForgotPassword({
             mt-3
             text-[14px]
             leading-6
-            text-[#667576]
+            text-[#333434]
           "
         >
           Enter your registered email

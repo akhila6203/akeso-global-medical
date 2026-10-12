@@ -254,12 +254,11 @@ export const services = [
     "lab-test-diagnostic",
     FlaskConical,
   ],
-
-  [
-    "Homecare Services",
-    "homecare-services",
-    House,
-  ],
+  // [
+  //   "Homecare Services",
+  //   "homecare-services",
+  //   House,
+  // ],
   [
     "TeleVisits",
     "televisits",

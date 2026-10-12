@@ -111,9 +111,9 @@ export default function Research() {
             <p
               className="
                 mt-5
-                text-[15px]
+                text-[16px]
                 leading-8
-                text-[#667576]
+                text-[#242525]
               "
             >
               Akeso supports access to
@@ -130,7 +130,7 @@ export default function Research() {
                 mt-4
                 text-[15px]
                 leading-8
-                text-[#667576]
+                text-[#222424]
               "
             >
               Research and educational
@@ -156,7 +156,7 @@ export default function Research() {
                 className="
                   text-[14px]
                   leading-7
-                  text-[#667576]
+                  text-[#222424]
                 "
               >
                 Health information on this

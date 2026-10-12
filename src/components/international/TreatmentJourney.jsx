@@ -318,10 +318,10 @@ export default function TreatmentJourney() {
               mx-auto
               mt-4
               max-w-[720px]
-              text-[14px]
+              text-[15px]
               leading-7
-              text-[#667576]
-              sm:text-[15px]
+              text-[#272828]
+              sm:text-[17px]
             "
           >
             Your health journey, our commitment.
@@ -648,11 +648,11 @@ export default function TreatmentJourney() {
                 className="
                   mt-1.5
 
-                  text-[12px]
+                  text-[15px]
                   leading-6
-                  text-[#667576]
+                  text-[#232424]
 
-                  sm:text-[13px]
+                  sm:text-[16px]
                 "
               >
                 Our team supports
@@ -884,12 +884,12 @@ function JourneyCard({
           className="
             mt-3
 
-            text-[13px]
+            text-[15px]
             leading-6
 
-            text-[#667576]
+            text-[#232424]
 
-            sm:text-[14px]
+            sm:text-[16px]
           "
         >
           {step.text}
@@ -945,9 +945,9 @@ function JourneyCard({
 
           <span
             className="
-              text-[11px]
+              text-[15px]
               font-medium
-              text-[#667576]
+              text-[#2a2b2b]
             "
           >
             Coordinated by Akeso

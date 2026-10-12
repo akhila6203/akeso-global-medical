@@ -93,10 +93,10 @@ export default function InternationalServices() {
           <p
             className="
               mt-4
-              text-[14px]
-              md:text-[15px]
+              text-[15px]
+              md:text-[16px]
               leading-7
-              text-[#667576]
+              text-[#252525]
             "
           >
             Everything you need to plan and coordinate
@@ -218,9 +218,9 @@ export default function InternationalServices() {
                   <p
                     className="
                       mt-3
-                      text-[13px]
+                      text-[15px]
                       leading-6
-                      text-[#667576]
+                      text-[#303232]
                     "
                   >
                     {serviceDescriptions[slug]}

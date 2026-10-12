@@ -261,8 +261,8 @@ export default function Specialities() {
               <p
                 className="
                   mb-3
-                  text-[12px]
-                  text-[#667576]
+                  text-[15px]
+                  text-[#2d2e2e]
                 "
               >
                 Showing{" "}

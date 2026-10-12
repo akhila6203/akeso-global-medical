@@ -91,7 +91,7 @@ export default function SpecialityTreatments() {
                     </h3>
 
                     {description && (
-                      <p className="mt-3 text-[14px] leading-7 text-[#667576]">
+                      <p className="mt-3 text-[15px] leading-7 text-[#323434]">
                         {description}
                       </p>
                     )}

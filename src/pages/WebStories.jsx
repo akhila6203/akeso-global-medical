@@ -104,13 +104,13 @@ export default function WebStories() {
           >
             <p
               className="
-                text-[11px]
+                text-[15px]
                 font-bold
                 uppercase
                 tracking-[0.2em]
                 text-[#C8942E]
 
-                sm:text-[12px]
+                sm:text-[16px]
               "
             >
               Explore & Learn
@@ -137,11 +137,11 @@ export default function WebStories() {
                 mx-auto
                 mt-4
                 max-w-[680px]
-                text-[14px]
+                text-[15px]
                 leading-7
-                text-[#667576]
+                text-[#202121]
 
-                sm:text-[15px]
+                sm:text-[17px]
               "
             >
               Browse visual health

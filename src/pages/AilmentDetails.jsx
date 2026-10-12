@@ -481,11 +481,11 @@ export default function AilmentDetails() {
               <p
                 className="
                   mt-5
-                  text-[14px]
+                  text-[15px]
                   leading-7
-                  text-[#667576]
+                  text-[#262727]
 
-                  sm:text-[15px]
+                  sm:text-[16px]
                   sm:leading-8
                 "
               >
@@ -541,11 +541,11 @@ export default function AilmentDetails() {
               >
                 <p
                   className="
-                    text-[12px]
+                    text-[15px]
                     leading-6
-                    text-[#667576]
+                    text-[#323333]
 
-                    sm:text-[13px]
+                    sm:text-[16px]
                   "
                 >
                   Information is
@@ -631,11 +631,11 @@ export default function AilmentDetails() {
                 mx-auto
                 mt-4
                 max-w-[680px]
-                text-[14px]
+                text-[15px]
                 leading-7
-                text-[#667576]
+                text-[#272828]
 
-                sm:text-[15px]
+                sm:text-[16px]
               "
             >
               Select a section to
@@ -825,11 +825,11 @@ export default function AilmentDetails() {
                 <p
                   className="
                     mt-5
-                    text-[14px]
+                    text-[15px]
                     leading-7
-                    text-[#667576]
+                    text-[#1d1d1d]
 
-                    sm:text-[15px]
+                    sm:text-[16px]
                     sm:leading-8
                   "
                 >

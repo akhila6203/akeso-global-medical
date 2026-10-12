@@ -377,9 +377,9 @@ export default function AllTechnologies() {
                       className="
                         mt-3
                         line-clamp-4
-                        text-[14px]
+                        text-[15px]
                         leading-7
-                        text-[#667576]
+                        text-[#262727]
                       "
                     >
                       {
@@ -424,7 +424,7 @@ export default function AllTechnologies() {
                 mt-12
                 text-center
                 text-[15px]
-                text-[#667576]
+                text-[#262727]
               "
             >
               No technologies found.

@@ -71,10 +71,10 @@ export default function HealthLibraryProvides({
               mx-auto
               mt-4
               max-w-[720px]
-              text-[14px]
+              text-[16px]
               leading-7
-              text-[#667576]
-              sm:text-[15px]
+              text-[#232424]
+              sm:text-[17px]
             "
           >
             Explore conditions,
@@ -150,9 +150,9 @@ export default function HealthLibraryProvides({
                 <p
                   className="
                     mt-3
-                    text-[14px]
+                    text-[15px]
                     leading-7
-                    text-[#667576]
+                    text-[#2e3030]
                   "
                 >
                   {item.description}
@@ -165,7 +165,7 @@ export default function HealthLibraryProvides({
                     items-center
                     gap-2
                     pt-5
-                    text-[14px]
+                    text-[15px]
                     font-semibold
                     text-[#064B50]
                     transition
@@ -313,9 +313,9 @@ export default function HealthLibraryProvides({
 //               mx-auto
 //               mt-4
 //               max-w-[700px]
-//               text-[14px]
+//               text-[15px]
 //               leading-7
-//               text-[#667576]
+//               text-[#2e3030]
 
 //               sm:text-[15px]
 //             "
@@ -557,9 +557,9 @@ export default function HealthLibraryProvides({
 //       <p
 //         className="
 //           mt-3
-//           text-[14px]
+//           text-[15px]
 //           leading-6
-//           text-[#667576]
+//           text-[#2e2f2f]
 //         "
 //       >
 //         {item.description}

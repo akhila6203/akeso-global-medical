@@ -303,11 +303,11 @@ export default function PatientStories() {
                 mt-4
                 max-w-[680px]
 
-                text-[14px]
+                text-[15px]
                 leading-7
-                text-[#667576]
+                text-[#262727]
 
-                md:text-[15px]
+                md:text-[16px]
               "
             >
               Hear from patients about their
@@ -651,9 +651,9 @@ function StoryCard({
           className="
             mt-2
 
-            text-[13px]
+            text-[15px]
             leading-6
-            text-[#667576]
+            text-[#262727]
           "
         >
           {story.description}

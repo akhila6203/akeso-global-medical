@@ -288,7 +288,7 @@ export default function HomeSpecialities() {
 //             Our Specialities
 //           </h2>
 
-//           <p className="mt-4 text-[14px] md:text-[15px] leading-7 text-[#667576]">
+//           <p className="mt-4 text-[15px] md:text-[16px] leading-7 text-[#272828]">
 //             Expert care across medical specialities,
 //             combining clinical excellence, advanced
 //             technology and compassionate patient support.

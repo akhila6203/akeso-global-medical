@@ -82,7 +82,7 @@ export default function BecomePartnerPage() {
                   {step.title}
                 </h3>
 
-                <p className="mt-3 text-[14px] leading-6 text-[#667576]">
+                <p className="mt-3 text-[15px] leading-6 text-[#323434]">
                   {step.text}
                 </p>
               </div>
@@ -103,7 +103,7 @@ export default function BecomePartnerPage() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-2 text-[14px] text-[#536466]"
+                  className="flex items-center gap-2 text-[15px] text-[#323434]"
                 >
                   <CheckCircle2
                     size={18}

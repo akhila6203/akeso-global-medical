@@ -179,9 +179,9 @@ export default function HealthTechnologySlider({
               mx-auto
               mt-4
               max-w-[700px]
-              text-[14px]
+              text-[15px]
               leading-7
-              text-[#667576]
+              text-[#333434]
               sm:text-[15px]
             "
           >
@@ -344,9 +344,9 @@ export default function HealthTechnologySlider({
                       className="
                         mt-3
                         line-clamp-4
-                        text-[14px]
+                        text-[15px]
                         leading-7
-                        text-[#667576]
+                        text-[#3a3b3b]
                       "
                     >
                       {
@@ -362,7 +362,7 @@ export default function HealthTechnologySlider({
                         items-center
                         gap-2
                         pt-5
-                        text-[14px]
+                        text-[15px]
                         font-semibold
                         text-[#064B50]
                         transition
@@ -442,7 +442,7 @@ export default function HealthTechnologySlider({
               bg-[#064B50]
               px-7
               py-3.5
-              text-[14px]
+              text-[15px]
               font-semibold
               text-white
               transition

@@ -365,13 +365,17 @@ function SubSpecialitiesSection({
 
           {data.subSpecialities.map(
             (name, index) => (
+              // <Link
+              //   key={name}
+              //   to={`/speciality/${slug}/sub-speciality/${slugify(
+              //     name
+              //   )}`}
+              //   className="group flex min-h-[90px] items-center justify-between rounded-[18px] border border-[#D7E6E4] bg-[#F9FBFB] p-5 transition hover:-translate-y-1 hover:border-[#C8942E] hover:bg-white hover:shadow-[0_12px_30px_rgba(6,75,80,0.08)] sm:min-h-[105px] sm:p-6"
+              // >
               <Link
-                key={name}
-                to={`/speciality/${slug}/sub-speciality/${slugify(
-                  name
-                )}`}
-                className="group flex min-h-[90px] items-center justify-between rounded-[18px] border border-[#D7E6E4] bg-[#F9FBFB] p-5 transition hover:-translate-y-1 hover:border-[#C8942E] hover:bg-white hover:shadow-[0_12px_30px_rgba(6,75,80,0.08)] sm:min-h-[105px] sm:p-6"
-              >
+  key={name}
+  className="group flex min-h-[90px] items-center justify-between rounded-[18px] border border-[#D7E6E4] bg-[#F9FBFB] p-5 transition hover:-translate-y-1 hover:border-[#C8942E] hover:bg-white hover:shadow-[0_12px_30px_rgba(6,75,80,0.08)] sm:min-h-[105px] sm:p-6"
+>
 
                 <div className="flex items-center gap-3 sm:gap-4">
 
@@ -390,13 +394,13 @@ function SubSpecialitiesSection({
 
                 </div>
 
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#EEF6F5] text-[#064B50] transition group-hover:bg-[#064B50] group-hover:text-white sm:h-9 sm:w-9">
+                {/* <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#EEF6F5] text-[#064B50] transition group-hover:bg-[#064B50] group-hover:text-white sm:h-9 sm:w-9">
 
                   <ArrowRight
                     size={15}
                   />
 
-                </span>
+                </span> */}
 
               </Link>
             )
@@ -506,7 +510,7 @@ function ChairmanSection({
 
                 {(chairman.location ||
                   data.location) && (
-                  <div className="mt-3 flex items-center gap-2 text-[13px] text-[#667576] sm:text-[14px]">
+                  <div className="mt-3 flex items-center gap-2 text-[15px] text-[#303232] sm:text-[16px]">
 
                     <MapPin
                       size={15}
@@ -595,7 +599,7 @@ function TeamSection({
                     {card.title}
                   </h3>
 
-                  <p className="mt-3 text-[14px] leading-7 text-[#667576] sm:text-[15px]">
+                  <p className="mt-3 text-[15px] leading-7 text-[#2c2e2e] sm:text-[16px]">
                     {card.description ||
                       card.text}
                   </p>
@@ -689,7 +693,7 @@ function CardsSection({
                     </h3>
 
                     {content && (
-                      <p className="mt-3 text-[14px] leading-7 text-[#667576] sm:text-[15px]">
+                      <p className="mt-3 text-[15px] leading-7 text-[#232424] sm:text-[16px]">
                         {content}
                       </p>
                     )}

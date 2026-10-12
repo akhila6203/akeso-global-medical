@@ -263,7 +263,7 @@ const getItemPath = (item) => {
                 max-w-[700px]
                 text-[14px]
                 leading-7
-                text-[#667576]
+                text-[#1b1c1c]
                 sm:text-[15px]
               "
             >
@@ -351,10 +351,10 @@ const getItemPath = (item) => {
             >
               <p
                 className="
-                  text-[11px]
+                  text-[15px]
                   leading-5
-                  text-[#667576]
-                  sm:text-[13px]
+                  text-[#191a1b]
+                  sm:text-[16px]
                 "
               >
                 Showing{" "}
@@ -394,10 +394,10 @@ const getItemPath = (item) => {
                 className="
                   shrink-0
                   text-right
-                  text-[11px]
+                  text-[15px]
                   leading-5
-                  text-[#667576]
-                  sm:text-[13px]
+                  text-[#191a1b]
+                  sm:text-[16px]
                 "
               >
                 Page{" "}
@@ -530,10 +530,10 @@ const getItemPath = (item) => {
                       className="
                         mt-3
                         line-clamp-3
-                        text-[13px]
+                        text-[15px]
                         leading-6
-                        text-[#667576]
-                        sm:text-[14px]
+                        text-[#191a1b]
+                        sm:text-[16px]
                         sm:leading-7
                       "
                     >
@@ -597,8 +597,8 @@ const getItemPath = (item) => {
             >
               <p
                 className="
-                  text-[15px]
-                  text-[#667576]
+                  text-[16px]
+                  text-[#191a1b]
                 "
               >
                 No results found.

@@ -277,11 +277,11 @@ export default function QuickServices() {
               mt-4
               max-w-[650px]
 
-              text-[14px]
+              text-[15px]
               leading-6
-              text-[#667576]
+              text-[#272828]
 
-              md:text-[15px]
+              md:text-[16px]
               md:leading-7
             "
           >
@@ -1125,7 +1125,7 @@ function ServiceCard({
 //             How Can We Help You?
 //           </h2>
 
-//           <p className="mt-4 text-[14px] md:text-[15px] leading-7 text-[#667576]">
+//           <p className="mt-4 text-[15px] md:text-[16px] leading-7 text-[#272828]">
 //             Access convenient healthcare services designed
 //             to support you at every stage of your medical
 //             journey.

@@ -398,7 +398,7 @@ export default function PatientStories({
                   {activeStory.title}
                 </h3>
 
-                <p className="mx-auto mt-4 max-w-[600px] text-[15px] leading-7 text-[#667576]">
+                <p className="mx-auto mt-4 max-w-[600px] text-[15px] leading-7 text-[#252727]">
                   Add the approved
                   YouTube video ID in
                   technologyData.js to

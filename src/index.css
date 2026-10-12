@@ -20,7 +20,7 @@
   --akeso-white: #ffffff;
 
   --akeso-text: #263f41;
-  --akeso-muted: #667576;
+  --akeso-muted: #222323;
   --akeso-border: #dce7e6;
 
   /*
@@ -60,7 +60,7 @@ a {
 
 .akeso-section-label {
   color: var(--akeso-gold);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -86,7 +86,7 @@ a {
   border: 1px solid var(--akeso-teal);
 
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -110,7 +110,7 @@ a {
   border: 1px solid #d4e6e4;
 
   color: var(--akeso-teal);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 

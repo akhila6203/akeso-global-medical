@@ -1,0 +1,130 @@
+
+import doctorImage from "../assets/doctor.jpg";
+
+export const doctors = [
+  {
+    id: 1,
+    name: "Dr. Arjun Mehta",
+    speciality: "Orthopaedics",
+    designation: "Senior Consultant - Orthopaedics",
+    image: doctorImage,
+    experience: null,
+    qualifications: [
+      "MBBS",
+      "MS - Orthopaedics",
+      "Fellowship in Joint Replacement",
+    ],
+    registrationNumber: "",
+    registrationCouncil: "",
+    location: "Location to be confirmed",
+    languages: ["English", "Hindi"],
+    expertise: [
+      "Knee Replacement",
+      "Hip Replacement",
+      "Joint Reconstruction",
+      "Sports Injury Management",
+    ],
+    about:
+      "Focused on comprehensive orthopaedic care, joint health and helping patients understand suitable treatment options.",
+  },
+  {
+    id: 2,
+    name: "Dr. Priya Sharma",
+    speciality: "Cancer Care",
+    designation: "Senior Consultant - Medical Oncology",
+    image: doctorImage,
+    experience: null,
+    qualifications: [
+      "MBBS",
+      "MD - Internal Medicine",
+      "DM - Medical Oncology",
+    ],
+    registrationNumber: "",
+    registrationCouncil: "",
+    location: "Location to be confirmed",
+    languages: ["English", "Hindi"],
+    expertise: [
+      "Medical Oncology",
+      "Chemotherapy",
+      "Cancer Treatment Planning",
+      "Supportive Cancer Care",
+    ],
+    about:
+      "Focused on multidisciplinary cancer care, treatment planning and supportive care throughout the patient journey.",
+  },
+  {
+    id: 3,
+    name: "Dr. Rahul Verma",
+    speciality: "Neurosciences",
+    designation: "Senior Consultant - Neurosurgery",
+    image: doctorImage,
+    experience: null,
+    qualifications: [
+      "MBBS",
+      "MS - General Surgery",
+      "MCh - Neurosurgery",
+    ],
+    registrationNumber: "",
+    registrationCouncil: "",
+    location: "Location to be confirmed",
+    languages: ["English", "Hindi"],
+    expertise: [
+      "Brain Surgery",
+      "Spine Surgery",
+      "Neuro Trauma",
+      "Minimally Invasive Neurosurgery",
+    ],
+    about:
+      "Focused on evaluating neurological conditions and explaining appropriate surgical and non-surgical treatment pathways.",
+  },
+  {
+    id: 4,
+    name: "Dr. Ananya Rao",
+    speciality: "Cardiac Care",
+    designation: "Senior Consultant - Cardiology",
+    image: doctorImage,
+    experience: null,
+    qualifications: [
+      "MBBS",
+      "MD - General Medicine",
+      "DM - Cardiology",
+    ],
+    registrationNumber: "",
+    registrationCouncil: "",
+    location: "Location to be confirmed",
+    languages: ["English", "Telugu", "Hindi"],
+    expertise: [
+      "Interventional Cardiology",
+      "Heart Disease Management",
+      "Cardiac Evaluation",
+      "Preventive Cardiology",
+    ],
+    about:
+      "Focused on heart health, cardiac assessment, preventive care and patient-centred cardiovascular treatment planning.",
+  },
+  {
+    id: 5,
+    name: "Dr. Vikram Singh",
+    speciality: "Gastrosciences",
+    designation: "Senior Consultant - Gastroenterology",
+    image: doctorImage,
+    experience: null,
+    qualifications: [
+      "MBBS",
+      "MD - Internal Medicine",
+      "DM - Gastroenterology",
+    ],
+    registrationNumber: "",
+    registrationCouncil: "",
+    location: "Location to be confirmed",
+    languages: ["English", "Hindi"],
+    expertise: [
+      "Digestive Disorders",
+      "Endoscopy",
+      "Liver Disease Management",
+      "Gastrointestinal Care",
+    ],
+    about:
+      "Focused on digestive health, gastrointestinal conditions and helping patients explore appropriate diagnostic and treatment options.",
+  },
+];

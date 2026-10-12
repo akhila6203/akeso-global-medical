@@ -70,7 +70,7 @@ export default function CaseStudyDetails() {
             flex-wrap
             gap-4
             text-sm
-            text-[#667576]
+            text-[#2f3030]
           ">
             <span className="
               rounded-full
@@ -179,7 +179,7 @@ export default function CaseStudyDetails() {
             p-5
             text-sm
             leading-6
-            text-[#667576]
+            text-[#2b2c2c]
           ">
             Case-study information should be
             de-identified and clinically reviewed

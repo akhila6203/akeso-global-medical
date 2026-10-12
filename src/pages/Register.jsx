@@ -164,9 +164,9 @@ export default function Register({
         <p
           className="
             mt-4
-            text-[14px]
+            text-[15px]
             leading-7
-            text-[#667576]
+            text-[#323333]
           "
         >
           Your account has been
@@ -200,9 +200,9 @@ export default function Register({
         >
           <p
             className="
-              text-[13px]
+              text-[15px]
               leading-6
-              text-[#667576]
+              text-[#2a2b2b]
             "
           >
             Open the email and click{" "}
@@ -268,9 +268,9 @@ export default function Register({
         <p
           className="
             mt-3
-            text-[14px]
+            text-[15px]
             leading-6
-            text-[#667576]
+            text-[#323333]
           "
         >
           Enter your details to create
@@ -371,8 +371,8 @@ export default function Register({
       >
         <p
           className="
-            text-[13px]
-            text-[#667576]
+            text-[15px]
+            text-[#323333]
           "
         >
           Already have an account?{" "}

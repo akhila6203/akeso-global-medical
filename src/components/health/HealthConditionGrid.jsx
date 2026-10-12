@@ -248,10 +248,10 @@ export default function HealthConditionGrid({
               mx-auto
               mt-4
               max-w-[720px]
-              text-[14px]
+              text-[15px]
               leading-7
-              text-[#667576]
-              sm:text-[15px]
+              text-[#2e2f2f]
+              sm:text-[16px]
             "
           >
             Browse health conditions and
@@ -505,7 +505,7 @@ export default function HealthConditionGrid({
                             min-w-9
                             items-center
                             justify-center
-                            text-[#667576]
+                            text-[#3c3e3e]
                           "
                         >
                           ...
@@ -616,8 +616,8 @@ export default function HealthConditionGrid({
           >
             <p
               className="
-                text-[15px]
-                text-[#667576]
+                text-[16px]
+                text-[#272828]
               "
             >
               No diseases or conditions
