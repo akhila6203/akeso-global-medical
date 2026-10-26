@@ -62,22 +62,23 @@ export default function PasswordForm({
   };
 
   return (
-    <main
-      className={
-        embedded
-          ? "w-full bg-transparent"
-          : `
-              flex
-              min-h-[75vh]
-              items-center
-              justify-center
-              bg-[#f5fafa]
-              px-4
-              py-14
-            `
-      }
-    >
-      <div
+    // <main
+    //   className={
+    //     embedded
+    //       ? "w-full bg-transparent"
+    //       : `
+    //           flex
+    //           min-h-[75vh]
+    //           items-center
+    //           justify-center
+    //           bg-[#f5fafa]
+    //           px-4
+    //           py-14
+    //         `
+    //   }
+    // >
+    <main className="w-full bg-transparent">
+      {/* <div
         className={
           embedded
             ? "w-full"
@@ -90,14 +91,16 @@ export default function PasswordForm({
                 shadow-[0_15px_45px_rgba(6,75,80,0.10)]
               `
         }
-      >
-        <div
+      > */}
+      <div className="w-full">
+        <div className="text-left">
+        {/* <div
           className={
             embedded
               ? "text-left"
               : "text-center"
           }
-        >
+        > */}
           <p
             className="
               text-[11px]

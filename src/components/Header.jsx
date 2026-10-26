@@ -729,7 +729,30 @@ export default function Header({ onOpenAuth }) {
                 {loggedIn ? (
                   <>
                     {/* PROFILE */}
-                    <button
+                    
+{/* PROFILE - DESKTOP ONLY ICON */}
+<button
+  type="button"
+  onClick={() => navigate("/profile")}
+  title="My Profile"
+  aria-label="My Profile"
+  className="
+    flex h-[42px] w-[42px] shrink-0
+    items-center justify-center
+    rounded-full
+    border border-[#064B50]/30
+    bg-[#eef7f6]
+    text-[#064B50]
+    transition-all duration-200
+    hover:border-[#C8942E]
+    hover:bg-[#064B50]
+    hover:text-white
+  "
+>
+  <UserRound size={20} strokeWidth={1.8} />
+</button>
+
+                    {/* <button
                       type="button"
                       onClick={() =>
                         navigate("/profile")
@@ -743,7 +766,7 @@ export default function Header({ onOpenAuth }) {
                           ? currentUser.name.split(" ")[0]
                           : "Profile"}
                       </span>
-                    </button>
+                    </button> */}
 
                     {/* LOGOUT */}
                     <button

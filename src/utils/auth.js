@@ -4,10 +4,16 @@ export const TOKEN_KEY =
 export const USER_KEY =
   "akeso_user";
 
+// export function isLoggedIn() {
+//   return Boolean(
+//     localStorage.getItem(TOKEN_KEY)
+//   );
+// }
 export function isLoggedIn() {
-  return Boolean(
-    localStorage.getItem(TOKEN_KEY)
-  );
+  const token = localStorage.getItem(TOKEN_KEY);
+  const user = getUser();
+
+  return Boolean(token && user);
 }
 
 export function getUser() {
@@ -22,6 +28,7 @@ export function getUser() {
     return null;
   }
 }
+
 
 export function saveLogin(
   token,

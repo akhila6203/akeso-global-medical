@@ -9,6 +9,10 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import {
+  validateActivationToken,
+  validateResetToken,
+} from "./services/authService";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -62,33 +66,34 @@ import TermsConditions from "./pages/TermsConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 
-import LaunchWelcome from "./components/LaunchWelcome";
+// import LaunchWelcome from "./components/LaunchWelcome";
 
 
 export default function App() {
   const location = useLocation();
   const navigate = useNavigate();
   
-  
+  const [passwordLinkStatus, setPasswordLinkStatus] =
+  useState("checking");
     // Show only for first-time visitors on home URL.
-  const [showLaunch, setShowLaunch] = useState(() => {
-    const completed = localStorage.getItem(
-      "akeso_launch_completed_v1"
-    );
+  // const [showLaunch, setShowLaunch] = useState(() => {
+  //   const completed = localStorage.getItem(
+  //     "akeso_launch_completed_v1"
+  //   );
 
-    return !completed && window.location.pathname === "/";
-  });
+  //   return !completed && window.location.pathname === "/";
+  // });
 
-  const enterWebsite = () => {
-    localStorage.setItem(
-      "akeso_launch_completed_v1",
-      "true"
-    );
+  // const enterWebsite = () => {
+  //   localStorage.setItem(
+  //     "akeso_launch_completed_v1",
+  //     "true"
+  //   );
 
-    setShowLaunch(false);
-    navigate("/", { replace: true });
-    window.scrollTo(0, 0);
-  };
+  //   setShowLaunch(false);
+  //   navigate("/", { replace: true });
+  //   window.scrollTo(0, 0);
+  // };
 
 
 
@@ -173,31 +178,136 @@ export default function App() {
       setAuthOpen(true);
     }
 
-    if (
-      location.pathname ===
-      "/set-password"
-    ) {
-      setAuthMode("set-password");
-      setAuthOpen(true);
-    }
+    // if (
+    //   location.pathname ===
+    //   "/set-password"
+    // ) {
+    //   setAuthMode("set-password");
+    //   setAuthOpen(true);
+    // }
 
-    if (
-      location.pathname ===
-      "/reset-password"
-    ) {
-      setAuthMode("reset-password");
-      setAuthOpen(true);
-    }
+    // if (
+    //   location.pathname ===
+    //   "/reset-password"
+    // ) {
+    //   setAuthMode("reset-password");
+    //   setAuthOpen(true);
+    // }
   }, [
     location.pathname,
     location.search,
   ]);
 
   
-  if (showLaunch) {
-    return <LaunchWelcome onEnter={enterWebsite} />;
+  // if (showLaunch) {
+  //   return <LaunchWelcome onEnter={enterWebsite} />;
+  // }
+
+  
+useEffect(() => {
+  const path = location.pathname;
+
+  const isSetPassword = path === "/set-password";
+  const isResetPassword = path === "/reset-password";
+
+  if (!isSetPassword && !isResetPassword) {
+    setPasswordLinkStatus("checking");
+    return;
   }
 
+  let cancelled = false;
+
+  setPasswordLinkStatus("checking");
+  setAuthOpen(false);
+
+  const params = new URLSearchParams(location.search);
+  const token = params.get("token");
+
+  async function verifyLink() {
+    if (!token) {
+      if (!cancelled) {
+        setPasswordLinkStatus("invalid");
+      }
+      return;
+    }
+
+    try {
+      const result = isSetPassword
+        ? await validateActivationToken(token)
+        : await validateResetToken(token);
+
+      if (cancelled) return;
+
+      if (
+  !result ||
+  result.valid !== true
+) {
+  setPasswordLinkStatus("invalid");
+  return;
+}
+
+      setPasswordLinkStatus("valid");
+
+      setAuthMode(
+        isSetPassword ? "set-password" : "reset-password"
+      );
+
+      setAuthOpen(true);
+    } catch (error) {
+      if (!cancelled) {
+        setPasswordLinkStatus("invalid");
+      }
+    }
+  }
+
+  verifyLink();
+
+  return () => {
+    cancelled = true;
+  };
+}, [location.pathname, location.search]);
+
+const isPasswordLinkPage =
+  location.pathname === "/set-password" ||
+  location.pathname === "/reset-password";
+
+// if (
+//   isPasswordLinkPage &&
+//   passwordLinkStatus !== "valid"
+// ) {
+//   return null;
+// }
+if (
+  isPasswordLinkPage &&
+  passwordLinkStatus === "checking"
+) {
+  return null;
+}
+
+if (
+  isPasswordLinkPage &&
+  passwordLinkStatus === "invalid"
+) {
+  return (
+    <main className="flex min-h-screen items-center justify-center bg-white px-5">
+      <div className="w-full max-w-[460px] text-center">
+        <h1 className="text-[24px] font-bold text-[#064B50]">
+          This link has expired or has already been used.
+        </h1>
+
+        <p className="mt-4 text-[15px] leading-7 text-gray-600">
+          For your security, password links are valid for
+          30 minutes and can only be used once.
+        </p>
+
+        <p className="mt-3 text-[14px] text-gray-600">
+          Please request a new password link if you still
+          need to create or reset your password.
+        </p>
+      </div>
+    </main>
+  );
+}
   
   return (
     <>

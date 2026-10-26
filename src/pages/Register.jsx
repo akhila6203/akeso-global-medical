@@ -98,14 +98,23 @@ export default function Register({
       */
 
       setSuccess(true);
-    } catch (err) {
-      setError(
-        err?.message ||
-          "Unable to create account."
-      );
-    } finally {
-      setLoading(false);
-    }
+   
+} catch (err) {
+  console.error(
+    "Registration API Error:",
+    err.response?.data || err
+  );
+
+  setError(
+    err.response?.data?.message ||
+    err.response?.data?.error ||
+    err.message ||
+    "Unable to create account."
+  );
+} finally {
+  setLoading(false);
+}
+
   };
 
   const goLogin = () => {
@@ -453,3 +462,5 @@ function InputField({
     </div>
   );
 }
+
+

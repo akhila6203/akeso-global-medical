@@ -108,14 +108,31 @@ export default function Login({
       } else {
         navigate("/");
       }
-    } catch (err) {
-      setError(
-        err?.message ||
-          "Unable to login."
-      );
-    } finally {
-      setLoading(false);
-    }
+      
+} catch (err) {
+  console.error(
+    "Login API Error:",
+    err.response?.data || err
+  );
+
+  setError(
+    err.response?.data?.message ||
+    err.response?.data?.error ||
+    err.message ||
+    "Unable to login."
+  );
+} finally {
+  setLoading(false);
+}
+
+    // } catch (err) {
+    //   setError(
+    //     err?.message ||
+    //       "Unable to login."
+    //   );
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   const handleForgot = () => {

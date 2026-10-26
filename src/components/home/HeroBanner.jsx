@@ -190,10 +190,12 @@ export default function HeroBanner({
                 xl:text-[58px]
               "
             >
-              Trusted Medical Care
+              {/* Trusted Medical Care */}
+              Medical Treatment 
 
               <span className="block">
-                With Experienced
+                {/* With Experienced */}
+                {/* in India */}in India for 
               </span>
 
               <span
@@ -203,7 +205,8 @@ export default function HeroBanner({
                   text-[#F0B43C]
                 "
               >
-                Specialists.
+               International Patients
+                {/* Specialists. */}
               </span>
             </h1>
 

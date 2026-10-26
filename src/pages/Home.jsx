@@ -10,6 +10,8 @@ import FounderWords from "../components/home/FounderWords";
 import BecomePartner from "../components/home/BecomePartner";
 import WhyAkesoIndia from "../components/home/WhyAkesoIndia";
 
+import HomeAccreditations from "../components/home/HomeAccreditations";
+
 export default function Home({
   onOpenAuth,
 }) {
@@ -32,6 +34,7 @@ export default function Home({
       <PostOpWellness />
 
       <FounderWords />
+      <HomeAccreditations />
 
       <BecomePartner />
     </>
